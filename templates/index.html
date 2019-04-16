@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
 </head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+
+<body>
+<button id = "bt_post">
+    POST测试按钮
+</button>
+<div id="dv_post">
+    POST测试文本
+</div>
+<button id = "bt_get">
+    GET测试按钮
+</button>
+<div id="dv_get">
+    GET测试文本
+</div>
+<a id = "link" target="_blank" href = "new_page?a=1&b=2">
+    链接测试
+</a>
 <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/json.js') }}"></script>
-<script src="{{ url_for('static',filename='js/data.js') }}"></script>
-<link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet">
-<link href="{{ url_for('static',filename='css/filtrate.css') }}" rel="stylesheet">
-<link href="{{ url_for('static',filename='css/page.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
-<body>
-<div class="wrap">
-abc
-</div>
-<div id="test">
-
-</div>
+<script src="{{ url_for('static',filename='js/index.js') }}"></script>
 </body>
-<script>
-    myData = JSON.stringify({"a":1})
-    $.ajax({
-		type: "get",
-		async: true, // 异步执行
-		url: "getdata",
-		data: myData,
-		contentType: "application/json",
-		dataType: "json", // 返回数据形式为json
-		success: function (result) {
-            alert(result);
-		},
-		error: function (errorMsg) {
-		}
-	});
-</script>
+
 </html>
