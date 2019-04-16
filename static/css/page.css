@@ -1,0 +1,119 @@
+/* Paging */
+#paging {
+    overflow: hidden;
+    width: 100%;
+    /*height: auto;*/
+    margin-top: 500px;
+    text-align: center;
+    color: #0099ff;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+#paging .first,
+#paging .last,
+#paging .prev,
+#paging .next,
+#paging .list li {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 4px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    cursor: default;
+    border-radius: 4px;
+    vertical-align: top;
+}
+#paging .list {
+    display: inline-block;
+    vertical-align: top;
+}
+#paging .list li {
+    width: 40px;
+    padding: 0;
+    text-align: center;
+}
+#paging .list li.cur {
+    color: #fff;
+    background-color: #0099ff;
+    border-color: #428bca;
+}
+#paging .go {
+    display: none;
+    position: relative;
+    max-width: 160px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+#paging .go input {
+    float: left;
+    width: 70%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: #0099ff;
+}
+#paging .go button {
+    float: left;
+    width: 30%;
+    height: 100%;
+    cursor: pointer;
+    color: #fff;
+    background-color: #0099ff;
+    border-radius: 0 4px 4px 0;
+}
+#paging .disable {
+    color: #bfbfbf;
+    cursor: not-allowed;
+}
+
+#paging input::-webkit-input-placeholder { color: #bfbfbf; }
+#paging input::-moz-input-placeholder { color: #bfbfbf; }
+#paging input:-ms-input-placeholder { color: #bfbfbf; }
+
+
+/* Paging Result */
+#resultBox {
+    width: 860px;
+    height: 320px;
+    margin: 20px auto;
+    /*background: pink;*/
+}
+.Box{
+    width: 1350px;
+    /*height: 820px;*/
+    border: 1px solid #bebebe;
+    margin: 0 auto;
+}
+.bounceIn{
+    width: 1000px;
+    margin-left: -60px;
+    font-size: 16px;
+    line-height: 30px;
+}
+.bounceIn p{
+    font-weight: bold;
+    color: #3366cc;
+    height: 136px;
+    padding-top: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+    overflow: hidden;
+}
+.bounceIn p a{
+    font-size: 16px;
+    text-decoration: none;
+    color: #555555;
+}
+.otag{
+     text-align: right;
+     margin-top: 10px;
+     /*margin-right: 20px;*/
+}

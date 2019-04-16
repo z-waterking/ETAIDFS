@@ -1,0 +1,178 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background: #f1fafa;
+}
+.h{
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 38px;
+    margin-left: 42px;
+}
+.wrap{
+    width: 1350px;
+    height:804px;
+    border: 1px solid #bebebe;
+    margin: 0 auto;
+}
+.button{
+    /*height: 80px;*/
+    /*background: pink;*/
+    text-align: right;
+    margin-right: 20px;
+    /*margin-top: 6px;*/
+    /*margin-bottom: 10px;*/
+}
+.left{
+    width: 420px;
+    /*height: 700px;*/
+    float: left;
+    background:#f0f0f0;
+    border: 1px solid #009100;
+    margin-left: 10px;
+}
+.left .top{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.right{
+    width: 880px;
+    /*height: 300px;*/
+    /*background: deepskyblue;*/
+    float: left;
+    border-top: 2px solid #006030;
+    margin-top: 30px;
+}
+.send{
+    text-align: right;
+    margin-top: 82px;
+}
+.initial_modle{
+    height: 25px;
+    width: 10%;
+    color: #000000;
+    line-height: 25px;
+    text-align: center;
+    float: left;
+    /*margin:5px auto;*/
+    margin-top: 5px;
+    /*border-radius: 5px;*/
+    background: #ececec;
+    margin-left: 3.7%;
+    border:1px solid #7b7b7b;
+}
+.initial_modle:hover{
+    background: #8e8e8e;
+}
+.initial_border{
+    float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 90%;
+    margin-left: 5%;
+}
+.content{
+    margin-left: 12px;
+    width: 680px;
+    /*border-bottom: 1px solid #e6e6e6;*/
+}
+.title{
+    font-size: 16px;
+    font-weight: bold;
+    color: #3366cc;
+}
+.desc{
+    font-size: 14px;
+    font-family: "Microsoft Yahei";
+}
+.list-group{
+    margin-top: 168px;
+    width: 400px;
+    height:426px;
+    overflow: auto;
+}
+.sort select {
+    padding: 2px 2px;
+    font-family: "microsoft YaHei";
+    float: left;
+    margin-left: 20px;
+    font-size: 16px;
+}
+.list-group-item{
+    font-size: 16px;
+}
+.ohide{
+    width:auto;
+    height:500px;
+    /*overflow: auto;*/
+    background-color: snow;
+    border: 1px solid #dcdcdc;
+    box-shadow: darkgrey 10px 10px 30px 5px ;
+    overflow: auto;
+    display: none;
+    padding-top: 30px;
+    padding-left: 30px;
+    position: fixed;
+    z-index: 3;
+    top:176px;
+    left: 26%;
+}
+.rehide{
+    text-align: center;
+}
+.screenBox dl dd {
+    color: #3366cc;
+}
+.screenBox dl dd input{
+    width: 32px;
+    height: 20px;
+}
+.details{
+    width: 1350px;
+    margin: 0 auto;
+    /*background: paleturquoise;*/
+}
+/*时间插件*/
+.ui-timepicker-div .ui-widget-header {
+    margin-bottom: 8px;
+}
+.ui-timepicker-div dl {
+    text-align: left;
+}
+.ui-timepicker-div dl dt {
+    float: left; clear:left; padding: 0 0 0 5px;
+}
+.ui-timepicker-div dl dd {
+    margin: 0 10px 10px 45%;
+}
+.ui-timepicker-div td {
+    font-size: 90%;
+}
+.ui-tpicker-grid-label {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.ui-timepicker-rtl{
+    direction: rtl;
+}
+.ui-timepicker-rtl dl {
+    text-align: right;
+    padding: 0 5px 0 0;
+}
+.ui-timepicker-rtl dl dt{
+    float: right;
+    clear: right;
+}
+.ui-timepicker-rtl dl dd {
+    margin: 0 45% 10px 10px;
+}
+.details{
+    display: none;
+}
+.left .actived {
+    background-color: #7b7b7b;
+}
