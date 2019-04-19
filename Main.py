@@ -1,4 +1,3 @@
-# coding:utf-8
 from flask import Flask,render_template,url_for,redirect
 import flask
 import json
@@ -7,17 +6,9 @@ import config
 app = Flask(__name__)
 app.config.from_object(config)
 
-@app.route('/newpage_index',methods=['POST','GET'])
-def GetNewPage_index():
+@app.route('/index',methods=['POST','GET'])
+def GetPage():
     return render_template('index.html')
-
-@app.route('/ExpertInformationManage',methods=['POST','GET'])
-def GetPage_ExpertInformationManage():
-    return render_template('ExpertInformationManage.html')
-
-@app.route('/login',methods=['POST','GET'])
-def GetPage_login():
-    return render_template('login.html')
 
 @app.route('/new_page',methods=['POST','GET'])
 def GetNewPage():
