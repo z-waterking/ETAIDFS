@@ -6,36 +6,25 @@ import config
 app = Flask(__name__)
 app.config.from_object(config)
 
-@app.route('/index',methods=['POST','GET'])
-def GetPage():
+@app.route('/newpage_index',methods=['POST','GET'])
+def GetNewPage_index():
     return render_template('index.html')
 
-@app.route('/new_page',methods=['POST','GET'])
-def GetNewPage():
-    A = request.args.get("a")
-    B = request.args.get("b")
-    print("--------------GETNEWPAGE-------------")
-    print(A)
-    print(B)
-    return render_template('NewPage.html', data = {"result":"OK"})
+@app.route('/ExpertInformationManage',methods=['POST','GET'])
+def GetPage_ExpertInformationManage():
+    return render_template('ExpertInformationManage.html')
 
-@app.route('/post_data',methods=['POST','GET'])
-def PostData():
+@app.route('/login',methods=['POST','GET'])
+def GetPage_login():
+    return render_template('login.html')
+
+@app.route('/getdata',methods=['POST','GET'])
+def GetData():
     data = request.json
-    print("-------------POST-----------")
+    print('----')
     print(data)
-    return json.dumps({"result":"完成测试"})
-
-@app.route('/get_data',methods=['POST','GET'])
-def Data():
-    A = request.args.get("a")
-    B = request.args.get("b")
-    print("--------------GET-------------")
-    print(A)
-    print(B)
-    return json.dumps({"result":"完成测试"})
+    return json.dumps(data)
 
 if __name__ == '__main__':
     # app.run(host='192.168.1.103',port='8080',debug=True)
     app.run(debug=True)
-
