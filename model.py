@@ -134,7 +134,7 @@ class User(UserMixin, Base):
         self.email = email
     def get_id(self):
         return unicode(self.id)
-    
+
 class Country(Base):
     __tablename__ = 'country'
 

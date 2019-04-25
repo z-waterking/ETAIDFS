@@ -41,45 +41,6 @@ def Data():
     print(B)
     return json.dumps({"result":"完成测试"})
 
-@app.route('/')
-def index():
-    form = Login_Form()
-    return render_template('login.html', form=form)
-
-@app.route('/login',methods=['GOT','POST'])
-def login():
-    form = Login_Form()
-    if form.validate_on_submit():
-        dbsession = DBsession.DatabaseManagement()
-        query_filter = and_(username = form.username.data)
-        user = dbsession.query_all(User, query_filter)
-        if user is not None and user.password==form.password.data:
-            login_user(user)
-            flash('登陆成功')
-            return render_template('')
-        else:
-            flash('用户名或密码错误')
-            return render_template('login.html',form = form)
-
-@app.route('/register',methods=['GOT','POST'])
-def register():
-    form = Register_Form()
-    if request.method == 'Get':
-        return render_template('register.html',form = form)
-    elif request.method == 'POST':
-        if form.validate_on_submit():
-            if form.password.data == form.repassword.data:
-                user = User(username=form.username.data, password=form.password.data)
-                dbsession = DBsession.DatabaseManagement()
-                dbsession.add_obj(user)
-                flash(message = '注册成功')
-                return redirect('/login')
-            else:
-                flash(message='两次输入密码不一致，请重新输入！')
-                return render_template('/register.html',form=form)
-        else:
-            return 'None'
-
 if __name__ == '__main__':
     # app.run(host='192.168.1.103',port='8080',debug=True)
     app.run(debug=True)
