@@ -40,9 +40,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ETAIDFS$Flask__Main_py_.coverage" NAME="Flask (Main.py) Coverage Results" MODIFIED="1555552880250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
@@ -159,7 +156,8 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="F:/bootstrap-4.0.0" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bootstrap-4.0.0" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -182,8 +180,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Flask server.Flask (Main.py)">
-    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ETAIDFS/templates/index.html" />
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ETAIDFS/templates/index.html">
+      <method v="2" />
+    </configuration>
     <configuration name="ETAIDFS" type="Python.FlaskServer" factoryName="Flask server">
       <module name="ETAIDFS" />
       <option name="target" value="$PROJECT_DIR$/Main.py" />
@@ -213,13 +213,10 @@
       <option name="launchJavascriptDebuger" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Flask server.ETAIDFS" />
       <item itemvalue="JavaScript Debug.index.html" />
-      <item itemvalue="Flask server.Flask (Main.py)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Flask server.Flask (Main.py)" />
         <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
