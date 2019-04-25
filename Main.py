@@ -10,6 +10,10 @@ app.config.from_object(config)
 def GetPage():
     return render_template('index.html')
 
+@app.route('/index2',methods=['POST','GET'])
+def GetPage2():
+    return render_template('index2.html')
+
 @app.route('/new_page',methods=['POST','GET'])
 def GetNewPage():
     A = request.args.get("a")
