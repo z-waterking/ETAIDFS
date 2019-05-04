@@ -111,149 +111,29 @@
             </div>
             <h1 class="text-lg-center">专家判断技术产业化阶段</h1>
             <!--选择大类和小类 -->
-            <div class="d-flex">
-                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                    选择领域
-                </div>
-                <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="SecondaryClass"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        请选择大类
-                    </button>
-                    <div id="SecdaryClassContent" class="dropdown-menu" aria-labelledby="SecondaryClass">
-                        <button class="dropdown-item" type="button">Another action</button>
-                        <button class="dropdown-item" type="button">Another action</button>
-                        <button class="dropdown-item" type="button">Something else here</button>
+                <form role="form">
+                    <div class="form-group row">
+                        <div class="btn btn-outline-primary offset-4 mr-4">
+                                选择领域
+                        </div>
+                        <select class="form-control col-sm-1">
+                            <option>1</option>
+                            <option onselect="true">2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <select class="form-control col-sm-1 ml-4">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
                     </div>
-                </div>
-                <div class="dropdown offset-1 mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ThirdClass"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        请选择小类
-                    </button>
-                    <div id="ThirdClassContent" class="dropdown-menu" aria-labelledby="ThirdClass">
-                        <button class="dropdown-item" type="button">Another</button>
-                    </div>
-                </div>
-            </div>
+                </form>
 
-            <h3 class="text-lg-center mt-5">年份区间选择</h3>
-            <div class="d-flex">
-                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                    研发期
-                </div>
-                <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="DevelopStart"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        起始年份
-                    </button>
-                    <div id="DevelopStartYear" class="dropdown-menu" aria-labelledby="DevelopStart">
-                        <button class="dropdown-item" type="button">DevelopStart</button>
-                    </div>
-                </div>
-                <div class="dropdown offset-1 mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="DevelopStop"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        终止年份
-                    </button>
-                    <div id="DevelopStopYear" class="dropdown-menu" aria-labelledby="DevelopStop">
-                        <button class="dropdown-item" type="button">DevelopStop</button>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                    初创期
-                </div>
-                <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="InitialStart"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        起始年份
-                    </button>
-                    <div id="InitialStartYear" class="dropdown-menu" aria-labelledby="InitialStart">
-                        <button class="dropdown-item" type="button">InitialStart</button>
-                    </div>
-                </div>
-                <div class="dropdown offset-1 mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="InitialStop"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        终止年份
-                    </button>
-                    <div id="InitialStopYear" class="dropdown-menu" aria-labelledby="InitialStop">
-                        <button class="dropdown-item" type="button">InitialStop</button>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                    成长期
-                </div>
-                <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="GrouupStart"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        起始年份
-                    </button>
-                    <div id="GrouupStartYear" class="dropdown-menu" aria-labelledby="GrouupStart">
-                        <button class="dropdown-item" type="button">InitialStart</button>
-                    </div>
-                </div>
-                <div class="dropdown offset-1 mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="GrouupStop"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        终止年份
-                    </button>
-                    <div id="GrouupStopYear" class="dropdown-menu" aria-labelledby="GrouupStop">
-                        <button class="dropdown-item" type="button">InitialStop</button>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                    扩张期
-                </div>
-                <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ExpandStart"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        起始年份
-                    </button>
-                    <div id="GrouupStartYear" class="dropdown-menu" aria-labelledby="ExpandStart">
-                        <button class="dropdown-item" type="button">ExpandStart</button>
-                    </div>
-                </div>
-                <div class="dropdown offset-1 mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ExpandStop"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        终止年份
-                    </button>
-                    <div id="ExpandStopYear" class="dropdown-menu" aria-labelledby="ExpandStop">
-                        <button class="dropdown-item" type="button">ExpandStop</button>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                    成熟期
-                </div>
-                <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="MatureStart"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        起始年份
-                    </button>
-                    <div id="MatureStartYear" class="dropdown-menu" aria-labelledby="MatureStart">
-                        <button class="dropdown-item" type="button">MatureStart</button>
-                    </div>
-                </div>
-                <div class="dropdown offset-1 mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="MatureStop"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        终止年份
-                    </button>
-                    <div id="MatureStopYear" class="dropdown-menu" aria-labelledby="MatureStop">
-                        <button class="dropdown-item" type="button">MatureStop</button>
-                    </div>
-                </div>
-            </div>
-            <button id = "StageEnter" class="col-sm-2 btn-primary offset-5 mt-5">确定</button>
+            <button id="StageEnter" class="col-sm-2 btn-primary offset-5 mt-5">确定</button>
         </main>
     </div>
 </div>
