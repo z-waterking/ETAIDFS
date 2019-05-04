@@ -12,14 +12,13 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://sa:catherine@127.0.0.1:1
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'catherine'
 
-
-# @app.route('/index',methods=['POST','GET'])
-# def GetPage():
-#     return render_template('index.html')
+@app.route('/index',methods=['POST','GET'])
+def GetPage():
+    return render_template('homepage.html')
 
 @app.route('/index2',methods=['POST','GET'])
 def GetPage2():
-    return render_template('index2.html')
+    return render_template('homepage_test.html')
 
 @app.route('/new_page',methods=['POST','GET'])
 def GetNewPage():
@@ -37,7 +36,6 @@ def GetNewPage_index():
 @app.route('/ExpertInformationManage',methods=['POST','GET'])
 def GetPage_ExpertInformationManage():
     return render_template('ExpertInformationManage.html')
-
 
 @app.route('/login',methods=['POST','GET'])
 def GetPage_login():
