@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/navbar.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/dashboard.css') }}"/>
+
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery-slim.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap-submenu.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/echarts.min.js') }}"></script>
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
@@ -262,11 +269,11 @@
             <main role="main" class="col-md-9 ml-sm-auto col-lg-14 pt-3 px-4">
                 <!-- 面包屑导航-->
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                      <ul id="BreadNav" class="breadcrumb">
+                    <ul id="BreadNav" class="breadcrumb">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">2013</a></li>
                         <li class="active">十一月</li>
-                        </ul>
+                    </ul>
                 </div>
 
                 <div id="MainContent" class="tab-content">
@@ -276,117 +283,277 @@
                     <div class="tab-pane fade" id="ExpertInfo">
                         专家信息管理
                     </div>
+                    <!-- 产业化阶段判断-->
                     <div class="tab-pane fade" id="ExpertJudge">
-                        专家判断
+                        <h1 class="text-lg-center">专家判断技术产业化阶段</h1>
+                        <!--选择大类和小类 -->
+                        <div class="d-flex">
+                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                                选择领域
+                            </div>
+                            <div class="dropdown mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="SecondaryClass"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    请选择大类
+                                </button>
+                                <div id="SecdaryClassContent" class="dropdown-menu" aria-labelledby="SecondaryClass">
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Something else here</button>
+                                </div>
+                            </div>
+                            <div class="dropdown offset-1 mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="ThirdClass"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    请选择小类
+                                </button>
+                                <div id="ThirdClassContent" class="dropdown-menu" aria-labelledby="ThirdClass">
+                                    <button class="dropdown-item" type="button">Another</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-lg-center mt-5">年份区间选择</h3>
+                        <div class="d-flex">
+                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                                研发期
+                            </div>
+                            <div class="dropdown mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="DevelopStart"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    起始年份
+                                </button>
+                                <div id="DevelopStartYear" class="dropdown-menu" aria-labelledby="DevelopStart">
+                                    <button class="dropdown-item" type="button">DevelopStart</button>
+                                </div>
+                            </div>
+                            <div class="dropdown offset-1 mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="DevelopStop"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    终止年份
+                                </button>
+                                <div id="DevelopStopYear" class="dropdown-menu" aria-labelledby="DevelopStop">
+                                    <button class="dropdown-item" type="button">DevelopStop</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                                初创期
+                            </div>
+                            <div class="dropdown mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="InitialStart"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    起始年份
+                                </button>
+                                <div id="InitialStartYear" class="dropdown-menu" aria-labelledby="InitialStart">
+                                    <button class="dropdown-item" type="button">InitialStart</button>
+                                </div>
+                            </div>
+                            <div class="dropdown offset-1 mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="InitialStop"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    终止年份
+                                </button>
+                                <div id="InitialStopYear" class="dropdown-menu" aria-labelledby="InitialStop">
+                                    <button class="dropdown-item" type="button">InitialStop</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                                成长期
+                            </div>
+                            <div class="dropdown mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="GrouupStart"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    起始年份
+                                </button>
+                                <div id="GrouupStartYear" class="dropdown-menu" aria-labelledby="GrouupStart">
+                                    <button class="dropdown-item" type="button">InitialStart</button>
+                                </div>
+                            </div>
+                            <div class="dropdown offset-1 mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="GrouupStop"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    终止年份
+                                </button>
+                                <div id="GrouupStopYear" class="dropdown-menu" aria-labelledby="GrouupStop">
+                                    <button class="dropdown-item" type="button">InitialStop</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                                扩张期
+                            </div>
+                            <div class="dropdown mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="ExpandStart"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    起始年份
+                                </button>
+                                <div id="GrouupStartYear" class="dropdown-menu" aria-labelledby="ExpandStart">
+                                    <button class="dropdown-item" type="button">ExpandStart</button>
+                                </div>
+                            </div>
+                            <div class="dropdown offset-1 mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="ExpandStop"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    终止年份
+                                </button>
+                                <div id="ExpandStopYear" class="dropdown-menu" aria-labelledby="ExpandStop">
+                                    <button class="dropdown-item" type="button">ExpandStop</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                                成熟期
+                            </div>
+                            <div class="dropdown mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="MatureStart"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    起始年份
+                                </button>
+                                <div id="MatureStartYear" class="dropdown-menu" aria-labelledby="MatureStart">
+                                    <button class="dropdown-item" type="button">MatureStart</button>
+                                </div>
+                            </div>
+                            <div class="dropdown offset-1 mt-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="MatureStop"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    终止年份
+                                </button>
+                                <div id="MatureStopYear" class="dropdown-menu" aria-labelledby="MatureStop">
+                                    <button class="dropdown-item" type="button">MatureStop</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="StageEnter" class="col-sm-2 btn-primary offset-5 mt-5">确定</button>
                     </div>
                     <!-- 展示总体信息子页面-->
                     <div class="tab-pane fade" id="TotalInfoRepresent">
-                        <p>总体信息</p>
-                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                            <h1 class="h2">Dashboard</h1>
-                            <div class="btn-toolbar mb-2 mb-md-0">
-                                <div class="btn-group mr-2">
-                                    <button class="btn btn-sm btn-outline-secondary">Share</button>
-                                    <button class="btn btn-sm btn-outline-secondary">Export</button>
-                                </div>
-                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                                    <span data-feather="calendar"></span>
-                                    This week
-                                </button>
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                            <div class="btn btn-outline-primary offset-3 mr-4 mt-3 mb-3">
+                                选择领域
                             </div>
+                            <div class="dropdown mt-3 mb-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="RepresentTotalInfoSecondaryClass"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    请选择大类
+                                </button>
+                                <div id="RepresentTotalInfoSecondaryClassContent" class="dropdown-menu"
+                                     aria-labelledby="RepresentTotalInfoSecondaryClass">
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Something else here</button>
+                                </div>
+                            </div>
+                            <div class="dropdown ml-2 mt-3 mb-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        id="RepresentTotalInfoThirdClass"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    请选择小类
+                                </button>
+                                <div id="RepresentTotalInfoThirdClassContent" class="dropdown-menu"
+                                     aria-labelledby="RepresentTotalInfoThirdClass">
+                                    <button class="dropdown-item" type="button">Another</button>
+                                </div>
+                            </div>
+                            <button id = "TotalClassSelectEnter" class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
+                                确定
+                            </button>
                         </div>
-                        <canvas class="my-4" id="myChartTotal" width="900" height="380"></canvas>
+                        <h3 id="TotalTitle" class="text-lg-center mt-5">年份区间选择</h3>
+                        <div class="offset-3 mt-5">
+                            <canvas class="my-4" id="TotalChart" width="900" height="380"></canvas>
+                        </div>
                     </div>
                     <!-- 展示国家信息子页面-->
                     <div class="tab-pane fade" id="CountryInfoRepresent">
-                        <p>国家信息</p>
-                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                            <h1 class="h2">Dashboard</h1>
-                            <div class="btn-toolbar mb-2 mb-md-0">
-                                <div class="btn-group mr-2">
-                                    <button class="btn btn-sm btn-outline-secondary">Share</button>
-                                    <button class="btn btn-sm btn-outline-secondary">Export</button>
-                                </div>
-                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                                    <span data-feather="calendar"></span>
-                                    This week
-                                </button>
+                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                            <div class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
+                                选择领域
                             </div>
+                            <div class="dropdown mt-3 mb-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="RepresentCountryInfoSecondaryClass"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    请选择大类
+                                </button>
+                                <div id="RepresentCountryInfoSecondaryClassContent" class="dropdown-menu" aria-labelledby="RepresentCountryInfoSecondaryClass">
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Something else here</button>
+                                </div>
+                            </div>
+                            <div class="dropdown ml-2 mt-3 mb-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="RepresentCountryInfoThirdClass"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    请选择小类
+                                </button>
+                                <div id="RepresentCountryInfoThirdClassContent" class="dropdown-menu" aria-labelledby="RepresentCountryInfoThirdClass">
+                                    <button class="dropdown-item" type="button">Another</button>
+                                </div>
+                            </div>
+
+                            <div class="btn btn-outline-primary offset-1 mr-4 mt-3 mb-3">
+                                选择国家
+                            </div>
+                            <div class="dropdown mt-3 mb-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="RepresentCountryInfoSelectCou"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    请选择国家
+                                </button>
+                                <div id="RepresentCountryInfoSelectCouContent" class="dropdown-menu" aria-labelledby="RepresentCountryInfoSelectCou">
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Another action</button>
+                                    <button class="dropdown-item" type="button">Something else here</button>
+                                </div>
+                            </div>
+                            <button id = "CountrySelectEnter" class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
+                                确定
+                            </button>
                         </div>
-                        <canvas class="my-4" id="myChartCountry" width="900" height="380"></canvas>
+                        <h3 id="CountryTitle" class="text-lg-center mt-5">年份区间选择</h3>
+                        <div class="offset-3 mt-5">
+                            <canvas class="my-4" id="CountryChart" width="900" height="380"></canvas>
+                        </div>
                     </div>
                 </div>
             </main>
         </div>
     </div>
 </div>
-
-<!--<ul id="myTab" class="nav nav-tabs">-->
-<!--<li class="active">-->
-<!--<a href="#jmeter" data-toggle="tab">-->
-<!--菜鸟教程-->
-<!--</a>-->
-<!--</li>-->
-<!--<li><a href="#ios" data-toggle="tab">-->
-<!--<button>ios</button>-->
-<!--</a></li>-->
-<!--<li class="dropdown">-->
-<!--<a href="#" id="myTabDrop1" class="dropdown-toggle"-->
-<!--data-toggle="dropdown">Java-->
-<!--<b class="caret"></b>-->
-<!--</a>-->
-<!--<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">-->
-<!--<li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>-->
-<!--<li><a href="#jmeter" tabindex="-1" data-toggle="tab">ejb</a></li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--</ul>-->
-<!--<div id="myTabContent" class="tab-content">-->
-<!--<div class="tab-pane fade in active" id="home">-->
-<!--<p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>-->
-<!--</div>-->
-<!--<div class="tab-pane fade" id="ios">-->
-<!--<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple-->
-<!--TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>-->
-<!--</div>-->
-<!--<div class="tab-pane fade" id="jmeter">-->
-<!--<div class="row">-->
-<!--<div class="span2">-->
-<!--<ul class="nav nav-tabs list-group">-->
-<!--<li class="active">-->
-<!--<a href="#li1" data-toggle="tab">-->
-<!--li1-->
-<!--</a>-->
-<!--</li>-->
-<!--<li>-->
-<!--<a href="#li2" data-toggle="tab">li2</a>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--<div class="span5">-->
-<!--<div id="tabContent" class="tab-content">-->
-<!--<div class="tab-pane active" id="li1">-->
-<!--<p>梦想。</p>-->
-<!--</div>-->
-<!--<div class="tab-pane" id="li2">-->
-<!--<p>iOS-->
-<!--。fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</p>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="tab-pane fade" id="ejb">-->
-<!--<p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。-->
-<!--</p>-->
-<!--</div>-->
 </div>
-
-<script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/jquery-slim.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static',filename='js/index.js') }}"></script>
-</body>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('CountryChart'));
 
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+            data: ['销量']
+        },
+        xAxis: {
+            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+</body>
 </html>

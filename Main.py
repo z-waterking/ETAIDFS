@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.config.from_object(config)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://sa:catherine@127.0.0.1:1433/data'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.secret_key = 'catherine'
 
 @app.route('/index',methods=['POST','GET'])
@@ -18,7 +19,7 @@ def GetPage():
 
 @app.route('/index2',methods=['POST','GET'])
 def GetPage2():
-    return render_template('homepage_test.html')
+    return render_template('homepage_test_GetPost.html')
 
 @app.route('/new_page',methods=['POST','GET'])
 def GetNewPage():

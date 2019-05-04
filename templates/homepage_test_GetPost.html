@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/navbar.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/dashboard.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-submenu.min.css') }}"/>
+
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery-slim.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap-submenu.js') }}"></script>
+<script src="{{ url_for('static',filename='js/echarts.min.js') }}"></script>
+</head>
+<body>
+<button id = "bt_post">
+    POST测试按钮
+</button>
+<div id="dv_post">
+    POST测试文本
+</div>
+<button id = "bt_get">
+    GET测试按钮
+</button>
+<div id="dv_get">
+    GET测试文本
+</div>
+<script src="{{ url_for('static',filename='js/index.js') }}"></script>
+<script src="{{ url_for('static',filename='js/CommonFunction.js') }}"></script>
+</body>
+
+</html>

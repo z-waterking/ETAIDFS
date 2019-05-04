@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/navbar.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/dashboard.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-submenu.min.css') }}"/>
+
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery-slim.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap-submenu.js') }}"></script>
+<script src="{{ url_for('static',filename='js/echarts.min.js') }}"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            Dashboard <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file"></span>
+                            Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Customers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Reports
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="layers"></span>
+                            Integrations
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Saved reports</span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                        <span data-feather="plus-circle"></span>
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Current month
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Last quarter
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Social engagement
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Year-end sale
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <ul id="BreadNav" class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">2013</a></li>
+                    <li class="active">十一月</li>
+                </ul>
+            </div>
+            <div class="d-flex flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <div class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
+                    选择领域
+                </div>
+                <div class="dropdown mt-3 mb-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="SecondaryClass"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        请选择大类
+                    </button>
+                    <div id="SecdaryClassContent" class="dropdown-menu" aria-labelledby="SecondaryClass">
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Something else here</button>
+                    </div>
+                </div>
+                <div class="dropdown ml-2 mt-3 mb-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ThirdClass"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        请选择小类
+                    </button>
+                    <div id="ThirdClassContent" class="dropdown-menu" aria-labelledby="ThirdClass">
+                        <button class="dropdown-item" type="button">Another</button>
+                    </div>
+                </div>
+
+                <div class="btn btn-outline-primary offset-1 mr-4 mt-3 mb-3">
+                    选择国家
+                </div>
+                <div class="dropdown mt-3 mb-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="SecondaryClass"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        请选择国家
+                    </button>
+                    <div id="SecdaryClassContent" class="dropdown-menu" aria-labelledby="SecondaryClass">
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Something else here</button>
+                    </div>
+                </div>
+                <button class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
+                    确定
+                </button>
+            </div>
+            <h3 id="TotalTitle" class="text-lg-center mt-5">年份区间选择</h3>
+            <div class="offset-3 mt-5">
+                <canvas class="my-4" id="main" width="900" height="380"></canvas>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+<script src="{{ url_for('static',filename='js/index.js') }}"></script>
+</body>
+
+</html>

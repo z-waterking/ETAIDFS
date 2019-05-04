@@ -1,5 +1,6 @@
+
 $("#bt_post").click(function () {
-	alert('OK');
+	$.RefreshBread();
 	$.ajax({
 		type: "post",
 		async: true, // 异步执行

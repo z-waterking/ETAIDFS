@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/navbar.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/dashboard.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-select.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-submenu.min.css') }}"/>
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
@@ -109,451 +109,151 @@
                     <li class="active">十一月</li>
                 </ul>
             </div>
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <form class="form-horizontal" role="form" style="margin-top: 20px;">
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="name">技术领域：</label>
-                        <div class="form-group">
-                            <div class="col-sm-3">
-                                <select id="usertype" name="usertype" class="selectpicker show-tick form-control"
-                                        multiple data-live-search="false"
-                                        data-max-options="10" data-max-options-text="最多可选择十个技术领域" title="请选择">
-                                    <option value="0">苹果</option>
-                                    <option value="1">菠萝</option>
-                                    <option value="2">香蕉</option>
-                                    <option value="3">火龙果</option>
-                                    <option value="4">梨子</option>
-                                    <option value="5">草莓</option>
-                                    <option value="6">哈密瓜</option>
-                                    <option value="7">椰子</option>
-                                    <option value="8">猕猴桃</option>
-                                    <option value="9">桃子</option>
-                                    <option value="10">桃子</option>
-                                    <option value="11">桃子</option>
-                                    <option value="12">桃子</option>
-                                </select>
-                            </div>
-                        </div>
+            <h1 class="text-lg-center">专家判断技术产业化阶段</h1>
+            <!--选择大类和小类 -->
+            <div class="d-flex">
+                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                    选择领域
+                </div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="SecondaryClass"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        请选择大类
+                    </button>
+                    <div id="SecdaryClassContent" class="dropdown-menu" aria-labelledby="SecondaryClass">
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Another action</button>
+                        <button class="dropdown-item" type="button">Something else here</button>
                     </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="name">姓名：</label>
-                        <div class="col-sm-2">
-                            <input class="form-control" id="name" type="text">
-                        </div>
-                        <label class="col-sm-1 control-label" for="birthyear">出生年份：</label>
-                        <div class="col-sm-2">
-                            <select class="form-control">
-                                <option value>请选择</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                                <option value="2016">2016</option>
-                                <option value="2015">2015</option>
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                                <option value="2011">2011</option>
-                                <option value="2010">2010</option>
-                                <option value="2009">2009</option>
-                                <option value="2008">2008</option>
-                                <option value="2007">2007</option>
-                                <option value="2006">2006</option>
-                                <option value="2005">2005</option>
-                                <option value="2004">2004</option>
-                                <option value="2003">2003</option>
-                                <option value="2002">2002</option>
-                                <option value="2001">2001</option>
-                                <option value="2000">2000</option>
-                                <option value="1999">1999</option>
-                                <option value="1998">1998</option>
-                                <option value="1997">1997</option>
-                                <option value="1996">1996</option>
-                                <option value="1995">1995</option>
-                                <option value="1994">1994</option>
-                                <option value="1993">1993</option>
-                                <option value="1992">1992</option>
-                                <option value="1991">1991</option>
-                                <option value="1990">1990</option>
-                                <option value="1989">1989</option>
-                                <option value="1988">1988</option>
-                                <option value="1987">1987</option>
-                                <option value="1986">1986</option>
-                                <option value="1985">1985</option>
-                                <option value="1984">1984</option>
-                                <option value="1983">1983</option>
-                                <option value="1982">1982</option>
-                                <option value="1981">1981</option>
-                                <option value="1980">1980</option>
-                                <option value="1979">1979</option>
-                                <option value="1978">1978</option>
-                                <option value="1977">1977</option>
-                                <option value="1976">1976</option>
-                                <option value="1975">1975</option>
-                                <option value="1974">1974</option>
-                                <option value="1973">1973</option>
-                                <option value="1972">1972</option>
-                                <option value="1971">1971</option>
-                                <option value="1970">1970</option>
-                                <option value="1969">1969</option>
-                                <option value="1968">1968</option>
-                                <option value="1967">1967</option>
-                                <option value="1966">1966</option>
-                                <option value="1965">1965</option>
-                                <option value="1964">1964</option>
-                                <option value="1963">1963</option>
-                                <option value="1962">1962</option>
-                                <option value="1961">1961</option>
-                                <option value="1960">1960</option>
-                                <option value="1959">1959</option>
-                                <option value="1958">1958</option>
-                                <option value="1957">1957</option>
-                                <option value="1956">1956</option>
-                                <option value="1955">1955</option>
-                                <option value="1954">1954</option>
-                                <option value="1953">1953</option>
-                                <option value="1952">1952</option>
-                                <option value="1951">1951</option>
-                                <option value="1950">1950</option>
-                                <option value="1949">1949</option>
-                                <option value="1948">1948</option>
-                                <option value="1947">1947</option>
-                                <option value="1946">1946</option>
-                                <option value="1945">1945</option>
-                                <option value="1944">1944</option>
-                                <option value="1943">1943</option>
-                                <option value="1942">1942</option>
-                                <option value="1941">1941</option>
-                                <option value="1940">1940</option>
-                                <option value="1939">1939</option>
-                                <option value="1938">1938</option>
-                                <option value="1937">1937</option>
-                                <option value="1936">1936</option>
-                                <option value="1935">1935</option>
-                                <option value="1934">1934</option>
-                                <option value="1933">1933</option>
-                                <option value="1932">1932</option>
-                                <option value="1931">1931</option>
-                                <option value="1930">1930</option>
-                                <option value="1929">1929</option>
-                                <option value="1928">1928</option>
-                                <option value="1927">1927</option>
-                                <option value="1926">1926</option>
-                                <option value="1925">1925</option>
-                                <option value="1924">1924</option>
-                                <option value="1923">1923</option>
-                                <option value="1922">1922</option>
-                                <option value="1921">1921</option>
-                                <option value="1920">1920</option>
-                                <option value="1919">1919</option>
-                            </select>
-                        </div>
+                </div>
+                <div class="dropdown offset-1 mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ThirdClass"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        请选择小类
+                    </button>
+                    <div id="ThirdClassContent" class="dropdown-menu" aria-labelledby="ThirdClass">
+                        <button class="dropdown-item" type="button">Another</button>
                     </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="sex">性别：</label>
-                        <div class="col-sm-1">
-                            <label class="radio-inline">
-                                <input type="radio" value="male" name="sex">男
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" value="female" name="sex">女
-                            </label>
-                        </div>
-                        <label class="col-sm-2 control-label" for="nation">民族：</label>
-                        <div class="col-sm-2">
-                            <input class="form-control" id="nation" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="danwei">所在单位：</label>
-                        <div class="col-sm-5">
-                            <input class="form-control" id="danwei" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="zhicheng">职称：</label>
-                        <div class="col-sm-2">
-                            <input class="form-control" id="zhicheng" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="zhiwu">行政职务：</label>
-                        <div class="col-sm-2">
-                            <input class="form-control" id="zhiwu" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="city">城市：</label>
-                        <div class="col-sm-1">
-                            <input class="form-control" id="city" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="province">省、自治区、直辖市：</label>
-                        <div class="col-sm-1">
-                            <select class="form-control">
-                                <option value="">请选择</option>
-                                <option value="1">北京市</option>
-                                <option value="2">天津市</option>
-                                <option value="3">上海市</option>
-                                <option value="4">重庆市</option>
-                                <option value="5">内蒙古自治区</option>
-                                <option value="6">辽宁省</option>
-                                <option value="7">吉林省</option>
-                                <option value="8">黑龙江省</option>
-                                <option value="9">河北省</option>
-                                <option value="10">江苏省</option>
-                                <option value="11">浙江省</option>
-                                <option value="12">安徽省</option>
-                                <option value="13">福建省</option>
-                                <option value="14">江西省</option>
-                                <option value="15">山东省</option>
-                                <option value="16">河南省</option>
-                                <option value="17">湖北省</option>
-                                <option value="18">湖南省</option>
-                                <option value="19">广东省</option>
-                                <option value="20">广西壮族自治区</option>
-                                <option value="21">海南省</option>
-                                <option value="22">山西省</option>
-                                <option value="23">四川省</option>
-                                <option value="24">贵州省</option>
-                                <option value="25">云南省</option>
-                                <option value="26">西藏自治区</option>
-                                <option value="27">陕西省</option>
-                                <option value="28">甘肃省</option>
-                                <option value="29">青海省</option>
-                                <option value="30">宁夏回族自治区</option>
-                                <option value="31">新疆维吾尔自治区</option>
-                                <option value="32">香港</option>
-                                <option value="33">澳门</option>
-                                <option value="34">台湾</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="address">通信地址：</label>
-                        <div class="col-sm-5">
-                            <input class="form-control" id="address" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="postcode">邮政编码：</label>
-                        <div class="col-sm-1">
-                            <input class="form-control" id="postcode" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="degree">最高学位：</label>
-                        <div class="col-sm-1">
-                            <select class="form-control">
-                                <option value="">请选择</option>
-                                <option value="1">副学士学位</option>
-                                <option value="2">学士学位</option>
-                                <option value="3">硕士学位</option>
-                                <option value="4">博士学位</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="degreetime">授予时间：</label>
-                        <div class="col-sm-1">
-                            <select class="form-control">
-                                <option value="">请选择</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                                <option value="2016">2016</option>
-                                <option value="2015">2015</option>
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                                <option value="2011">2011</option>
-                                <option value="2010">2010</option>
-                                <option value="2009">2009</option>
-                                <option value="2008">2008</option>
-                                <option value="2007">2007</option>
-                                <option value="2006">2006</option>
-                                <option value="2005">2005</option>
-                                <option value="2004">2004</option>
-                                <option value="2003">2003</option>
-                                <option value="2002">2002</option>
-                                <option value="2001">2001</option>
-                                <option value="2000">2000</option>
-                                <option value="1999">1999</option>
-                                <option value="1998">1998</option>
-                                <option value="1997">1997</option>
-                                <option value="1996">1996</option>
-                                <option value="1995">1995</option>
-                                <option value="1994">1994</option>
-                                <option value="1993">1993</option>
-                                <option value="1992">1992</option>
-                                <option value="1991">1991</option>
-                                <option value="1990">1990</option>
-                                <option value="1989">1989</option>
-                                <option value="1988">1988</option>
-                                <option value="1987">1987</option>
-                                <option value="1986">1986</option>
-                                <option value="1985">1985</option>
-                                <option value="1984">1984</option>
-                                <option value="1983">1983</option>
-                                <option value="1982">1982</option>
-                                <option value="1981">1981</option>
-                                <option value="1980">1980</option>
-                                <option value="1979">1979</option>
-                                <option value="1978">1978</option>
-                                <option value="1977">1977</option>
-                                <option value="1976">1976</option>
-                                <option value="1975">1975</option>
-                                <option value="1974">1974</option>
-                                <option value="1973">1973</option>
-                                <option value="1972">1972</option>
-                                <option value="1971">1971</option>
-                                <option value="1970">1970</option>
-                                <option value="1969">1969</option>
-                                <option value="1968">1968</option>
-                                <option value="1967">1967</option>
-                                <option value="1966">1966</option>
-                                <option value="1965">1965</option>
-                                <option value="1964">1964</option>
-                                <option value="1963">1963</option>
-                                <option value="1962">1962</option>
-                                <option value="1961">1961</option>
-                                <option value="1960">1960</option>
-                                <option value="1959">1959</option>
-                                <option value="1958">1958</option>
-                                <option value="1957">1957</option>
-                                <option value="1956">1956</option>
-                                <option value="1955">1955</option>
-                                <option value="1954">1954</option>
-                                <option value="1953">1953</option>
-                                <option value="1952">1952</option>
-                                <option value="1951">1951</option>
-                                <option value="1950">1950</option>
-                                <option value="1949">1949</option>
-                                <option value="1948">1948</option>
-                                <option value="1947">1947</option>
-                                <option value="1946">1946</option>
-                                <option value="1945">1945</option>
-                                <option value="1944">1944</option>
-                                <option value="1943">1943</option>
-                                <option value="1942">1942</option>
-                                <option value="1941">1941</option>
-                                <option value="1940">1940</option>
-                                <option value="1939">1939</option>
-                                <option value="1938">1938</option>
-                                <option value="1937">1937</option>
-                                <option value="1936">1936</option>
-                                <option value="1935">1935</option>
-                                <option value="1934">1934</option>
-                                <option value="1933">1933</option>
-                                <option value="1932">1932</option>
-                                <option value="1931">1931</option>
-                                <option value="1930">1930</option>
-                                <option value="1929">1929</option>
-                                <option value="1928">1928</option>
-                                <option value="1927">1927</option>
-                                <option value="1926">1926</option>
-                                <option value="1925">1925</option>
-                                <option value="1924">1924</option>
-                                <option value="1923">1923</option>
-                                <option value="1922">1922</option>
-                                <option value="1921">1921</option>
-                                <option value="1920">1920</option>
-                                <option value="1919">1919</option>
-                            </select>
-                        </div>
-                        <span style="float:left;margin-top:8px;">年</span>
-                        <div class="col-sm-1">
-                            <select class="form-control">
-                                <option value="">请选择</option>
-                                <option value="01">01</option>
-                                <option value="02">02</option>
-                                <option value="03">03</option>
-                                <option value="04">04</option>
-                                <option value="05">05</option>
-                                <option value="06">06</option>
-                                <option value="07">07</option>
-                                <option value="08">08</option>
-                                <option value="09">09</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </div>
-                        <span style="float:left;margin-top:8px;">月</span>
-                        <div class="col-sm-1">
-                            <select class="form-control">
-                                <option value="">请选择</option>
-                                <option value="01">1</option>
-                                <option value="02">2</option>
-                                <option value="03">3</option>
-                                <option value="04">4</option>
-                                <option value="05">5</option>
-                                <option value="06">6</option>
-                                <option value="07">7</option>
-                                <option value="08">8</option>
-                                <option value="09">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
-                        </div>
-                        <span style="float:left;margin-top:8px;">日</span>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="degreeschool">授予学校：</label>
-                        <div class="col-sm-2">
-                            <input class="form-control" id="degreeschool" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="degreenation">授予国别（地区）：</label>
-                        <div class="col-sm-3">
-                            <input class="form-control" id="degreenation" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="reward">荣誉称号及奖励：</label>
-                        <div class="col-sm-5">
-                            <input class="form-control" id="reward" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="email">电子邮箱：</label>
-                        <div class="col-sm-4">
-                            <input class="form-control" id="email" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 30px">
-                        <label class="col-sm-2 control-label" for="phone">联系电话：</label>
-                        <div class="col-sm-4">
-                            <input class="form-control" id="phone" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group" style="height: 80px;margin-left: 500px">
-                        <button type="button" class="btn btn-primary">确定</button>
-                    </div>
-                </form>
-
+                </div>
             </div>
+
+            <h3 class="text-lg-center mt-5">年份区间选择</h3>
+            <div class="d-flex">
+                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                    研发期
+                </div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="DevelopStart"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        起始年份
+                    </button>
+                    <div id="DevelopStartYear" class="dropdown-menu" aria-labelledby="DevelopStart">
+                        <button class="dropdown-item" type="button">DevelopStart</button>
+                    </div>
+                </div>
+                <div class="dropdown offset-1 mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="DevelopStop"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        终止年份
+                    </button>
+                    <div id="DevelopStopYear" class="dropdown-menu" aria-labelledby="DevelopStop">
+                        <button class="dropdown-item" type="button">DevelopStop</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                    初创期
+                </div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="InitialStart"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        起始年份
+                    </button>
+                    <div id="InitialStartYear" class="dropdown-menu" aria-labelledby="InitialStart">
+                        <button class="dropdown-item" type="button">InitialStart</button>
+                    </div>
+                </div>
+                <div class="dropdown offset-1 mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="InitialStop"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        终止年份
+                    </button>
+                    <div id="InitialStopYear" class="dropdown-menu" aria-labelledby="InitialStop">
+                        <button class="dropdown-item" type="button">InitialStop</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                    成长期
+                </div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="GrouupStart"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        起始年份
+                    </button>
+                    <div id="GrouupStartYear" class="dropdown-menu" aria-labelledby="GrouupStart">
+                        <button class="dropdown-item" type="button">InitialStart</button>
+                    </div>
+                </div>
+                <div class="dropdown offset-1 mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="GrouupStop"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        终止年份
+                    </button>
+                    <div id="GrouupStopYear" class="dropdown-menu" aria-labelledby="GrouupStop">
+                        <button class="dropdown-item" type="button">InitialStop</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                    扩张期
+                </div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ExpandStart"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        起始年份
+                    </button>
+                    <div id="GrouupStartYear" class="dropdown-menu" aria-labelledby="ExpandStart">
+                        <button class="dropdown-item" type="button">ExpandStart</button>
+                    </div>
+                </div>
+                <div class="dropdown offset-1 mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ExpandStop"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        终止年份
+                    </button>
+                    <div id="ExpandStopYear" class="dropdown-menu" aria-labelledby="ExpandStop">
+                        <button class="dropdown-item" type="button">ExpandStop</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
+                    成熟期
+                </div>
+                <div class="dropdown mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="MatureStart"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        起始年份
+                    </button>
+                    <div id="MatureStartYear" class="dropdown-menu" aria-labelledby="MatureStart">
+                        <button class="dropdown-item" type="button">MatureStart</button>
+                    </div>
+                </div>
+                <div class="dropdown offset-1 mt-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="MatureStop"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        终止年份
+                    </button>
+                    <div id="MatureStopYear" class="dropdown-menu" aria-labelledby="MatureStop">
+                        <button class="dropdown-item" type="button">MatureStop</button>
+                    </div>
+                </div>
+            </div>
+            <button id = "StageEnter" class="col-sm-2 btn-primary offset-5 mt-5">确定</button>
         </main>
     </div>
 </div>
@@ -563,8 +263,7 @@
 <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static',filename='js/index.js') }}"></script>
-<script src="{{ url_for('static',filename='js/bootstrap-select.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/ExpertInformationManage.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap-submenu.js') }}"></script>
 </body>
 
 </html>
