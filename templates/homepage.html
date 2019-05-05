@@ -304,10 +304,10 @@
                                 <div class="btn btn-outline-primary offset-3 mr-4">
                                     研发期
                                 </div>
-                                <select name="SelectStageYears" class="form-control col-sm-2" id="DevelopStart">
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="DevelopStart">
                                     <option hidden>起始年份</option>
                                 </select>
-                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
                                         id="DevelopStop">
                                     <option hidden>终止年份</option>
                                 </select>
@@ -316,10 +316,10 @@
                                 <div class="btn btn-outline-primary offset-3 mr-4">
                                     初创期
                                 </div>
-                                <select name="SelectStageYears" class="form-control col-sm-2" id="InitialStart">
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="InitialStart">
                                     <option hidden>起始年份</option>
                                 </select>
-                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
                                         id="InitialStop">
                                     <option hidden>终止年份</option>
                                 </select>
@@ -328,10 +328,10 @@
                                 <div class="btn btn-outline-primary offset-3 mr-4">
                                     成长期
                                 </div>
-                                <select name="SelectStageYears" class="form-control col-sm-2" id="GrowupStart">
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="GrowupStart">
                                     <option hidden>起始年份</option>
                                 </select>
-                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
                                         id="GrowupStop">
                                     <option hidden>终止年份</option>
                                 </select>
@@ -340,10 +340,10 @@
                                 <div class="btn btn-outline-primary offset-3 mr-4">
                                     扩张期
                                 </div>
-                                <select name="SelectStageYears" class="form-control col-sm-2" id="ExpandStart">
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="ExpandStart">
                                     <option hidden>起始年份</option>
                                 </select>
-                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
                                         id="ExpandStop">
                                     <option hidden>终止年份</option>
                                 </select>
@@ -352,10 +352,10 @@
                                 <div class="btn btn-outline-primary offset-3 mr-4">
                                     成熟期
                                 </div>
-                                <select name="SelectStageYears" class="form-control col-sm-2" id="MatureStart">
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="MatureStart">
                                     <option hidden>起始年份</option>
                                 </select>
-                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
                                         id="MatureStop">
                                     <option hidden>终止年份</option>
                                 </select>
@@ -432,9 +432,10 @@
     </div>
 </div>
 </div>
-<script src="{{ url_for('static',filename='js/index.js') }}"></script>
-<script src="{{ url_for('static',filename='js/CommonFunction.js') }}"></script>
 <script src="{{ url_for('static',filename='js/BreadNav.js') }}"></script>
+<script src="{{ url_for('static',filename='js/CommonFunction.js') }}"></script>
+<script src="{{ url_for('static',filename='js/ExpertJudge.js') }}"></script>
+<script src="{{ url_for('static',filename='js/index.js') }}"></script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('CountryChart'));

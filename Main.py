@@ -21,26 +21,54 @@ def GetPage():
 def GetPage2():
     return render_template('homepage_test_Total.html')
 
-@app.route('/new_page',methods=['POST','GET'])
-def GetNewPage():
-    A = request.args.get("a")
-    B = request.args.get("b")
-    print("--------------GETNEWPAGE-------------")
-    print(A)
-    print(B)
-    return render_template('NewPage.html', data={"result":"OK"})
+#-----------专家提交数据------------
+@app.route('/JudgeResult',methods=['POST','GET'])
+def SaveJudgeRecult():
+    data = request.json
+    #TODO:Save data to database and return if it's success
+    print(data)
+    '''
+    {'SecondaryClass': '请选择大类', 'ThirdClass': '请选择小类', 'DevelopStage': {'start': '起始年份', 'stop': '起始年份'}, 'InitialStage': {'start': '起始年份', 'stop': '起始年份'}, 'GrowupStage': {'start': '起始年份', 'stop': '起始年份'}, 'ExpandStage': {'start': '起始年份', 'stop': '起始年份'}, 'MatureStart': {'start': '起始年份', 'stop': '起始年份'}}
+    '''
+    result = {}
+    result['success'] = True
+    return json.dumps(result)
+#-----------专家提交数据End---------------
 
-@app.route('/newpage_index',methods=['POST','GET'])
-def GetNewPage_index():
-    return render_template('index.html')
+#-----------获取通用数据------------------
+#获取通用的国家
+@app.route('/GetCommonCountrys',methods=['POST','GET'])
+def GetCommonCountrys():
+    CommonCountrys = ['US', 'UK', 'China']
+    return json.dumps(CommonCountrys)
 
-@app.route('/ExpertInformationManage',methods=['POST','GET'])
-def GetPage_ExpertInformationManage():
-    return render_template('ExpertInformationManage.html')
+#获取通用的年份
+@app.route('/GetCommonYear',methods=['POST','GET'])
+def GetCommonYear():
+    CommonYears = [2008, 2009, 2010]
+    return json.dumps(CommonYears)
 
-@app.route('/login',methods=['POST','GET'])
-def GetPage_login():
-    return render_template('login.html')
+#直接获取大类
+@app.route('/GetCommonSecondaryClass',methods=['POST','GET'])
+def GetCommonSecondaryClass():
+    CommonSecondaryClass = ['A', 'B', 'C']
+    return json.dumps(CommonSecondaryClass)
+
+#通过大类获取小类
+@app.route('/GetCommonThirdClass',methods=['POST','GET'])
+def GetCommonThirdClass():
+    def FindThirdClassBySecondaryClass(SecondaryClass):
+        return ['小类1', '小类2']
+    SecondaryClass = request.args.get("SecondaryClass")
+    CommonThirdClass = FindThirdClassBySecondaryClass(SecondaryClass)
+    return json.dumps(CommonThirdClass)
+
+#-----------获取通用数据End---------------
+
+#-----------获取图表展示数据--------------
+
+#-----------获取图表展示数据End---------------
+
 
 @app.route('/getdata',methods=['POST','GET'])
 def GetData():

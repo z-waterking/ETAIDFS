@@ -8,38 +8,39 @@ PagePosition = {
 }
 //页面加载完成后，更新对应选择框中的列表
 $(function(){
-    //更新面包屑导航
-    $.RefreshBread();
-    $("div[name=test]").append("abcde");
-    //取得二级目录，时间列表，国家列表
-    SecondaryClass = ['A', 'B', 'C']
-    Times = [2008, 2009, 2010]
-    Countrys = ['US', 'UK', 'China']
+    //从服务器端取得二级目录、国家列表、以及年份列表
     //更新二级目录列表
-    for(var i = 0; i < SecondaryClass.length; i++){
-        //新建一个option
-        var $op = $("<option></option>")
-        $op.attr('value', SecondaryClass[i]);
-        $op.append(SecondaryClass[i]);
-        //加入二级目录选择列表中
-        $op.appendTo($("select[name=SelectSecondaryClass]"));
-    }
+    $.GetData('GetCommonSecondaryClass', {}, function(SecondaryClass){
+        for(var i = 0; i < SecondaryClass.length; i++){
+            //新建一个option
+            var $op = $("<option></option>")
+            $op.attr('value', SecondaryClass[i]);
+            $op.append(SecondaryClass[i]);
+            //加入二级目录选择列表中
+            $op.appendTo($("select[name=SelectSecondaryClass]"));
+        }
+    })
     //更新国家列表
-    for(var i = 0; i < Countrys.length; i++){
-        //新建一个option
-        var $op = $("<option></option>")
-        $op.attr('value', Countrys[i]);
-        $op.append(Countrys[i]);
-        //加入国家选择列表中
-        $op.appendTo($("select[name=SelectCountry]"));
-    }
-    //更新时间列表
-    for(var i = 0; i < Times.length; i++){
-        //新建一个option
-        var $op = $("<option></option>")
-        $op.attr('value', Times[i]);
-        $op.append(Times[i]);
-        //加入国家选择列表中
-        $op.appendTo($("select[name=SelectStageYears]"));
-    }
+    $.GetData('GetCommonCountrys', {}, function(Countrys){
+        for(var i = 0; i < Countrys.length; i++){
+            //新建一个option
+            var $op = $("<option></option>")
+            $op.attr('value', Countrys[i]);
+            $op.append(Countrys[i]);
+            //加入国家选择列表中
+            $op.appendTo($("select[name=SelectCountry]"));
+        }
+    })
+    //更新年份列表
+    $.GetData('GetCommonYear', {}, function(Years){
+            for(var i = 0; i < Years.length; i++){
+                //新建一个option
+                var $op = $("<option></option>")
+                $op.attr('value', Years[i]);
+                $op.append(Years[i]);
+                //加入（name以SelectStage开头)年份选择列表中
+                $op.appendTo($("select[name^=SelectStage]"));
+            }
+        }
+    )
 });
