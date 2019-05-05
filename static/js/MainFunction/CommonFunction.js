@@ -1,5 +1,96 @@
+//两种图表的option
+OPTION = {
+    'line':{
+        xAxis: {
+            type: 'category',
+            data: []
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [],
+            type: 'line'
+        }]
+    },
+    'plot':{
+        xAxis: {
+             boundaryGap:10,
+            min:0,
+            max:700,
+            offset:-80,
+            type:'value',
+        },
+        yAxis: {
+            // boundaryGap:10,
+            min:0,
+            max:700,
+            offset:-200,
+            type:'value'
+        },
+        series: [{
+            symbolSize: 20,
+            data: [
+
+            ],
+            type: 'scatter'
+        }]
+    }
+}
+
+//设置线型Echarts
+$.SetLineChart = function(myChart, result){
+    // 指定图表的配置项和数据
+    var option = OPTION['line']
+    console.log(option);
+    option.xAxis.data = result['xs']
+    for(var i = 0; i < result['ys'].length; i++){
+        symbol = null
+        switch(result['stage'][i]){
+            case 'Develop': symbol = 'rect';break;
+            case 'Initial': symbol = 'triangle'; break;
+            case 'Growup': symbol = 'diamond'; break;
+            case 'Expand': symbol = 'arrow'; break;
+            case 'Mature': symbol = 'circle';
+        }
+        temp = {
+            'value': result['ys'][i],
+            'symbol': symbol,
+            'symbolSize': 20
+        }
+        option.series[0].data.push(temp);
+    }
+    console.log(option);
+    myChart.setOption(option);
+}
+
+//设置散点型Echarts
+$.SetPlotChart = function(myChart, result){
+    // 指定图表的配置项和数据
+    var option = OPTION['plot']
+    for(var i = 0; i < result['xs'].length; i++){
+        temp = {
+            name:result['label'][i],
+            label:{
+                offset:[30, 0],
+                fontSize:15,
+                fontWeight:'bold',
+                show:true,
+                color:'#000',
+                formatter:function(param){
+                    return param.name
+                }
+            },
+            value:[result['xs'][i], result['ys'][i]]
+        }
+        option.series[0].data.push(temp);
+    }
+    console.log(option);
+    myChart.setOption(option);
+}
+
 //重置大类、小类、国家的选择
-$.RefreshList = function(){
+$.ResetList = function(){
     //更新二级目录列表
     $.GetData('GetCommonSecondaryClass', {}, function(SecondaryClass){
         //先插入第一个作为title

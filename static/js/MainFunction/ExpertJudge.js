@@ -47,7 +47,7 @@ $("#JudgeStageEnter").click(function(){
 
     //组织成对应格式提交
     Stages = ["DevelopStage", "InitialStage", "GrowupStage", "ExpandStage", "MatureStart"];
-    PostData = {
+    PostDataInfo = {
         "SecondaryClass": SecondaryClass,
         "ThirdClass": ThirdClass,
     }
@@ -58,10 +58,10 @@ $("#JudgeStageEnter").click(function(){
                 "start": AllStartYears[i],
                 "stop": AllStopYears[i]
         }
-        PostData[Stages[i]] = temp;
+        PostDataInfo[Stages[i]] = temp;
     }
-    //提交数据向服务器保存，让其
-    $.PostData('JudgeResult', PostData, function(result){
+    //提交数据向服务器保存，让其保存
+    $.PostData('JudgeResult', PostDataInfo, function(result){
         if(result['success'] == true){
             //todo:将alert修改为消息提示框
             alert("Success");
