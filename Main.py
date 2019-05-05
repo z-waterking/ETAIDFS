@@ -19,7 +19,7 @@ def GetPage():
 
 @app.route('/index2',methods=['POST','GET'])
 def GetPage2():
-    return render_template('homepage_test.html')
+    return render_template('homepage_test_Total.html')
 
 @app.route('/new_page',methods=['POST','GET'])
 def GetNewPage():

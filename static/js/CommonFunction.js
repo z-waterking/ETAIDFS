@@ -1,11 +1,17 @@
-
 //根据全局变量更新面包屑导航条
 $.RefreshBread = function(){
-	alert('refreshaaa');
-//	$("#BreadNav").clear();
-	var $li = $("<li></li>")
-	$li.append("abcde")
-	$li.appendTo($("#BreadNav"))
+    //先清除其中的元素
+    $("#BreadNav").empty();
+	var Directory = ['FirstDirectory', 'SecondDirectory', 'ThirdDirectory', 'ForthDirectory']
+    $.each(Directory, function(n, direct){
+        if(PagePosition[direct] == null){
+            return;
+        }
+        var $li = $("<li></li>");
+        $li.attr('class', 'active');
+        $li.append(PagePosition[direct]);
+        $li.appendTo($("#BreadNav"));
+    });
 };
 //封装的Get函数，callback为传递进来的回调
 $.GetData = function(url, data, callback){

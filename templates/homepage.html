@@ -25,27 +25,27 @@
     <form class="form-inline nav-item col-sm-9 col-md-9 mr-0">
         <ul class="nav">
             <li class="active">
-                <a href="#Blank" data-toggle="tab">
-                    <button class="btn btn-outline-info ml-5" type="button">系统简介</button>
+                <a name="FirstDirectory" href="#Blank" data-toggle="tab">
+                    <button id="test" class="btn btn-outline-info ml-5" type="button" value="系统简介">系统简介</button>
                 </a>
             </li>
             <li>
-                <a href="#MainBoard" data-toggle="tab">
+                <a name="FirstDirectory" href="#MainBoard" data-toggle="tab">
                     <button class="btn btn-outline-primary ml-5" type="button">3D打印技术监测</button>
                 </a>
             </li>
             <li>
-                <a href="#MainBoard" data-toggle="tab">
+                <a name="FirstDirectory" href="#MainBoard" data-toggle="tab">
                     <button class="btn btn-outline-primary ml-5" type="button">碳纳米管与石墨烯监测</button>
                 </a>
             </li>
             <li>
-                <a href="#MainBoard" data-toggle="tab">
+                <a name="FirstDirectory" href="#MainBoard" data-toggle="tab">
                     <button class="btn btn-outline-primary ml-5" type="button">人工智能监测</button>
                 </a>
             </li>
             <li>
-                <a href="#Blank" data-toggle="tab">
+                <a name="FirstDirectory" href="#Blank" data-toggle="tab">
                     <button class="btn btn-outline-info ml-5" type="button">系统管理</button>
                 </a>
             </li>
@@ -64,17 +64,17 @@
             <nav class="col-md-3 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky" style="top:40px">
                     <ul class="nav flex-column">
-                        <li class="nav-item active">
+                        <li name="SecondDirectory" class="nav-item active">
                             <a class="nav-link btn btn-outline-warning" href="#Intro2SubSys" data-toggle="tab">
                                 子系统简介
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li name="SecondDirectory" class="nav-item">
                             <a class="nav-link btn btn-outline-warning" href="#ExpertInfo" data-toggle="tab">
                                 专家信息管理
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li name="SecondDirectory" class="nav-item">
                             <a class="nav-link btn btn-outline-warning" href="#ExpertJudge" data-toggle="tab">
                                 <span data-feather="users"></span>
                                 新兴技术产业化阶段专家判断
@@ -82,7 +82,7 @@
                         </li>
 
                         <!-- 科学发展与产业化阶段关联趋势  下拉item-->
-                        <li class="nav-item">
+                        <li name="SecondDirectory" class="nav-item">
                             <a class="nav-link btn btn-outline-warning" data-toggle="collapse" href="#SciencePrediction"
                                role="button" aria-expanded="false" aria-controls="SciencePrediction">
                                 科学发展与产业化阶段关联趋势
@@ -90,7 +90,7 @@
                         </li>
                         <div class="collapse" id="SciencePrediction">
                             <ul class="nav flex-column">
-                                <li class="nav-item">
+                                <li name="ThirdDirectory" class="nav-item">
                                     <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#ScienceHeatPrediction" role="button" aria-expanded="false"
                                        aria-controls="ScienceHeatPrediction">
@@ -99,13 +99,13 @@
                                 </li>
                                 <div class="collapse" id="ScienceHeatPrediction">
                                     <ul class="nav flex-column">
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#TotalInfoRepresent" data-toggle="tab">
                                                 总体分析
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#CountryInfoRepresent" data-toggle="tab">
                                                 国家分析
@@ -114,7 +114,7 @@
                                     </ul>
                                 </div>
                                 <li class="nav-item">
-                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                    <a name="ThirdDirectory" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#ScienceInfluencePrediction" role="button" aria-expanded="true"
                                        aria-controls="ScienceInfluencePrediction">
                                         科学影响力与产业化阶段关联趋势
@@ -122,13 +122,13 @@
                                 </li>
                                 <div class="collapse" id="ScienceInfluencePrediction">
                                     <ul class="nav flex-column">
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#TotalInfoRepresent" data-toggle="tab">
                                                 总体分析
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#CountryInfoRepresent" data-toggle="tab">
                                                 国家分析
@@ -140,7 +140,7 @@
                         </div>
 
                         <!-- 技术发展与产业化阶段关联趋势  下拉item-->
-                        <li class="nav-item">
+                        <li name="SecondDirectory" class="nav-item">
                             <a class="nav-link btn btn-outline-warning" data-toggle="collapse"
                                href="#TechnologyPrediction" role="button" aria-expanded="false"
                                aria-controls="TechnologyPrediction">
@@ -149,7 +149,7 @@
                         </li>
                         <div class="collapse" id="TechnologyPrediction">
                             <ul class="nav flex-column">
-                                <li class="nav-item">
+                                <li name="ThirdDirectory" class="nav-item">
                                     <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#TechnologyHeatPrediction" role="button" aria-expanded="false"
                                        aria-controls="TechnologyHeatPrediction">
@@ -158,13 +158,13 @@
                                 </li>
                                 <div class="collapse" id="TechnologyHeatPrediction">
                                     <ul class="nav flex-column">
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#TotalInfoRepresent" data-toggle="tab">
                                                 总体分析
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#CountryInfoRepresent" data-toggle="tab">
                                                 国家分析
@@ -173,7 +173,7 @@
                                     </ul>
                                 </div>
                                 <li class="nav-item">
-                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                    <a name="ThirdDirectory" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#TechnologyInfluencePrediction" role="button" aria-expanded="true"
                                        aria-controls="TechnologyInfluencePrediction">
                                         技术影响力与产业化阶段关联趋势
@@ -181,13 +181,13 @@
                                 </li>
                                 <div class="collapse" id="TechnologyInfluencePrediction">
                                     <ul class="nav flex-column">
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#TotalInfoRepresent" data-toggle="tab">
                                                 总体分析
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#CountryInfoRepresent" data-toggle="tab">
                                                 国家分析
@@ -199,7 +199,7 @@
                         </div>
 
                         <!-- 科学与技术发展关联聚类预测 -->
-                        <li class="nav-item">
+                        <li name="SecondDirectory" class="nav-item">
                             <a class="nav-link btn btn-outline-warning" data-toggle="collapse"
                                href="#SciAndTecClusterPrediction" role="button" aria-expanded="false"
                                aria-controls="SciAndTecClusterPrediction">
@@ -208,7 +208,7 @@
                         </li>
                         <div class="collapse" id="SciAndTecClusterPrediction">
                             <ul class="nav flex-column">
-                                <li class="nav-item">
+                                <li name="ThirdDirectory" class="nav-item">
                                     <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#SciAndTecClusterHeatPrediction" role="button" aria-expanded="false"
                                        aria-controls="SciAndTecClusterHeatPrediction">
@@ -217,13 +217,13 @@
                                 </li>
                                 <div class="collapse" id="SciAndTecClusterHeatPrediction">
                                     <ul class="nav flex-column">
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#TotalInfoRepresent" data-toggle="tab">
                                                 总体分析
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#CountryInfoRepresent" data-toggle="tab">
                                                 国家分析
@@ -231,7 +231,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <li class="nav-item">
+                                <li name="ThirdDirectory" class="nav-item">
                                     <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#SciAndTecClusterInfluencePrediction" role="button" aria-expanded="true"
                                        aria-controls="SciAndTecClusterInfluencePrediction">
@@ -240,13 +240,13 @@
                                 </li>
                                 <div class="collapse" id="SciAndTecClusterInfluencePrediction">
                                     <ul class="nav flex-column">
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#TotalInfoRepresent" data-toggle="tab">
                                                 总体分析
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
                                                href="#CountryInfoRepresent" data-toggle="tab">
                                                 国家分析
@@ -256,7 +256,7 @@
                                 </div>
                             </ul>
                         </div>
-                        <li class="nav-item">
+                        <li name="SecondDirectory" class="nav-item">
                             <a class="nav-link btn btn-outline-warning" href="#TestReport" data-toggle="tab">
                                 监测报告
                             </a>
@@ -285,180 +285,107 @@
                     <div class="tab-pane fade" id="ExpertJudge">
                         <h1 class="text-lg-center">专家判断技术产业化阶段</h1>
                         <!--选择大类和小类 -->
-                        <div class="d-flex">
-                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                                选择领域
-                            </div>
-                            <div class="dropdown mt-3">
-                                <button name = "SelectButtonSecondaryClass" class="btn btn-secondary dropdown-toggle" type="button" id="SecondaryClass"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    请选择大类
-                                </button>
-                                <div name = "SelectItemsSecondaryClass" id="SecdaryClassContent" class="dropdown-menu" aria-labelledby="SecondaryClass">
-                                    <button class="dropdown-item" type="button">Another action</button>
+                        <form role="form">
+                            <div class="form-group row mt-5">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    选择领域
                                 </div>
+                                <select name="SelectSecondaryClass"
+                                        id="JudgeStageSecondaryClass" class="form-control col-sm-2">
+                                    <option hidden>请选择大类</option>
+                                </select>
+                                <select name="SelectThirdClass"
+                                        id="JudgeStageThirdClass" class="form-control col-sm-2 ml-4">
+                                    <option hidden>请选择小类</option>
+                                </select>
                             </div>
-                            <div class="dropdown offset-1 mt-3">
-                                <button name = "SelectButtonThirdClass" class="btn btn-secondary dropdown-toggle" type="button" id="ThirdClass"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    请选择小类
-                                </button>
-                                <div name = "SelectItemsThirdClass" id="ThirdClassContent" class="dropdown-menu" aria-labelledby="ThirdClass">
-                                    <button class="dropdown-item" type="button">Another</button>
+                            <h3 class="text-lg-center mt-2">年份区间选择</h3>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    研发期
                                 </div>
+                                <select name="SelectStageYears" class="form-control col-sm-2" id="DevelopStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                        id="DevelopStop">
+                                    <option hidden>终止年份</option>
+                                </select>
                             </div>
-                        </div>
-
-                        <h3 class="text-lg-center mt-5">年份区间选择</h3>
-                        <div class="d-flex">
-                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                                研发期
-                            </div>
-                            <div class="dropdown mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="DevelopStart"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    起始年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="DevelopStartYear" class="dropdown-menu" aria-labelledby="DevelopStart">
-                                    <button class="dropdown-item" type="button">DevelopStart</button>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    初创期
                                 </div>
+                                <select name="SelectStageYears" class="form-control col-sm-2" id="InitialStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                        id="InitialStop">
+                                    <option hidden>终止年份</option>
+                                </select>
                             </div>
-                            <div class="dropdown offset-1 mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="DevelopStop"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    终止年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="DevelopStopYear" class="dropdown-menu" aria-labelledby="DevelopStop">
-                                    <button class="dropdown-item" type="button">DevelopStop</button>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    成长期
                                 </div>
+                                <select name="SelectStageYears" class="form-control col-sm-2" id="GrowupStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                        id="GrowupStop">
+                                    <option hidden>终止年份</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="d-flex">
-                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                                初创期
-                            </div>
-                            <div class="dropdown mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="InitialStart"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    起始年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="InitialStartYear" class="dropdown-menu" aria-labelledby="InitialStart">
-                                    <button class="dropdown-item" type="button">InitialStart</button>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    扩张期
                                 </div>
+                                <select name="SelectStageYears" class="form-control col-sm-2" id="ExpandStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                        id="ExpandStop">
+                                    <option hidden>终止年份</option>
+                                </select>
                             </div>
-                            <div class="dropdown offset-1 mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="InitialStop"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    终止年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="InitialStopYear" class="dropdown-menu" aria-labelledby="InitialStop">
-                                    <button class="dropdown-item" type="button">InitialStop</button>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    成熟期
                                 </div>
+                                <select name="SelectStageYears" class="form-control col-sm-2" id="MatureStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageYears" class="form-control col-sm-2 ml-4"
+                                        id="MatureStop">
+                                    <option hidden>终止年份</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="d-flex">
-                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                                成长期
-                            </div>
-                            <div class="dropdown mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="GrowupStart"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    起始年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="GrowupStartYear" class="dropdown-menu" aria-labelledby="GrowupStart">
-                                    <button class="dropdown-item" type="button">InitialStart</button>
-                                </div>
-                            </div>
-                            <div class="dropdown offset-1 mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="GrowupStop"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    终止年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="GrowupStopYear" class="dropdown-menu" aria-labelledby="GrowupStop">
-                                    <button class="dropdown-item" type="button">InitialStop</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex">
-                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                                扩张期
-                            </div>
-                            <div class="dropdown mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="ExpandStart"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    起始年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="ExpandStartYear" class="dropdown-menu" aria-labelledby="ExpandStart">
-                                    <button class="dropdown-item" type="button">ExpandStart</button>
-                                </div>
-                            </div>
-                            <div class="dropdown offset-1 mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="ExpandStop"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    终止年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="ExpandStopYear" class="dropdown-menu" aria-labelledby="ExpandStop">
-                                    <button class="dropdown-item" type="button">ExpandStop</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex">
-                            <div class="btn btn-outline-primary offset-4 mr-4 mt-3">
-                                成熟期
-                            </div>
-                            <div class="dropdown mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="MatureStart"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    起始年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="MatureStartYear" class="dropdown-menu" aria-labelledby="MatureStart">
-                                    <button class="dropdown-item" type="button">MatureStart</button>
-                                </div>
-                            </div>
-                            <div class="dropdown offset-1 mt-3">
-                                <button name="SelectButtonStageYears" class="btn btn-secondary dropdown-toggle" type="button" id="MatureStop"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    终止年份
-                                </button>
-                                <div name="SelectItemsStageYears" id="MatureStopYear" class="dropdown-menu" aria-labelledby="MatureStop">
-                                    <button class="dropdown-item" type="button">MatureStop</button>
-                                </div>
-                            </div>
-                        </div>
-                        <button id="StageEnter" class="col-sm-2 btn-primary offset-5 mt-5">确定</button>
+                            <button id="JudgeStageEnter" class="col-sm-2 btn-primary offset-5 mt-5" type="button">确定
+                            </button>
+                        </form>
                     </div>
                     <!-- 展示总体信息子页面-->
                     <div class="tab-pane fade" id="TotalInfoRepresent">
-                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                            <div class="btn btn-outline-primary offset-3 mr-4 mt-3 mb-3">
-                                选择领域
-                            </div>
-                            <div class="dropdown mt-3 mb-3">
-                                <button name="SelectButtonSecondaryClass" class="btn btn-secondary dropdown-toggle" type="button"
-                                        id="RepresentTotalInfoSecondaryClass"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    请选择大类
-                                </button>
-                                <div name="SelectItemsSecondaryClass" id="RepresentTotalInfoSecondaryClassContent" class="dropdown-menu"
-                                     aria-labelledby="RepresentTotalInfoSecondaryClass">
-                                    <button class="dropdown-item" type="button">Another action</button>
+                        <form role="form">
+                            <div class="form-group row mt-3">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    选择领域
                                 </div>
-                            </div>
-                            <div class="dropdown ml-2 mt-3 mb-3">
-                                <button name="SelectButtonThirdClass" class="btn btn-secondary dropdown-toggle" type="button"
-                                        id="RepresentTotalInfoThirdClass"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    请选择小类
+                                <select name="SelectSecondaryClass"
+                                        id="RepresentTotalInfoSecondaryClass" class="form-control col-sm-2">
+                                    <option hidden>请选择大类</option>
+                                </select>
+                                <select name="SelectThirdClass"
+                                        id="RepresentTotalInfoThirdClassContent" class="form-control col-sm-2 ml-4">
+                                    <option hidden>请选择小类</option>
+                                </select>
+                                <button id="TotalInfoClassSelectEnter" class="btn btn-outline-primary ml-3"
+                                        type="button">
+                                    确定
                                 </button>
-                                <div name="SelectItemsThirdClass" id="RepresentTotalInfoThirdClassContent" class="dropdown-menu"
-                                     aria-labelledby="RepresentTotalInfoThirdClass">
-                                    <button class="dropdown-item" type="button">Another</button>
-                                </div>
                             </div>
-                            <button id = "TotalClassSelectEnter" class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
-                                确定
-                            </button>
-                        </div>
+                        </form>
+                        <hr/>
                         <h3 id="TotalTitle" class="text-lg-center mt-5">年份区间选择</h3>
                         <div class="offset-3 mt-5">
                             <canvas class="my-4" id="TotalChart" width="900" height="380"></canvas>
@@ -466,45 +393,34 @@
                     </div>
                     <!-- 展示国家信息子页面-->
                     <div class="tab-pane fade" id="CountryInfoRepresent">
-                        <div class="d-flex flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                            <div class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
-                                选择领域
-                            </div>
-                            <div class="dropdown mt-3 mb-3">
-                                <button name="SelectButtonSecondaryClass" class="btn btn-secondary dropdown-toggle" type="button" id="RepresentCountryInfoSecondaryClass"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    请选择大类
-                                </button>
-                                <div name="SelectItemsSecondaryClass" id="RepresentCountryInfoSecondaryClassContent" class="dropdown-menu" aria-labelledby="RepresentCountryInfoSecondaryClass">
-                                    <button class="dropdown-item" type="button">Another action</button>
+                        <form role="form">
+                            <div class="form-group row mt-3">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    选择领域
                                 </div>
+                                <select name="SelectSecondaryClass"
+                                        id="RepresentClassCountryInfoSecondaryClass" class="form-control col-sm-2">
+                                    <option hidden>请选择大类</option>
+                                </select>
+                                <select name="SelectThirdClass"
+                                        id="RepresentClassCountryInfoThirdClass" class="form-control col-sm-2 ml-4">
+                                    <option hidden>请选择小类</option>
+                                </select>
                             </div>
-                            <div class="dropdown ml-2 mt-3 mb-3">
-                                <button name="SelectButtonThirdClass" class="btn btn-secondary dropdown-toggle" type="button" id="RepresentCountryInfoThirdClass"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    请选择小类
-                                </button>
-                                <div name="SelectItemsThirdClass" id="RepresentCountryInfoThirdClassContent" class="dropdown-menu" aria-labelledby="RepresentCountryInfoThirdClass">
-                                    <button class="dropdown-item" type="button">Another</button>
+                            <div class="form-group row">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    选择国家
                                 </div>
-                            </div>
-
-                            <div class="btn btn-outline-primary offset-1 mr-4 mt-3 mb-3">
-                                选择国家
-                            </div>
-                            <div class="dropdown mt-3 mb-3">
-                                <button name="SelectButtonCountry" class="btn btn-secondary dropdown-toggle" type="button" id="RepresentCountryInfoSelectCou"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    请选择国家
+                                <select name="SelectCountry"
+                                        id="RepresentClassCountryInfoSelectCou" class="form-control col-sm-2">
+                                    <option hidden>请选择国家</option>
+                                </select>
+                                <button id="ClassCountrySelectEnter" class="btn btn-outline-primary ml-5" type="button">
+                                    确定
                                 </button>
-                                <div name="SelectButtonCountry" id="RepresentCountryInfoSelectCouContent" class="dropdown-menu" aria-labelledby="RepresentCountryInfoSelectCou">
-                                    <button class="dropdown-item" type="button">Another action</button>
-                                </div>
                             </div>
-                            <button id = "CountrySelectEnter" class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
-                                确定
-                            </button>
-                        </div>
+                        </form>
+                        <hr/>
                         <h3 id="CountryTitle" class="text-lg-center mt-5">年份区间选择</h3>
                         <div class="offset-3 mt-5">
                             <canvas class="my-4" id="CountryChart" width="900" height="380"></canvas>
@@ -517,6 +433,8 @@
 </div>
 </div>
 <script src="{{ url_for('static',filename='js/index.js') }}"></script>
+<script src="{{ url_for('static',filename='js/CommonFunction.js') }}"></script>
+<script src="{{ url_for('static',filename='js/BreadNav.js') }}"></script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('CountryChart'));

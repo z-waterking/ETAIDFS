@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-submenu.min.css') }}"/>
 
     <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/jquery-slim.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
-<script src="{{ url_for('static',filename='js/bootstrap-submenu.js') }}"></script>
-<script src="{{ url_for('static',filename='js/echarts.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery-slim.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap-submenu.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/echarts.min.js') }}"></script>
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
@@ -116,49 +116,37 @@
                     <li class="active">十一月</li>
                 </ul>
             </div>
-            <div class="d-flex flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <div class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
-                    选择领域
-                </div>
-                <div class="dropdown mt-3 mb-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="SecondaryClass"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        请选择大类
-                    </button>
-                    <div id="SecdaryClassContent" class="dropdown-menu" aria-labelledby="SecondaryClass">
-                        <button class="dropdown-item" type="button">Another action</button>
-                        <button class="dropdown-item" type="button">Another action</button>
-                        <button class="dropdown-item" type="button">Something else here</button>
+                <form role="form">
+                    <div class="form-group row mt-3">
+                        <div class="btn btn-outline-primary offset-3 mr-4">
+                            选择领域
+                        </div>
+                        <select name="SelectSecondaryClass"
+                                id="RepresentClassCountryInfoSecondaryClass" class="form-control col-sm-2">
+                            <option hidden>请选择大类</option>
+                            <option>1</option>
+                        </select>
+                        <select name="SelectThirdClass"
+                                id="RepresentClassCountryInfoThirdClass" class="form-control col-sm-2 ml-4">
+                            <option hidden>请选择小类</option>
+                            <option>1</option>
+                        </select>
                     </div>
-                </div>
-                <div class="dropdown ml-2 mt-3 mb-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ThirdClass"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        请选择小类
-                    </button>
-                    <div id="ThirdClassContent" class="dropdown-menu" aria-labelledby="ThirdClass">
-                        <button class="dropdown-item" type="button">Another</button>
-                    </div>
-                </div>
-
-                <div class="btn btn-outline-primary offset-1 mr-4 mt-3 mb-3">
-                    选择国家
-                </div>
-                <div class="dropdown mt-3 mb-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="SecondaryClass"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        请选择国家
-                    </button>
-                    <div id="SecdaryClassContent" class="dropdown-menu" aria-labelledby="SecondaryClass">
-                        <button class="dropdown-item" type="button">Another action</button>
-                        <button class="dropdown-item" type="button">Another action</button>
-                        <button class="dropdown-item" type="button">Something else here</button>
-                    </div>
-                </div>
-                <button class="btn btn-outline-primary offset-2 mr-4 mt-3 mb-3">
-                    确定
-                </button>
-            </div>
+                    <div class="form-group row">
+                            <div class="btn btn-outline-primary offset-3 mr-4">
+                            选择国家
+                        </div>
+                        <select name="SelectCountry"
+                                id="RepresentClassCountryInfoSelectCou" class="form-control col-sm-2">
+                            <option hidden>请选择国家</option>
+                            <option>1</option>
+                        </select>
+                        <button id="ClassCountrySelectEnter" class="btn btn-outline-primary ml-5" type="button">
+                            确定
+                        </button>
+                        </div>
+                </form>
+            <hr/>
             <h3 id="TotalTitle" class="text-lg-center mt-5">年份区间选择</h3>
             <div class="offset-3 mt-5">
                 <canvas class="my-4" id="main" width="900" height="380"></canvas>
@@ -195,7 +183,8 @@
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-    </script>
+
+</script>
 <script src="{{ url_for('static',filename='js/index.js') }}"></script>
 </body>
 
