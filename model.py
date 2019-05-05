@@ -2,6 +2,7 @@
 from sqlalchemy import Column, DECIMAL, Float, Integer, NCHAR, String, Table
 from sqlalchemy.ext.declarative import declarative_base
 from flask_login import UserMixin
+
 Base = declarative_base()
 metadata = Base.metadata
 
@@ -121,19 +122,14 @@ t_Patent_Influence = Table(
 )
 
 
-class User(UserMixin, Base):
+class User(Base):
     __tablename__ = 'User'
 
     id = Column(Integer, primary_key=True)
     username = Column(String(50, 'Chinese_PRC_CI_AS'), unique=True)
     email = Column(String(50, 'Chinese_PRC_CI_AS'), unique=True)
     password = Column(String(50, 'Chinese_PRC_CI_AS'))
-    def __init__(self,username, password, email):
-        self.username = username
-        self.password = password
-        self.email = email
-    def get_id(self):
-        return unicode(self.id)
+
 
 class Country(Base):
     __tablename__ = 'country'
