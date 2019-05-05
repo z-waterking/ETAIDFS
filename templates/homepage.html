@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/navbar.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/dashboard.css') }}"/>
+
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery-slim.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap-submenu.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/echarts.min.js') }}"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-3 mr-0 text-center" href="#">新兴技术与产业发展预测系统</a>
+    <!-- 五个导航栏-->
+    <form class="form-inline nav-item col-sm-9 col-md-9 mr-0">
+        <ul class="nav">
+            <li class="active">
+                <a name="FirstDirectory" href="#Blank" data-toggle="tab">
+                    <button id="test" class="btn btn-outline-info ml-5" type="button" value="系统简介">系统简介</button>
+                </a>
+            </li>
+            <li>
+                <a name="FirstDirectory" href="#MainBoard" data-toggle="tab">
+                    <button class="btn btn-outline-primary ml-5" type="button">3D打印技术监测</button>
+                </a>
+            </li>
+            <li>
+                <a name="FirstDirectory" href="#MainBoard" data-toggle="tab">
+                    <button class="btn btn-outline-primary ml-5" type="button">碳纳米管与石墨烯监测</button>
+                </a>
+            </li>
+            <li>
+                <a name="FirstDirectory" href="#MainBoard" data-toggle="tab">
+                    <button class="btn btn-outline-primary ml-5" type="button">人工智能监测</button>
+                </a>
+            </li>
+            <li>
+                <a name="FirstDirectory" href="#Blank" data-toggle="tab">
+                    <button class="btn btn-outline-info ml-5" type="button">系统管理</button>
+                </a>
+            </li>
+        </ul>
+    </form>
+</nav>
+
+<div class="container-fluid">
+    <div id="NavTabContent" class="tab-content">
+        <!-- 点击系统简介时出现的标签页-->
+        <div class="tab-pane active" id="Blank">
+            <p>简介界面</p>
+        </div>
+        <!--点击中间三个子系统时出现的标签页-->
+        <div class="row tab-pane fade" id="MainBoard">
+            <nav class="col-md-3 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky" style="top:40px">
+                    <ul class="nav flex-column">
+                        <li name="SecondDirectory" class="nav-item active">
+                            <a class="nav-link btn btn-outline-warning" href="#Intro2SubSys" data-toggle="tab">
+                                子系统简介
+                            </a>
+                        </li>
+                        <li name="SecondDirectory" class="nav-item">
+                            <a class="nav-link btn btn-outline-warning" href="#ExpertInfo" data-toggle="tab">
+                                专家信息管理
+                            </a>
+                        </li>
+                        <li name="SecondDirectory" class="nav-item">
+                            <a class="nav-link btn btn-outline-warning" href="#ExpertJudge" data-toggle="tab">
+                                <span data-feather="users"></span>
+                                新兴技术产业化阶段专家判断
+                            </a>
+                        </li>
+
+                        <!-- 科学发展与产业化阶段关联趋势  下拉item-->
+                        <li name="SecondDirectory" class="nav-item">
+                            <a class="nav-link btn btn-outline-warning" data-toggle="collapse" href="#SciencePrediction"
+                               role="button" aria-expanded="false" aria-controls="SciencePrediction">
+                                科学发展与产业化阶段关联趋势
+                            </a>
+                        </li>
+                        <div class="collapse" id="SciencePrediction">
+                            <ul class="nav flex-column">
+                                <li name="ThirdDirectory" class="nav-item">
+                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                       href="#ScienceHeatPrediction" role="button" aria-expanded="false"
+                                       aria-controls="ScienceHeatPrediction">
+                                        科学热度与产业化阶段关联趋势
+                                    </a>
+                                </li>
+                                <div class="collapse" id="ScienceHeatPrediction">
+                                    <ul class="nav flex-column">
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#TotalInfoRepresent" data-toggle="tab">
+                                                总体分析
+                                            </a>
+                                        </li>
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#CountryInfoRepresent" data-toggle="tab">
+                                                国家分析
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <li class="nav-item">
+                                    <a name="ThirdDirectory" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                       href="#ScienceInfluencePrediction" role="button" aria-expanded="true"
+                                       aria-controls="ScienceInfluencePrediction">
+                                        科学影响力与产业化阶段关联趋势
+                                    </a>
+                                </li>
+                                <div class="collapse" id="ScienceInfluencePrediction">
+                                    <ul class="nav flex-column">
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#TotalInfoRepresent" data-toggle="tab">
+                                                总体分析
+                                            </a>
+                                        </li>
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#CountryInfoRepresent" data-toggle="tab">
+                                                国家分析
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+
+                        <!-- 技术发展与产业化阶段关联趋势  下拉item-->
+                        <li name="SecondDirectory" class="nav-item">
+                            <a class="nav-link btn btn-outline-warning" data-toggle="collapse"
+                               href="#TechnologyPrediction" role="button" aria-expanded="false"
+                               aria-controls="TechnologyPrediction">
+                                技术发展与产业化阶段关联趋势
+                            </a>
+                        </li>
+                        <div class="collapse" id="TechnologyPrediction">
+                            <ul class="nav flex-column">
+                                <li name="ThirdDirectory" class="nav-item">
+                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                       href="#TechnologyHeatPrediction" role="button" aria-expanded="false"
+                                       aria-controls="TechnologyHeatPrediction">
+                                        技术热度与产业化阶段关联趋势
+                                    </a>
+                                </li>
+                                <div class="collapse" id="TechnologyHeatPrediction">
+                                    <ul class="nav flex-column">
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#TotalInfoRepresent" data-toggle="tab">
+                                                总体分析
+                                            </a>
+                                        </li>
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#CountryInfoRepresent" data-toggle="tab">
+                                                国家分析
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <li class="nav-item">
+                                    <a name="ThirdDirectory" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                       href="#TechnologyInfluencePrediction" role="button" aria-expanded="true"
+                                       aria-controls="TechnologyInfluencePrediction">
+                                        技术影响力与产业化阶段关联趋势
+                                    </a>
+                                </li>
+                                <div class="collapse" id="TechnologyInfluencePrediction">
+                                    <ul class="nav flex-column">
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#TotalInfoRepresent" data-toggle="tab">
+                                                总体分析
+                                            </a>
+                                        </li>
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#CountryInfoRepresent" data-toggle="tab">
+                                                国家分析
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+
+                        <!-- 科学与技术发展关联聚类预测 -->
+                        <li name="SecondDirectory" class="nav-item">
+                            <a class="nav-link btn btn-outline-warning" data-toggle="collapse"
+                               href="#SciAndTecClusterPrediction" role="button" aria-expanded="false"
+                               aria-controls="SciAndTecClusterPrediction">
+                                科学与技术发展关联聚类预测
+                            </a>
+                        </li>
+                        <div class="collapse" id="SciAndTecClusterPrediction">
+                            <ul class="nav flex-column">
+                                <li name="ThirdDirectory" class="nav-item">
+                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                       href="#SciAndTecClusterHeatPrediction" role="button" aria-expanded="false"
+                                       aria-controls="SciAndTecClusterHeatPrediction">
+                                        科学与技术热度关联聚类预测
+                                    </a>
+                                </li>
+                                <div class="collapse" id="SciAndTecClusterHeatPrediction">
+                                    <ul class="nav flex-column">
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#TotalInfoRepresent" data-toggle="tab">
+                                                总体分析
+                                            </a>
+                                        </li>
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#CountryInfoRepresent" data-toggle="tab">
+                                                国家分析
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <li name="ThirdDirectory" class="nav-item">
+                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                       href="#SciAndTecClusterInfluencePrediction" role="button" aria-expanded="true"
+                                       aria-controls="SciAndTecClusterInfluencePrediction">
+                                        科学与技术影响力关联聚类预测
+                                    </a>
+                                </li>
+                                <div class="collapse" id="SciAndTecClusterInfluencePrediction">
+                                    <ul class="nav flex-column">
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#TotalInfoRepresent" data-toggle="tab">
+                                                总体分析
+                                            </a>
+                                        </li>
+                                        <li name="ForthDirectory" class="nav-item">
+                                            <a class="nav-link btn-sm btn-outline-warning text-center"
+                                               href="#CountryInfoRepresent" data-toggle="tab">
+                                                国家分析
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+                        <li name="SecondDirectory" class="nav-item">
+                            <a class="nav-link btn btn-outline-warning" href="#TestReport" data-toggle="tab">
+                                监测报告
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 二级菜单下对右下方的块进行修改-->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-14 pt-3 px-4">
+                <!-- 面包屑导航-->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <ul id="BreadNav" class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">2013</a></li>
+                        <li class="active">十一月</li>
+                    </ul>
+                </div>
+                <div id="MainContent" class="tab-content">
+                    <div class="tab-pane active" id="Intro2SubSys">
+                        子系统简介
+                    </div>
+                    <div class="tab-pane fade" id="ExpertInfo">
+                        专家信息管理
+                    </div>
+                    <!-- 产业化阶段判断-->
+                    <div class="tab-pane fade" id="ExpertJudge">
+                        <h1 class="text-lg-center">专家判断技术产业化阶段</h1>
+                        <!--选择大类和小类 -->
+                        <form role="form">
+                            <div class="form-group row mt-5">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    选择领域
+                                </div>
+                                <select name="SelectSecondaryClass"
+                                        id="JudgeStageSecondaryClass" class="form-control col-sm-2">
+                                    <option hidden>请选择大类</option>
+                                </select>
+                                <select name="SelectThirdClass"
+                                        id="JudgeStageThirdClass" class="form-control col-sm-2 ml-4">
+                                    <option hidden>请选择小类</option>
+                                </select>
+                            </div>
+                            <h3 class="text-lg-center mt-2">年份区间选择</h3>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    研发期
+                                </div>
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="DevelopStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
+                                        id="DevelopStop">
+                                    <option hidden>终止年份</option>
+                                </select>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    初创期
+                                </div>
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="InitialStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
+                                        id="InitialStop">
+                                    <option hidden>终止年份</option>
+                                </select>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    成长期
+                                </div>
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="GrowupStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
+                                        id="GrowupStop">
+                                    <option hidden>终止年份</option>
+                                </select>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    扩张期
+                                </div>
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="ExpandStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
+                                        id="ExpandStop">
+                                    <option hidden>终止年份</option>
+                                </select>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    成熟期
+                                </div>
+                                <select name="SelectStageStartYears" class="form-control col-sm-2" id="MatureStart">
+                                    <option hidden>起始年份</option>
+                                </select>
+                                <select name="SelectStageStopYears" class="form-control col-sm-2 ml-4"
+                                        id="MatureStop">
+                                    <option hidden>终止年份</option>
+                                </select>
+                            </div>
+                            <button id="JudgeStageEnter" class="col-sm-2 btn-primary offset-5 mt-5" type="button">确定
+                            </button>
+                        </form>
+                    </div>
+                    <!-- 展示总体信息子页面-->
+                    <div class="tab-pane fade" id="TotalInfoRepresent">
+                        <form role="form">
+                            <div class="form-group row mt-3">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    选择领域
+                                </div>
+                                <select name="SelectSecondaryClass"
+                                        id="RepresentTotalInfoSecondaryClass" class="form-control col-sm-2">
+                                    <option hidden>请选择大类</option>
+                                </select>
+                                <select name="SelectThirdClass"
+                                        id="RepresentTotalInfoThirdClassContent" class="form-control col-sm-2 ml-4">
+                                    <option hidden>请选择小类</option>
+                                </select>
+                                <button id="TotalClassSelectEnter" class="btn btn-outline-primary ml-3"
+                                        type="button">
+                                    确定
+                                </button>
+                            </div>
+                        </form>
+                        <hr/>
+                        <h3 id="TotalTitle" class="text-lg-center mt-5">年份区间选择</h3>
+                        <div class="offset-3 mt-5">
+                            <canvas class="my-4" id="TotalChart" width="900" height="380"></canvas>
+                        </div>
+                    </div>
+                    <!-- 展示国家信息子页面-->
+                    <div class="tab-pane fade" id="CountryInfoRepresent">
+                        <form role="form">
+                            <div class="form-group row mt-3">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    选择领域
+                                </div>
+                                <select name="SelectSecondaryClass"
+                                        id="RepresentClassCountryInfoSecondaryClass" class="form-control col-sm-2">
+                                    <option hidden>请选择大类</option>
+                                </select>
+                                <select name="SelectThirdClass"
+                                        id="RepresentClassCountryInfoThirdClass" class="form-control col-sm-2 ml-4">
+                                    <option hidden>请选择小类</option>
+                                </select>
+                            </div>
+                            <div class="form-group row">
+                                <div class="btn btn-outline-primary offset-3 mr-4">
+                                    选择国家
+                                </div>
+                                <select name="SelectCountry"
+                                        id="RepresentClassCountryInfoSelectCou" class="form-control col-sm-2">
+                                    <option hidden>请选择国家</option>
+                                </select>
+                                <button id="ClassCountrySelectEnter" class="btn btn-outline-primary ml-5" type="button">
+                                    确定
+                                </button>
+                            </div>
+                        </form>
+                        <hr/>
+                        <h3 id="CountryTitle" class="text-lg-center mt-5">年份区间选择</h3>
+                        <div class="offset-3 mt-5">
+                            <canvas class="my-4" id="CountryChart" width="900" height="380"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+</div>
+<script src="{{ url_for('static',filename='js/BreadNav.js') }}"></script>
+<script src="{{ url_for('static',filename='js/CommonFunction.js') }}"></script>
+<script src="{{ url_for('static',filename='js/ExpertJudge.js') }}"></script>
+<script src="{{ url_for('static',filename='js/TotalInfo.js') }}"></script>
+<script src="{{ url_for('static',filename='js/CountryInfo.js') }}"></script>
+<script src="{{ url_for('static',filename='js/index.js') }}"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('CountryChart'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+            data: ['销量']
+        },
+        xAxis: {
+            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+</body>
+</html>

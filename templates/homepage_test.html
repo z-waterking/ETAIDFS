@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/navbar.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/dashboard.css') }}"/>
+    <link rel="stylesheet" href="../static/css/bootstrap-select.css">
+</head>
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            Dashboard <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file"></span>
+                            Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                            Products
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Customers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Reports
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="layers"></span>
+                            Integrations
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Saved reports</span>
+                    <a class="d-flex align-items-center text-muted" href="#">
+                        <span data-feather="plus-circle"></span>
+                    </a>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Current month
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Last quarter
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Social engagement
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Year-end sale
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <ul id="BreadNav" class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">2013</a></li>
+                    <li class="active">十一月</li>
+                </ul>
+            </div>
+            <h1 class="text-lg-center">专家判断技术产业化阶段</h1>
+            <!--选择大类和小类 -->
+                <form role="form">
+                    <div class="form-group row mt-5">
+                        <div class="btn btn-outline-primary offset-3 mr-4">
+                                选择领域
+                        </div>
+                        <select name = "SelectSecondaryClass"
+                                id="JudgeStageSecondaryClass" class="form-control col-sm-2">
+                            <option hidden>请选择大类</option>
+                            <option>1</option>
+                        </select>
+                        <select name = "SelectThirdClass"
+                                id="JudgeStageThirdClass" class="form-control col-sm-2 ml-4">
+                            <option hidden>请选择小类</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                    <h3 class="text-lg-center mt-2">年份区间选择</h3>
+                    <div class="form-group row mt-4">
+                        <div class="btn btn-outline-primary offset-3 mr-4">
+                                研发期
+                        </div>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2" id="DevelopStart">
+                            <option hidden>起始年份</option>
+                            <option>1</option>
+                        </select>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2 ml-4" id="DevelopStop">
+                            <option hidden>终止年份</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <div class="btn btn-outline-primary offset-3 mr-4">
+                                初创期
+                        </div>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2" id="InitialStart">
+                            <option hidden>起始年份</option>
+                            <option>1</option>
+                        </select>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2 ml-4" id="InitialStop">
+                            <option hidden>终止年份</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <div class="btn btn-outline-primary offset-3 mr-4">
+                                成长期
+                        </div>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2" id="GrowupStart">
+                            <option hidden>起始年份</option>
+                            <option>1</option>
+                        </select>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2 ml-4" id="GrowupStop">
+                            <option hidden>终止年份</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <div class="btn btn-outline-primary offset-3 mr-4">
+                                扩张期
+                        </div>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2" id="ExpandStart">
+                            <option hidden>起始年份</option>
+                            <option>1</option>
+                        </select>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2 ml-4" id="ExpandStop">
+                            <option hidden>终止年份</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <div class="btn btn-outline-primary offset-3 mr-4">
+                                成熟期
+                        </div>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2" id="MatureStart">
+                            <option hidden>起始年份</option>
+                            <option>1</option>
+                        </select>
+                        <select name="SelectButtonStageYears" class="form-control col-sm-2 ml-4" id="MatureStop">
+                            <option hidden>终止年份</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                    <button id="JudgeStageEnter" class="col-sm-2 btn-primary offset-5 mt-5">确定</button>
+                </form>
+        </main>
+    </div>
+</div>
+
+<script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery-slim.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+<script src="../static/js/bootstrap-select.min.js"></script>
+<script src="{{ url_for('static',filename='js/index.js') }}"></script>
+</body>
+
+</html>

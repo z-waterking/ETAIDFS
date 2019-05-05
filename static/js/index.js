@@ -1,35 +1,13 @@
-$("#bt_post").click(function () {
-	alert('OK');
-	$.ajax({
-		type: "post",
-		async: true, // 异步执行
-		url: "post_data",
-		data: JSON.stringify({'a':1}),
-		contentType: 'application/json',
-		dataType: "json", // 返回数据形式为json
-		success: function (json) {
-			console.log(json);
-			$("#dv_post").html("完成测试：" + json["result"])
-		},
-		error: function (errorMsg) {
-		}
-	});
-});
 
-$("#bt_get").click(function () {
-	alert('OK');
-	$.ajax({
-		type: "get",
-		async: true, // 异步执行
-		url: "get_data",
-		data: {"a":1, "b":2},
-		contentType: 'application/json',
-		dataType: "json", // 返回数据形式为json
-		success: function (json) {
-			console.log(json);
-			$("#dv_get").html("完成测试:" + json["result"]);
-		},
-		error: function (errorMsg) {
-		}
-    });
+//全局变量，记录整个页面的状态
+PagePosition = {
+    'FirstDirectory':'默认',
+    'SecondDirectory':null,
+    'ThirdDirectory':null,
+    'ForthDirectory':null
+}
+//页面加载完成后，更新对应选择框中的列表
+$(function(){
+    //从服务器端取得二级目录、国家列表、以及年份列表
+    $.RefreshList();
 });
