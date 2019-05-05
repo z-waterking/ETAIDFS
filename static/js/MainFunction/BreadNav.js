@@ -6,7 +6,10 @@ $('a[name=FirstDirectory] > button').click(function(object){
     PagePosition['SecondDirectory'] = null;
     PagePosition['ThirdDirectory'] = null;
     PagePosition['ForthDirectory'] = null;
+    //刷新面包屑导航
     $.RefreshBread();
+    //重置侧边导航
+    $.ResetSideNav();
 })
 //修改二级目录的点击事件，更新面包屑导航条
 $('li[name=SecondDirectory] > a').click(function(object){
@@ -16,6 +19,8 @@ $('li[name=SecondDirectory] > a').click(function(object){
     PagePosition['ThirdDirectory'] = null;
     PagePosition['ForthDirectory'] = null;
     $.RefreshBread();
+    //重置Echarts
+    $.ResetChart();
 })
 
 //修改三级目录的点击事件，更新面包屑导航条
@@ -25,6 +30,8 @@ $('li[name=ThirdDirectory] > a').click(function(object){
     PagePosition['ThirdDirectory'] = object.target.innerHTML;
     PagePosition['ForthDirectory'] = null;
     $.RefreshBread();
+    //重置Echarts
+    $.ResetChart();
 })
 
 //修改四级目录的点击事件，更新面包屑导航条
@@ -35,4 +42,6 @@ $('li[name=ForthDirectory] > a').click(function(object){
     $.RefreshBread();
     //在点击四级目录时，重置所有的List
     $.ResetList();
+    //重置Echarts
+    $.ResetChart();
 })

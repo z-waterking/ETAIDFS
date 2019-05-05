@@ -65,7 +65,7 @@
                 <div class="sidebar-sticky" style="top:40px">
                     <ul class="nav flex-column">
                         <li name="SecondDirectory" class="nav-item active">
-                            <a class="nav-link btn btn-outline-warning" href="#Intro2SubSys" data-toggle="tab">子系统简介</a>
+                            <a id="ResetSideBarTarget" class="nav-link btn btn-outline-warning" href="#Intro2SubSys" data-toggle="tab">子系统简介</a>
                         </li>
                         <li name="SecondDirectory" class="nav-item">
                             <a class="nav-link btn btn-outline-warning" href="#ExpertInfo" data-toggle="tab">专家信息管理</a>
@@ -74,7 +74,6 @@
                             <a class="nav-link btn btn-outline-warning" href="#ExpertJudge" data-toggle="tab">
                                 <span data-feather="users"></span>新兴技术产业化阶段专家判断</a>
                         </li>
-
                         <!-- 科学发展与产业化阶段关联趋势  下拉item-->
                         <li name="SecondDirectory" class="nav-item">
                             <a class="nav-link btn btn-outline-warning" data-toggle="collapse" href="#SciencePrediction"
@@ -339,7 +338,7 @@
                         </form>
                         <hr/>
                         <h3 id="TotalTitle" class="text-lg-center mt-5">年份区间选择</h3>
-                        <div class="offset-2 mt-3">
+                        <div name="ChartContainer" id ="TotalChartContainer" class="offset-2 mt-3">
                             <canvas class="my-4" id="TotalChart" width="900" height="380"></canvas>
                         </div>
                     </div>
@@ -374,7 +373,7 @@
                         </form>
                         <hr/>
                         <h3 id="CountryTitle" class="text-lg-center mt-5">年份区间选择</h3>
-                        <div class="offset-2 mt-3">
+                        <div name="ChartContainer" id="CountryChartContainer"class="offset-2 mt-3">
                             <canvas class="my-4" id="CountryChart" width="900" height="380"></canvas>
                         </div>
                     </div>
@@ -389,7 +388,7 @@
 <script src="{{ url_for('static',filename='js/MainFunction/ExpertJudge.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/TotalInfo.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/CountryInfo.js') }}"></script>
+<script src="{{ url_for('static',filename='js/MainFunction/Reset.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/index.js') }}"></script>
-
 </body>
 </html>
