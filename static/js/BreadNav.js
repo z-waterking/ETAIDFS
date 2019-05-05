@@ -33,4 +33,6 @@ $('li[name=ForthDirectory] > a').click(function(object){
     //四级目录只改第四级的，后面设为null
     PagePosition['ForthDirectory'] = object.target.innerHTML;
     $.RefreshBread();
+    //在点击四级目录时，更新所有的List
+    $.RefreshList();
 })

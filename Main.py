@@ -69,7 +69,6 @@ def GetCommonThirdClass():
 
 #-----------获取图表展示数据End---------------
 
-
 @app.route('/getdata',methods=['POST','GET'])
 def GetData():
     data = request.json

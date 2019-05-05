@@ -43,6 +43,8 @@ $("#JudgeStageEnter").click(function(){
         var stop = select.options[select.selectedIndex].value
         AllStopYears.push(stop);
     })
+    //todo:判断是否所有的数据值均为合法的
+
     //组织成对应格式提交
     Stages = ["DevelopStage", "InitialStage", "GrowupStage", "ExpandStage", "MatureStart"];
     PostData = {
