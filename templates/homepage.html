@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <title></title>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/navbar.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/dashboard.css') }}"/>
     <link rel="stylesheet" href="../static/css/bootstrap-select.min.css">
@@ -15,11 +15,13 @@
     <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/jquery-slim.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.js') }}"></script>
     <script src="{{ url_for('static',filename='js/bootstrap-submenu.js') }}"></script>
     <script src="{{ url_for('static',filename='js/echarts.min.js') }}"></script>
     <script src="../static/js/bootstrap-select.min.js"></script>
     <script src="../static/js/ExpertInformationManage.js"></script>
+    <script src="{{ url_for('static',filename='js/jquery-1.10.2.min.js') }}"></script>
+{#    <script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>#}
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
@@ -66,15 +68,15 @@
         <div class="row tab-pane fade" id="MainBoard">
             <nav class="col-md-3 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky " style="top:40px">
-                    <ul class="nav flex-column " >
+                    <ul class="nav flex-column">
                         <li name="SecondDirectory" class="nav-item active">
-                            <a id="ResetSideBarTarget" class="nav-link btn btn-outline-warning" href="#Intro2SubSys" data-toggle="tab">子系统简介</a>
+                            <a name="SecondDirectory_a" id="ResetSideBarTarget" class="nav-link btn btn-outline-warning" href="#Intro2SubSys" data-toggle="tab">子系统简介</a>
                         </li>
                         <li name="SecondDirectory" class="nav-item">
-                            <a class="nav-link btn btn-outline-warning" href="#ExpertInfo" data-toggle="tab">专家信息管理</a>
+                            <a name="SecondDirectory_a" class="nav-link btn btn-outline-warning" href="#ExpertInfo" data-toggle="tab">专家信息管理</a>
                         </li>
                         <li name="SecondDirectory" class="nav-item">
-                            <a class="nav-link btn btn-outline-warning" href="#ExpertJudge" data-toggle="tab">
+                            <a name="SecondDirectory_a" class="nav-link btn btn-outline-warning" href="#ExpertJudge" data-toggle="tab" role="button">
                                 <span data-feather="users"></span>新兴技术产业化阶段专家判断</a>
                         </li>
                         <!-- 科学发展与产业化阶段关联趋势  下拉item-->
@@ -228,9 +230,9 @@
                         <li class="active">十一月</li>
                     </ul>
                 </div>
-                <div id="MainContent" class="tab-content">
+                <div id="MainContent" class="tab-content" :false>
                     <div class="tab-pane active" id="Intro2SubSys">
-                        子系统简介
+                        <p>子系统简介</p>
                     </div>
                     <div class="tab-pane fade" id="ExpertInfo">
                         <h1 class="text-lg-center">专家信息管理</h1>

@@ -13,7 +13,8 @@ $('a[name=FirstDirectory] > button').click(function(object){
 })
 //修改二级目录的点击事件，更新面包屑导航条
 $('li[name=SecondDirectory] > a').click(function(object){
-    console.log(object.target.innerHTML);
+    console.log(object.target);
+    //去掉自己的类active
     //二级目录只改第二级的，后面设为null
     PagePosition['SecondDirectory'] = object.target.innerHTML;
     PagePosition['ThirdDirectory'] = null;
@@ -37,6 +38,8 @@ $('li[name=ThirdDirectory] > a').click(function(object){
 //修改四级目录的点击事件，更新面包屑导航条
 $('li[name=ForthDirectory] > a').click(function(object){
     console.log(object.target.innerHTML);
+    object.preventDefault();
+
     //四级目录只改第四级的，后面设为null
     PagePosition['ForthDirectory'] = object.target.innerHTML;
     $.RefreshBread();
