@@ -34,18 +34,18 @@ class DatabaseManagement():
 
 if __name__ == "__main__":
     myData = DatabaseManagement()
-    expert1 = ExpertList(Expert_Name = "王",Birth_Year="1975",Sex="男",People="汉族",Institution="院士",Professional_Title="muji",
-                         Administrative_duty = "jjj",City="上海",Province="上海",Address="浦东新区",Zip="",
-                         Highestdegree = "博士",Degreedate = "2006",University="北理",Honorary_Reward="",
-                         Tel="123456789",Email="1051778789@163.com",Class ="")
-    expert2 = ExpertList(Expert_Name="刘", Birth_Year="1972", Sex="女", People="汉族", Institution="教授",
-                         Professional_Title="muji",
-                         Administrative_duty="muji", City="北京", Province="北京", Address="中关村", Zip="",
-                         Highestdegree="博士", Degreedate="2006", University="中科院", Honorary_Reward="",
-                         Tel="123456789", Email="1051778789@163.com", Class="")
+    # expert1 = ExpertList(Expert_Name = "王",Birth_Year="1975",Sex="男",People="汉族",Institution="院士",Professional_Title="muji",
+    #                      Administrative_duty = "jjj",City="上海",Province="上海",Address="浦东新区",Zip="",
+    #                      Highestdegree = "博士",Degreedate = "2006",University="北理",Honorary_Reward="",
+    #                      Tel="123456789",Email="1051778789@163.com",Class ="")
+    # expert2 = ExpertList(Expert_Name="刘", Birth_Year="1972", Sex="女", People="汉族", Institution="教授",
+    #                      Professional_Title="muji",
+    #                      Administrative_duty="muji", City="北京", Province="北京", Address="中关村", Zip="",
+    #                      Highestdegree="博士", Degreedate="2006", University="中科院", Honorary_Reward="",
+    #                      Tel="123456789", Email="1051778789@163.com", Class="")
     #增加
-    user = User(username='王若琳', email='1051776737@qq.com',password='123456')
-    myData.add_obj(user)
+    # user = User(username='王若琳', email='1051776737@qq.com',password='123456')
+    # myData.add_obj(user)
     # myData.add_obj(expert2)
     #查询
     # query_filter = and_(ExpertList.ID == 5)

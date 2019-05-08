@@ -1,7 +1,6 @@
 # coding: utf-8
-from sqlalchemy import Column, DECIMAL, Float, Integer, NCHAR, String, Table
+from sqlalchemy import Column, DECIMAL, Float, Integer, NCHAR, String
 from sqlalchemy.ext.declarative import declarative_base
-from flask_login import UserMixin
 
 Base = declarative_base()
 metadata = Base.metadata
@@ -51,75 +50,83 @@ class ExpertList(Base):
     Class = Column(String(500, 'Chinese_PRC_CI_AS'))
 
 
-t_Paper_Country_HotDegree = Table(
-    'Paper_Country_HotDegree', metadata,
-    Column('class', String(100, 'Chinese_PRC_CI_AS')),
-    Column('year', String(50, 'Chinese_PRC_CI_AS')),
-    Column('country', String(50, 'Chinese_PRC_CI_AS')),
-    Column('Hot_degree', DECIMAL(18, 3))
-)
+class PaperCountryHotDegree(Base):
+    __tablename__ = 'Paper_Country_HotDegree'
+
+    id = Column(Integer, primary_key=True)
+    _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
+    year = Column(String(50, 'Chinese_PRC_CI_AS'))
+    country = Column(String(50, 'Chinese_PRC_CI_AS'))
+    Hot_degree = Column(DECIMAL(18, 3))
 
 
-t_Paper_Country_Influence = Table(
-    'Paper_Country_Influence', metadata,
-    Column('class', String(100, 'Chinese_PRC_CI_AS')),
-    Column('year', String(50, 'Chinese_PRC_CI_AS')),
-    Column('Influence', Float(53)),
-    Column('country', String(50, 'Chinese_PRC_CI_AS'))
-)
+class PaperCountryInfluence(Base):
+    __tablename__ = 'Paper_Country_Influence'
+
+    id = Column(Integer, primary_key=True)
+    _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
+    year = Column(String(50, 'Chinese_PRC_CI_AS'))
+    Influence = Column(Float(53))
+    country = Column(String(50, 'Chinese_PRC_CI_AS'))
 
 
-t_Paper_HotDegree = Table(
-    'Paper_HotDegree', metadata,
-    Column('class', String(100, 'Chinese_PRC_CI_AS')),
-    Column('year', String(50, 'Chinese_PRC_CI_AS')),
-    Column('Paper_Num_total', Integer),
-    Column('Hot_degree', DECIMAL(18, 3))
-)
+class PaperHotDegree(Base):
+    __tablename__ = 'Paper_HotDegree'
+
+    id = Column(Integer, primary_key=True)
+    _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
+    year = Column(String(50, 'Chinese_PRC_CI_AS'))
+    Paper_Num_total = Column(Integer)
+    Hot_degree = Column(DECIMAL(18, 3))
 
 
-t_Paper_Influence = Table(
-    'Paper_Influence', metadata,
-    Column('class', String(100, 'Chinese_PRC_CI_AS')),
-    Column('year', String(50, 'Chinese_PRC_CI_AS')),
-    Column('Influence', Float(53)),
-    Column('subsys', NCHAR(10))
-)
+class PaperInfluence(Base):
+    __tablename__ = 'Paper_Influence'
+
+    id = Column(Integer, primary_key=True)
+    _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
+    year = Column(String(50, 'Chinese_PRC_CI_AS'))
+    Influence = Column(Float(53))
+    subsys = Column(NCHAR(10))
 
 
-t_Patent_Country_HotDegree = Table(
-    'Patent_Country_HotDegree', metadata,
-    Column('class', String(100, 'Chinese_PRC_CI_AS')),
-    Column('year', String(50, 'Chinese_PRC_CI_AS')),
-    Column('country', String(50, 'Chinese_PRC_CI_AS')),
-    Column('Hot_degree', DECIMAL(18, 3))
-)
+class PatentCountryHotDegree(Base):
+    __tablename__ = 'Patent_Country_HotDegree'
+
+    id = Column(Integer, primary_key=True)
+    _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
+    year = Column(String(50, 'Chinese_PRC_CI_AS'))
+    country = Column(String(50, 'Chinese_PRC_CI_AS'))
+    Hot_degree = Column(DECIMAL(18, 3))
 
 
-t_Patent_Country_Influence = Table(
-    'Patent_Country_Influence', metadata,
-    Column('class', String(100, 'Chinese_PRC_CI_AS')),
-    Column('year', String(50, 'Chinese_PRC_CI_AS')),
-    Column('Patent_fc_class_country', Float(53)),
-    Column('country', String(50, 'Chinese_PRC_CI_AS'))
-)
+class PatentCountryInfluence(Base):
+    __tablename__ = 'Patent_Country_Influence'
+
+    id = Column(Integer, primary_key=True)
+    _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
+    year = Column(String(50, 'Chinese_PRC_CI_AS'))
+    Patent_fc_class_country = Column(Float(53))
+    country = Column(String(50, 'Chinese_PRC_CI_AS'))
 
 
-t_Patent_HotDegree = Table(
-    'Patent_HotDegree', metadata,
-    Column('class', String(100, 'Chinese_PRC_CI_AS')),
-    Column('year', String(50, 'Chinese_PRC_CI_AS')),
-    Column('Hot_degree', DECIMAL(18, 3))
-)
+class PatentHotDegree(Base):
+    __tablename__ = 'Patent_HotDegree'
+
+    id = Column(Integer, primary_key=True)
+    _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
+    year = Column(String(50, 'Chinese_PRC_CI_AS'))
+    Hot_degree = Column(DECIMAL(18, 3))
 
 
-t_Patent_Influence = Table(
-    'Patent_Influence', metadata,
-    Column('class', String(100, 'Chinese_PRC_CI_AS')),
-    Column('year', String(50, 'Chinese_PRC_CI_AS')),
-    Column('Influence', Float(53)),
-    Column('subsys', NCHAR(10))
-)
+class PatentInfluence(Base):
+    __tablename__ = 'Patent_Influence'
+
+    id = Column(Integer, primary_key=True)
+    _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
+    year = Column(String(50, 'Chinese_PRC_CI_AS'))
+    Influence = Column(Float(53))
+    subsys = Column(NCHAR(10))
 
 
 class User(Base):
