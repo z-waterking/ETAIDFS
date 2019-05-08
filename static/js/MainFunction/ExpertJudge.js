@@ -4,8 +4,10 @@ $("#JudgeStageSecondaryClass").change(function(object){
     //获取当前选中的大类
     var select = object.target;
     NeedSecondaryClass = select.options[select.selectedIndex].value;
+    data = Object.assign({}, PagePosition);
+    data['SecondaryClass'] = NeedSecondaryClass;
     //更新其对应的三级目录列表
-    $.GetData('GetCommonThirdClass', {'SecondaryClass': NeedSecondaryClass}, function(ThirdClass){
+    $.GetData('GetCommonThirdClass', data, function(ThirdClass){
         //先清空三级目录
         $("#JudgeStageThirdClass").empty()
         for(var i = 0; i < ThirdClass.length; i++){
@@ -18,6 +20,34 @@ $("#JudgeStageSecondaryClass").change(function(object){
         }
     })
 })
+// $(document).ready(function() {
+//
+//         DevelopStart();               //第一级菜单函数
+//         DevelopStop();                //第二级菜单函数
+//         InitialStart();               //第三极菜单函数
+//         $("#DevelopStart").change(function(){
+//             DevelopStop();
+//         })
+//         $("#DevelopStop").change(function(){
+//             InitialStart();
+//         })
+//     });
+// function DevelopStart(){
+//             $.ajax({
+//                 async:false,
+//                 url:"",
+//                 dataType:"TEXT",
+//                 success:function(r){
+//                     var str = "";
+//                     for(var i=0;i<lie.length;i++)
+//                     {
+//                         str +=" <option value='"+lie[i]+"' >"+lie[i]+"</option> ";
+//                     }
+//                     $("#DevelopStart").html(str);
+//
+//                 }
+//             });
+//         }
 //提交全部的选择
 $("#JudgeStageEnter").click(function(){
     //获取此页面中的全部控件中的值
@@ -47,7 +77,7 @@ $("#JudgeStageEnter").click(function(){
 
     //组织成对应格式提交
     Stages = ["DevelopStage", "InitialStage", "GrowupStage", "ExpandStage", "MatureStart"];
-    PostData = {
+    PostDataInfo = {
         "SecondaryClass": SecondaryClass,
         "ThirdClass": ThirdClass,
     }
@@ -58,10 +88,10 @@ $("#JudgeStageEnter").click(function(){
                 "start": AllStartYears[i],
                 "stop": AllStopYears[i]
         }
-        PostData[Stages[i]] = temp;
+        PostDataInfo[Stages[i]] = temp;
     }
-    //提交数据向服务器保存，让其
-    $.PostData('JudgeResult', PostData, function(result){
+    //提交数据向服务器保存，让其保存
+    $.PostData('JudgeResult', PostDataInfo, function(result){
         if(result['success'] == true){
             //todo:将alert修改为消息提示框
             alert("Success");
