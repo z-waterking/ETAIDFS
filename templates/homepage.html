@@ -66,11 +66,13 @@
         </div>
         <!--点击中间三个子系统时出现的标签页-->
         <div class="row tab-pane fade" id="MainBoard">
+
+            <!-- todo:不记录点击状态 -->
             <nav class="col-md-3 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky " style="top:40px">
-                    <ul class="nav flex-column">
+                <div class="sidebar-sticky" style="top:40px">
+                    <ul name="NavItemUl" class="nav flex-column">
                         <li name="SecondDirectory" class="nav-item active">
-                            <a name="SecondDirectory_a" id="ResetSideBarTarget" class="nav-link btn btn-outline-warning" href="#Intro2SubSys" data-toggle="tab">子系统简介</a>
+                            <a id="ResetSideBarTarget" class="nav-link btn btn-outline-warning" href="#Intro2SubSys" data-toggle="tab" aria-selected="false">子系统简介</a>
                         </li>
                         <li name="SecondDirectory" class="nav-item">
                             <a name="SecondDirectory_a" class="nav-link btn btn-outline-warning" href="#ExpertInfo" data-toggle="tab">专家信息管理</a>
@@ -81,42 +83,42 @@
                         </li>
                         <!-- 科学发展与产业化阶段关联趋势  下拉item-->
                         <li name="SecondDirectory" class="nav-item">
-                            <a class="nav-link btn btn-outline-warning" data-toggle="collapse" href="#SciencePrediction"
+                            <a id="ScienceDevelop" class="nav-link btn btn-outline-warning" data-toggle="collapse" href="#SciencePrediction"
                                role="button" aria-expanded="false" aria-controls="SciencePrediction">科学发展与产业化阶段关联趋势</a>
                         </li>
-                        <div class="collapse" id="SciencePrediction">
-                            <ul class="nav flex-column">
+                        <div name="CollapseBox" class="collapse" id="SciencePrediction">
+                            <ul name="NavItemUl" class="nav flex-column">
                                 <li name="ThirdDirectory" class="nav-item">
-                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                    <a id="ScienceHeat" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#ScienceHeatPrediction" role="button" aria-expanded="false"
-                                       aria-controls="ScienceHeatPrediction">科学热度与产业化阶段关联趋势</a>
+                                       aria-controls="ScienceHeatPrediction" data-parent="#ScienceDevelop">科学热度与产业化阶段关联趋势</a>
                                 </li>
-                                <div class="collapse" id="ScienceHeatPrediction">
-                                    <ul class="nav flex-column">
+                                <div name="CollapseBox" class="collapse" id="ScienceHeatPrediction">
+                                    <ul name="NavItemUl" class="nav flex-column">
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#TotalInfoRepresent" data-toggle="tab">总体分析</a>
+                                               href="#TotalInfoRepresent" data-toggle="tab" data-parent="#ScienceHeat">总体分析</a>
                                         </li>
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#CountryInfoRepresent" data-toggle="tab">国家分析</a>
+                                               href="#CountryInfoRepresent" data-toggle="tab" data-parent="#ScienceHeat">国家分析</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <li class="nav-item">
-                                    <a name="ThirdDirectory" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                    <a id="ScienceInfluence" name="ThirdDirectory" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#ScienceInfluencePrediction" role="button" aria-expanded="true"
-                                       aria-controls="ScienceInfluencePrediction">科学影响力与产业化阶段关联趋势</a>
+                                       aria-controls="ScienceInfluencePrediction" data-parent="#ScienceDevelop">科学影响力与产业化阶段关联趋势</a>
                                 </li>
-                                <div class="collapse" id="ScienceInfluencePrediction">
-                                    <ul class="nav flex-column">
+                                <div name="CollapseBox" class="collapse" id="ScienceInfluencePrediction">
+                                    <ul name="NavItemUl" class="nav flex-column">
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#TotalInfoRepresent" data-toggle="tab">总体分析</a>
+                                               href="#TotalInfoRepresent" data-toggle="tab" data-parent="#ScienceInfluence">总体分析</a>
                                         </li>
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#CountryInfoRepresent" data-toggle="tab">国家分析</a>
+                                               href="#CountryInfoRepresent" data-toggle="tab" data-parent="#ScienceInfluence">国家分析</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -125,43 +127,43 @@
 
                         <!-- 技术发展与产业化阶段关联趋势  下拉item-->
                         <li name="SecondDirectory" class="nav-item">
-                            <a class="nav-link btn btn-outline-warning" data-toggle="collapse"
+                            <a id="TechnologyDevelop" class="nav-link btn btn-outline-warning" data-toggle="collapse"
                                href="#TechnologyPrediction" role="button" aria-expanded="false"
                                aria-controls="TechnologyPrediction">技术发展与产业化阶段关联趋势</a>
                         </li>
-                        <div class="collapse" id="TechnologyPrediction">
-                            <ul class="nav flex-column">
+                        <div name="CollapseBox" class="collapse" id="TechnologyPrediction">
+                            <ul name="NavItemUl" class="nav flex-column">
                                 <li name="ThirdDirectory" class="nav-item">
-                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                    <a id="TechnologyHead" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#TechnologyHeatPrediction" role="button" aria-expanded="false"
-                                       aria-controls="TechnologyHeatPrediction">技术热度与产业化阶段关联趋势</a>
+                                       aria-controls="TechnologyHeatPrediction" data-parent="#TechnologyDevelop">技术热度与产业化阶段关联趋势</a>
                                 </li>
-                                <div class="collapse" id="TechnologyHeatPrediction">
-                                    <ul class="nav flex-column">
+                                <div name="CollapseBox" class="collapse" id="TechnologyHeatPrediction">
+                                    <ul name="NavItemUl" class="nav flex-column">
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#TotalInfoRepresent" data-toggle="tab">总体分析</a>
+                                               href="#TotalInfoRepresent" data-toggle="tab" data-parent="#TechnologyHead">总体分析</a>
                                         </li>
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#CountryInfoRepresent" data-toggle="tab">国家分析</a>
+                                               href="#CountryInfoRepresent" data-toggle="tab" data-parent="#TechnologyHead">国家分析</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <li class="nav-item">
-                                    <a name="ThirdDirectory" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                    <a id="TechnologyInfluence" name="ThirdDirectory" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#TechnologyInfluencePrediction" role="button" aria-expanded="true"
-                                       aria-controls="TechnologyInfluencePrediction">技术影响力与产业化阶段关联趋势</a>
+                                       aria-controls="TechnologyInfluencePrediction" data-parent="#TechnologyDevelop">技术影响力与产业化阶段关联趋势</a>
                                 </li>
-                                <div class="collapse" id="TechnologyInfluencePrediction">
-                                    <ul class="nav flex-column">
+                                <div name="CollapseBox" class="collapse" id="TechnologyInfluencePrediction">
+                                    <ul name="NavItemUl" class="nav flex-column">
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#TotalInfoRepresent" data-toggle="tab">总体分析</a>
+                                               href="#TotalInfoRepresent" data-toggle="tab" data-parent="#TechnologyInfluence">总体分析</a>
                                         </li>
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#CountryInfoRepresent" data-toggle="tab">国家分析</a>
+                                               href="#CountryInfoRepresent" data-toggle="tab" data-parent="#TechnologyInfluence">国家分析</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -170,45 +172,45 @@
 
                         <!-- 科学与技术发展关联聚类预测 -->
                         <li name="SecondDirectory" class="nav-item">
-                            <a class="nav-link btn btn-outline-warning" data-toggle="collapse"
+                            <a id="SciAndTecCluster" class="nav-link btn btn-outline-warning" data-toggle="collapse"
                                href="#SciAndTecClusterPrediction" role="button" aria-expanded="false"
                                aria-controls="SciAndTecClusterPrediction">
                                 科学与技术发展关联聚类预测
                             </a>
                         </li>
-                        <div class="collapse" id="SciAndTecClusterPrediction">
-                            <ul class="nav flex-column">
+                        <div name="CollapseBox" class="collapse" id="SciAndTecClusterPrediction">
+                            <ul name="NavItemUl" class="nav flex-column">
                                 <li name="ThirdDirectory" class="nav-item">
-                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                    <a id="SciAndTecHeat" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
                                        href="#SciAndTecClusterHeatPrediction" role="button" aria-expanded="false"
-                                       aria-controls="SciAndTecClusterHeatPrediction">科学与技术热度关联聚类预测</a>
+                                       aria-controls="SciAndTecClusterHeatPrediction" data-parent="#SciAndTecCluster">科学与技术热度关联聚类预测</a>
                                 </li>
-                                <div class="collapse" id="SciAndTecClusterHeatPrediction">
-                                    <ul class="nav flex-column">
+                                <div name="CollapseBox" class="collapse" id="SciAndTecClusterHeatPrediction">
+                                    <ul name="NavItemUl" class="nav flex-column">
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#TotalInfoRepresent" data-toggle="tab">总体分析</a>
+                                               href="#TotalInfoRepresent" data-toggle="tab" data-parent="#SciAndTecHeat">总体分析</a>
                                         </li>
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#CountryInfoRepresent" data-toggle="tab">国家分析</a>
+                                               href="#CountryInfoRepresent" data-toggle="tab" data-parent="#SciAndTecHeat">国家分析</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <li name="ThirdDirectory" class="nav-item">
-                                    <a class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
-                                       href="#SciAndTecClusterInfluencePrediction" role="button" aria-expanded="true"
-                                       aria-controls="SciAndTecClusterInfluencePrediction">科学与技术影响力关联聚类预测</a>
+                                    <a id="SciAndTecInfluence" class="nav-link btn-sm btn-outline-warning text-center" data-toggle="collapse"
+                                       href="#SciAndTecClusterInfluencePrediction" role="button" aria-expanded="false"
+                                       aria-controls="SciAndTecClusterInfluencePrediction" data-parent="#SciAndTecCluster">科学与技术影响力关联聚类预测</a>
                                 </li>
-                                <div class="collapse" id="SciAndTecClusterInfluencePrediction">
-                                    <ul class="nav flex-column">
+                                <div name="CollapseBox" class="collapse" id="SciAndTecClusterInfluencePrediction">
+                                    <ul name="NavItemUl" class="nav flex-column">
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#TotalInfoRepresent" data-toggle="tab">总体分析</a>
+                                               href="#TotalInfoRepresent" data-toggle="tab" data-parent="#SciAndTecInfluence">总体分析</a>
                                         </li>
                                         <li name="ForthDirectory" class="nav-item">
                                             <a class="nav-link btn-sm btn-outline-warning text-center"
-                                               href="#CountryInfoRepresent" data-toggle="tab">国家分析</a>
+                                               href="#CountryInfoRepresent" data-toggle="tab" data-parent="#SciAndTecInfluence">国家分析</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -223,8 +225,8 @@
             <!-- 二级菜单下对右下方的块进行修改-->
             <main role="main" class="col-md-9 ml-sm-auto col-lg-14 pt-3 px-4">
                 <!-- 面包屑导航-->
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                    <ul id="BreadNav" class="breadcrumb">
+                <div class=" justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <ul id="BreadNav" class="breadcrumb" style="">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">2013</a></li>
                         <li class="active">十一月</li>
@@ -821,12 +823,12 @@
     </div>
 </div>
 </div>
+<script src="{{ url_for('static',filename='js/MainFunction/Reset.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/BreadNav.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/CommonFunction.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/ExpertJudge.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/TotalInfo.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/CountryInfo.js') }}"></script>
-<script src="{{ url_for('static',filename='js/MainFunction/Reset.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/index.js') }}"></script>
 </body>
 </html>

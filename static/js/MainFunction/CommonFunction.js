@@ -50,7 +50,7 @@ $.SetLineChart = function(myChart, result){
             case 'Develop': symbol = 'rect';break;
             case 'Initial': symbol = 'triangle'; break;
             case 'Growup': symbol = 'diamond'; break;
-            case 'Expand': symbol = 'arrow'; break;
+            case 'Expand': symbol = 'image://http://img95.699pic.com/element/40118/4201.png_300.png!/fw/431/clip/0x300a0a0'; break;
             case 'Mature': symbol = 'circle';
         }
         temp = {
@@ -95,6 +95,7 @@ $.RefreshBread = function(){
     $("#BreadNav").empty();
 	var Directory = ['FirstDirectory', 'SecondDirectory', 'ThirdDirectory', 'ForthDirectory']
     $.each(Directory, function(n, direct){
+        //console.log(n + direct);
         if(PagePosition[direct] == null){
             return;
         }
@@ -104,6 +105,22 @@ $.RefreshBread = function(){
         $li.appendTo($("#BreadNav"));
     });
 };
+
+//根据点击的第四级目录更新对应的第二级、第三级名称
+$.RefreshSecThiByFor = function(Forth){
+    console.log(Forth);
+    //寻找往上两级的目录
+    ThirdId = Forth.getAttribute("data-parent");
+    Third = $(ThirdId)[0];
+    console.log(Third);
+    SecondId = Third.getAttribute("data-parent");
+    Second = $(SecondId)[0];
+    console.log(Second);
+    //设置对应的二级、三级目录
+    PagePosition['SecondDirectory'] = Second.innerHTML;
+    PagePosition['ThirdDirectory'] = Third.innerHTML;
+}
+
 //封装的Get函数，callback为传递进来的回调
 $.GetData = function(url, data, callback){
     $.ajax({

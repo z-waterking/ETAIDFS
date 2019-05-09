@@ -69,9 +69,33 @@ $.ResetChart = function(){
     $chartCountry.appendTo($("#CountryChartContainer"))
 }
 
+//重置二级目录
+$.ResetSecondDirectory = function(){
+    $('li[name=SecondDirectory] > a').removeClass("active");
+}
+//重置三级目录
+$.ResetThirdDirectory = function(){
+    $('li[name=ThirdDirectory] > a').removeClass("active");
+}
+//重置四级目录
+$.ResetForthDirectory = function(){
+    $('li[name=ForthDirectory] > a').removeClass("active");
+}
+//重置collapse
+$.ResetCollapseBox = function(){
+    //对可折叠元素进行折叠
+    $("div[name=CollapseBox]").removeClass("show");
+}
+
 //重置sidebar导航条
 $.ResetSideNav = function(){
-    // alert('a');
-    //todo：完成侧边导航栏重置逻辑
+    //重置二、三、四级目录，及下拉框
+    $.ResetSecondDirectory();
+    $.ResetThirdDirectory();
+    $.ResetForthDirectory();
+    //收起下拉框
+    $.ResetCollapseBox();
+    //点击第一条
     $("#ResetSideBarTarget").click();
 }
+
