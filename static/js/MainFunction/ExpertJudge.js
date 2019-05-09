@@ -71,10 +71,7 @@ $("#JudgeStageEnter").click(function(){
             alert("选择年份应为递增关系");
             return;
         }
-        else if(i==9)
-        {
-            alert("填写无误，保存入数据库")
-        }
+
     }
 
 
@@ -97,7 +94,8 @@ $("#JudgeStageEnter").click(function(){
     $.PostData('JudgeResult', PostDataInfo, function(result){
         if(result['success'] == true){
             //todo:将alert修改为消息提示框
-            alert("Success");
+            // alert("Success");
+              $.confirm({ title: '消息提示',content:"成功保存"});
         }else{
             alert("Error");
         }
