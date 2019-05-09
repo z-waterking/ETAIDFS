@@ -72,7 +72,7 @@ $.SetPlotChart = function(myChart, result){
         temp = {
             name:result['label'][i],
             label:{
-                offset:[30, 0],
+                offset:[40, 0],
                 fontSize:15,
                 fontWeight:'bold',
                 show:true,

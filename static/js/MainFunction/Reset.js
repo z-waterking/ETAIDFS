@@ -1,7 +1,7 @@
 //重置大类、小类、国家的选择
 $.ResetList = function(){
     //更新二级目录列表
-    $.GetData('GetCommonSecondaryClass', {}, function(SecondaryClass){
+    $.GetData('GetCommonSecondaryClass', PagePosition, function(SecondaryClass){
         //先插入第一个作为title
         $("select[name=SelectSecondaryClass]").empty();
         var $first = $("<option hidden></option>");

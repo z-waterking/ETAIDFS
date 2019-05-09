@@ -5,8 +5,10 @@ $("#RepresentTotalInfoSecondaryClass").change(function(object){
     //获取当前选中的大类
     var select = object.target;
     NeedSecondaryClass = select.options[select.selectedIndex].value;
+    data = Object.assign({}, PagePosition);
+    data['SecondaryClass'] = NeedSecondaryClass;
     //更新其对应的三级目录列表
-    $.GetData('GetCommonThirdClass', {'SecondaryClass': NeedSecondaryClass}, function(ThirdClass){
+    $.GetData('GetCommonThirdClass', data, function(ThirdClass){
         //先清空三级目录
         $("#RepresentTotalInfoThirdClassContent").empty()
         for(var i = 0; i < ThirdClass.length; i++){
