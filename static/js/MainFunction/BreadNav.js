@@ -8,9 +8,11 @@ $('a[name=FirstDirectory] > button').click(function(object){
     PagePosition['ForthDirectory'] = null;
     //刷新面包屑导航
     $.RefreshBread();
-    //重置侧边导航
+    //重置侧边栏
     $.ResetSideNav();
+    //点击第一条
 })
+
 //修改二级目录的点击事件，更新面包屑导航条
 $('li[name=SecondDirectory] > a').click(function(object){
     console.log(object.target);
@@ -22,9 +24,8 @@ $('li[name=SecondDirectory] > a').click(function(object){
     $.RefreshBread();
     //重置Echarts
     $.ResetChart();
-    //四级目录的修改
-//    $('li[name=ForthDirectory] > a').attr("aria-selected", "false");
-    $('li[name=ForthDirectory] > a').removeClass("active");
+    //重置四级目录
+    $.ResetForthDirectory();
 })
 
 //修改三级目录的点击事件，更新面包屑导航条
@@ -41,16 +42,16 @@ $('li[name=ThirdDirectory] > a').click(function(object){
 //修改四级目录的点击事件，更新面包屑导航条
 $('li[name=ForthDirectory] > a').click(function(object){
     console.log(object.target.innerHTML);
-    object.preventDefault();
-
-    //四级目录只改第四级的，后面设为null
+    //四级目录需要修改对应的二级、三级、四级的内容，后面设为null
+    //根据四级目录刷新二级、三级目录
+    $.RefreshSecThiByFor(object.target);
     PagePosition['ForthDirectory'] = object.target.innerHTML;
     $.RefreshBread();
     //在点击四级目录时，重置所有的List
     $.ResetList();
     //重置Echarts
     $.ResetChart();
-    //重置二级目录的选中以及其他四级目录的选中
-    $('li[name=SecondDirectory] > a').removeClass("active");
-    $('li[name=ForthDirectory] > a').removeClass("active");
+    //重置二级、四级目录
+    $.ResetSecondDirectory();
+    $.ResetForthDirectory();
 })
