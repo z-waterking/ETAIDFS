@@ -10,6 +10,8 @@ $('a[name=FirstDirectory] > button').click(function(object){
     $.RefreshBread();
     //重置侧边导航
     $.ResetSideNav();
+    //重置列表
+    $.ResetList();
 })
 //修改二级目录的点击事件，更新面包屑导航条
 $('li[name=SecondDirectory] > a').click(function(object){

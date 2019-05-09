@@ -16,7 +16,6 @@ class DatabaseManagement():
     def query_all(self, target_class, query_filter):
         result_list = self.session.query(target_class).filter(query_filter).all()
         return result_list
-
     def update_by_fliter(self, obj_class, update_hash, query_filter):
         self.session.query(obj_class).filter(query_filter).update(update_hash)
         self.session.commit()

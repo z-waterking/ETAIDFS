@@ -115,7 +115,9 @@ def GetCommonYear():
 @app.route('/GetCommonSecondaryClass',methods=['POST','GET'])
 def GetCommonSecondaryClass():
     # CommonSecondaryClass = ['A', 'B', 'C']
-    Commonsecondaryclass = CommonSecondaryClass()
+    Firstdirectory = request.args.get("FirstDirectory")
+    print(Firstdirectory)
+    Commonsecondaryclass = CommonSecondaryClass(Firstdirectory)
     return json.dumps(Commonsecondaryclass)
 
 #通过大类获取小类
