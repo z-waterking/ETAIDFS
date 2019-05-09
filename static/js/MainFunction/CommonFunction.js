@@ -50,7 +50,7 @@ $.SetLineChart = function(myChart, result){
             case 'Develop': symbol = 'rect';break;
             case 'Initial': symbol = 'triangle'; break;
             case 'Growup': symbol = 'diamond'; break;
-            case 'Expand': symbol = 'arrow'; break;
+            case 'Expand': symbol = 'image://http://img95.699pic.com/element/40118/4201.png_300.png!/fw/431/clip/0x300a0a0'; break;
             case 'Mature': symbol = 'circle';
         }
         temp = {
