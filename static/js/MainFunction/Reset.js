@@ -71,5 +71,6 @@ $.ResetChart = function(){
 
 //重置sidebar导航条
 $.ResetSideNav = function(){
+    $("ul[name=NavItemUl] > li").attr("class", "nav-item")
     $("#ResetSideBarTarget").click();
 }

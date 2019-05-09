@@ -21,6 +21,9 @@ $('li[name=SecondDirectory] > a').click(function(object){
     $.RefreshBread();
     //重置Echarts
     $.ResetChart();
+    //四级目录的修改
+//    $('li[name=ForthDirectory] > a').attr("aria-selected", "false");
+    $('li[name=ForthDirectory] > a').removeClass("active");
 })
 
 //修改三级目录的点击事件，更新面包屑导航条
@@ -44,4 +47,7 @@ $('li[name=ForthDirectory] > a').click(function(object){
     $.ResetList();
     //重置Echarts
     $.ResetChart();
+    //重置二级目录的选中以及其他四级目录的选中
+    $('li[name=SecondDirectory] > a').removeClass("active");
+    $('li[name=ForthDirectory] > a').removeClass("active");
 })
