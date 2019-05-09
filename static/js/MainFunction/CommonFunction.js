@@ -95,6 +95,7 @@ $.RefreshBread = function(){
     $("#BreadNav").empty();
 	var Directory = ['FirstDirectory', 'SecondDirectory', 'ThirdDirectory', 'ForthDirectory']
     $.each(Directory, function(n, direct){
+        //console.log(n + direct);
         if(PagePosition[direct] == null){
             return;
         }

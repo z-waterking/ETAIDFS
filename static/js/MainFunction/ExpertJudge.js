@@ -20,35 +20,9 @@ $("#JudgeStageSecondaryClass").change(function(object){
         }
     })
 })
-// $(document).ready(function() {
-//
-//         DevelopStart();               //第一级菜单函数
-//         DevelopStop();                //第二级菜单函数
-//         InitialStart();               //第三极菜单函数
-//         $("#DevelopStart").change(function(){
-//             DevelopStop();
-//         })
-//         $("#DevelopStop").change(function(){
-//             InitialStart();
-//         })
-//     });
-// function DevelopStart(){
-//             $.ajax({
-//                 async:false,
-//                 url:"",
-//                 dataType:"TEXT",
-//                 success:function(r){
-//                     var str = "";
-//                     for(var i=0;i<lie.length;i++)
-//                     {
-//                         str +=" <option value='"+lie[i]+"' >"+lie[i]+"</option> ";
-//                     }
-//                     $("#DevelopStart").html(str);
-//
-//                 }
-//             });
-//         }
+
 //提交全部的选择
+
 $("#JudgeStageEnter").click(function(){
     //获取此页面中的全部控件中的值
     //获取大类
@@ -62,18 +36,47 @@ $("#JudgeStageEnter").click(function(){
     //获取所有的起始年份
     var AllStartYearsSelect = $('select[name=SelectStageStartYears]')
     var AllStartYears = []
-    $.each(AllStartYearsSelect, function(n, select){
+    $.each(AllStartYearsSelect, function (n, select) {
         var start = select.options[select.selectedIndex].value
         AllStartYears.push(start);
     })
     //获取所有的终止年份
-    var AllStopYearsSelect = $('select[name=SelectStageStartYears]')
+    var AllStopYearsSelect = $('select[name=SelectStageStopYears]')
     var AllStopYears = []
-    $.each(AllStopYearsSelect, function(n, select){
+    $.each(AllStopYearsSelect, function (n, select) {
         var stop = select.options[select.selectedIndex].value
         AllStopYears.push(stop);
     })
     //todo:判断是否所有的数据值均为合法的
+    var AllYears = []
+    for (var i = 0; i < 5; i++) {
+        AllYears.push(AllStartYears[i]);
+        AllYears.push(AllStopYears[i]);
+    }
+    console.log(AllYears);
+    //判断是否合法
+    for (var i = 0; i < 10; i++)
+    {
+        if(isNaN(AllYears[i])==true)
+        {
+            alert("有未选择项，请核对选择")
+            return;
+        }
+    }
+    //判断是否递增
+    for(var i=0;i<10;i++)
+    {
+        if(AllYears[i]>AllYears[i+1])
+        {
+            alert("选择年份应为递增关系");
+            return;
+        }
+        else if(i==9)
+        {
+            alert("填写无误，保存入数据库")
+        }
+    }
+
 
     //组织成对应格式提交
     Stages = ["DevelopStage", "InitialStage", "GrowupStage", "ExpandStage", "MatureStart"];

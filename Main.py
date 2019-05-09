@@ -49,7 +49,7 @@ def GetPage():
 
 @app.route('/index2',methods=['POST','GET'])
 def GetPage2():
-    return render_template('homepage_test_Total.html')
+    return render_template('index.html')
 
 @app.route('/new_page', methods=['POST', 'GET'])
 def GetNewPage():
@@ -108,12 +108,15 @@ def GetCommonCountrys():
 #获取通用的年份
 @app.route('/GetCommonYear',methods=['POST','GET'])
 def GetCommonYear():
-    CommonYears = [2008, 2009, 2010]
+    CommonYears = []
+    for i in range(2000, 2019):
+        CommonYears.append(i)
     return json.dumps(CommonYears)
 
 #直接获取大类
 @app.route('/GetCommonSecondaryClass',methods=['POST','GET'])
 def GetCommonSecondaryClass():
+    ''' FirstDirectory'''
     CommonSecondaryClass = ['A', 'B', 'C']
     return json.dumps(CommonSecondaryClass)
 
@@ -122,6 +125,7 @@ def GetCommonSecondaryClass():
 def GetCommonThirdClass():
     def FindThirdClassBySecondaryClass(SecondaryClass):
         return ['小类1', '小类2']
+    ''' FirstDirectory'''
     SecondaryClass = request.args.get("SecondaryClass")
     CommonThirdClass = FindThirdClassBySecondaryClass(SecondaryClass)
     return json.dumps(CommonThirdClass)
@@ -147,10 +151,10 @@ def GetTotalData():
         result['graph'] = 'plot'
         result['label'] = ['Develop', 'Initial', 'Growup', 'Expand', 'Mature']
     else:
-        result['xs'] = [2008, 2009, 2010, 2011, 2012]
-        result['ys'] = [23, 34, 56, 29, 56]
+        result['xs'] = [2008, 2009, 2010, 2011, 2012, 2013]
+        result['ys'] = [23, 34, 56, 29, 56, 78]
         result['graph'] = 'line'
-        result['stage'] = ['Develop', 'Initial', 'Growup', 'Expand', 'Mature']
+        result['stage'] = ['Develop', 'Initial', 'Growup', 'Expand', 'Mature', 'Mature']
     return json.dumps(result)
 
 @app.route('/GetCountryData',methods=['POST','GET'])
