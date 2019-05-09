@@ -106,13 +106,19 @@ $.RefreshBread = function(){
     });
 };
 
-//点击一个collapse把其他collapse都折起来的临时修复补丁
-$.CollapseOtherComponent = function(thisComp){
-    var allCollapseComponent = ["#SecondDir-1","#SecondDir-2","#SecondDir-3"];
-    $.each(allCollapseComponent, function(n,oneComponent){
-        console.log( $(oneComponent));
-        $(oneComponent).collapse('Hide');
-    });
+//根据点击的第四级目录更新对应的第二级、第三级名称
+$.RefreshSecThiByFor = function(Forth){
+    console.log(Forth);
+    //寻找往上两级的目录
+    ThirdId = Forth.getAttribute("data-parent");
+    Third = $(ThirdId)[0];
+    console.log(Third);
+    SecondId = Third.getAttribute("data-parent");
+    Second = $(SecondId)[0];
+    console.log(Second);
+    //设置对应的二级、三级目录
+    PagePosition['SecondDirectory'] = Second.innerHTML;
+    PagePosition['ThirdDirectory'] = Third.innerHTML;
 }
 
 //封装的Get函数，callback为传递进来的回调
