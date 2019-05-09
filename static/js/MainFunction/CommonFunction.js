@@ -50,7 +50,7 @@ $.SetLineChart = function(myChart, result){
             case 'Develop': symbol = 'rect';break;
             case 'Initial': symbol = 'triangle'; break;
             case 'Growup': symbol = 'diamond'; break;
-            case 'Expand': symbol = 'arrow'; break;
+            case 'Expand': symbol = 'image://http://img95.699pic.com/element/40118/4201.png_300.png!/fw/431/clip/0x300a0a0'; break;
             case 'Mature': symbol = 'circle';
         }
         temp = {
@@ -95,6 +95,7 @@ $.RefreshBread = function(){
     $("#BreadNav").empty();
 	var Directory = ['FirstDirectory', 'SecondDirectory', 'ThirdDirectory', 'ForthDirectory']
     $.each(Directory, function(n, direct){
+        //console.log(n + direct);
         if(PagePosition[direct] == null){
             return;
         }
@@ -104,6 +105,16 @@ $.RefreshBread = function(){
         $li.appendTo($("#BreadNav"));
     });
 };
+
+//点击一个collapse把其他collapse都折起来的临时修复补丁
+$.CollapseOtherComponent = function(thisComp){
+    var allCollapseComponent = ["#SecondDir-1","#SecondDir-2","#SecondDir-3"];
+    $.each(allCollapseComponent, function(n,oneComponent){
+        console.log( $(oneComponent));
+        $(oneComponent).collapse('Hide');
+    });
+}
+
 //封装的Get函数，callback为传递进来的回调
 $.GetData = function(url, data, callback){
     $.ajax({

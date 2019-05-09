@@ -20,36 +20,10 @@ $("#JudgeStageSecondaryClass").change(function(object){
         }
     })
 })
-// $(document).ready(function() {
-//
-//         DevelopStart();               //第一级菜单函数
-//         DevelopStop();                //第二级菜单函数
-//         InitialStart();               //第三极菜单函数
-//         $("#DevelopStart").change(function(){
-//             DevelopStop();
-//         })
-//         $("#DevelopStop").change(function(){
-//             InitialStart();
-//         })
-//     });
-// function DevelopStart(){
-//             $.ajax({
-//                 async:false,
-//                 url:"",
-//                 dataType:"TEXT",
-//                 success:function(r){
-//                     var str = "";
-//                     for(var i=0;i<lie.length;i++)
-//                     {
-//                         str +=" <option value='"+lie[i]+"' >"+lie[i]+"</option> ";
-//                     }
-//                     $("#DevelopStart").html(str);
-//
-//                 }
-//             });
-//         }
+
 //提交全部的选择
-$("#JudgeStageEnter").click(function() {
+
+$("#JudgeStageEnter").click(function(){
     //获取此页面中的全部控件中的值
     //获取大类
     var SecondarySelect = $("#JudgeStageSecondaryClass")[0]

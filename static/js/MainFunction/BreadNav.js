@@ -1,4 +1,4 @@
-//修改一级目录的点击事件，更新面包屑导航条
+﻿//修改一级目录的点击事件，更新面包屑导航条
 $('a[name=FirstDirectory] > button').click(function(object){
     console.log(object.target.innerHTML);
     //一级目录只改第一级的，后面三级设为null
@@ -22,6 +22,11 @@ $('li[name=SecondDirectory] > a').click(function(object){
     $.RefreshBread();
     //重置Echarts
     $.ResetChart();
+
+    //四级目录的修改
+
+    $('li[name=ForthDirectory] > a').removeClass("active");
+
 })
 
 //修改三级目录的点击事件，更新面包屑导航条
@@ -47,4 +52,7 @@ $('li[name=ForthDirectory] > a').click(function(object){
     $.ResetList();
     //重置Echarts
     $.ResetChart();
+    //重置二级目录的选中以及其他四级目录的选中
+    $('li[name=SecondDirectory] > a').removeClass("active");
+    $('li[name=ForthDirectory] > a').removeClass("active");
 })
