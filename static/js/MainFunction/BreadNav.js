@@ -22,6 +22,7 @@ $('li[name=SecondDirectory] > a').click(function(object){
     $.RefreshBread();
     //重置Echarts
     $.ResetChart();
+    $.CollapseOtherComponent();
 })
 
 //修改三级目录的点击事件，更新面包屑导航条

@@ -95,6 +95,7 @@ $.RefreshBread = function(){
     $("#BreadNav").empty();
 	var Directory = ['FirstDirectory', 'SecondDirectory', 'ThirdDirectory', 'ForthDirectory']
     $.each(Directory, function(n, direct){
+        //console.log(n + direct);
         if(PagePosition[direct] == null){
             return;
         }
@@ -104,6 +105,16 @@ $.RefreshBread = function(){
         $li.appendTo($("#BreadNav"));
     });
 };
+
+//点击一个collapse把其他collapse都折起来的临时修复补丁
+$.CollapseOtherComponent = function(thisComp){
+    var allCollapseComponent = ["#SecondDir-1","#SecondDir-2","#SecondDir-3"];
+    $.each(allCollapseComponent, function(n,oneComponent){
+        console.log( $(oneComponent));
+        $(oneComponent).collapse('Hide');
+    });
+}
+
 //封装的Get函数，callback为传递进来的回调
 $.GetData = function(url, data, callback){
     $.ajax({

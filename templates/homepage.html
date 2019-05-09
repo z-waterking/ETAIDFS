@@ -66,7 +66,7 @@
         </div>
         <!--点击中间三个子系统时出现的标签页-->
         <div class="row tab-pane fade" id="MainBoard">
-            <nav class="col-md-3 d-none d-md-block bg-light sidebar">
+            <nav id="SideNavBar" class="col-md-3 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky " style="top:40px">
                     <ul class="nav flex-column">
                         <li name="SecondDirectory" class="nav-item active">
@@ -81,7 +81,7 @@
                         </li>
                         <!-- 科学发展与产业化阶段关联趋势  下拉item-->
                         <li name="SecondDirectory" class="nav-item">
-                            <a class="nav-link btn btn-outline-warning" data-toggle="collapse" href="#SciencePrediction"
+                            <a class="nav-link btn btn-outline-warning" id="SecondDir-1" data-toggle="collapse" href="#SciencePrediction"
                                role="button" aria-expanded="false" aria-controls="SciencePrediction">科学发展与产业化阶段关联趋势</a>
                         </li>
                         <div class="collapse" id="SciencePrediction">
@@ -125,7 +125,7 @@
 
                         <!-- 技术发展与产业化阶段关联趋势  下拉item-->
                         <li name="SecondDirectory" class="nav-item">
-                            <a class="nav-link btn btn-outline-warning" data-toggle="collapse"
+                            <a class="nav-link btn btn-outline-warning" id="SecondDir-2" data-toggle="collapse"
                                href="#TechnologyPrediction" role="button" aria-expanded="false"
                                aria-controls="TechnologyPrediction">技术发展与产业化阶段关联趋势</a>
                         </li>
@@ -170,7 +170,7 @@
 
                         <!-- 科学与技术发展关联聚类预测 -->
                         <li name="SecondDirectory" class="nav-item">
-                            <a class="nav-link btn btn-outline-warning" data-toggle="collapse"
+                            <a class="nav-link btn btn-outline-warning" id="SecondDir-3" data-toggle="collapse"
                                href="#SciAndTecClusterPrediction" role="button" aria-expanded="false"
                                aria-controls="SciAndTecClusterPrediction">
                                 科学与技术发展关联聚类预测
