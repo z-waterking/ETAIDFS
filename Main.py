@@ -4,14 +4,14 @@ from DBsession import *
 from sqlalchemy import create_engine, and_, update, or_
 from model import *
 from functools import wraps
-
+from module import *
 app = Flask(__name__)
 app.config.from_object(config)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://sa:catherine@127.0.0.1:1433/data'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.secret_key = 'catherine'
-
+app.config["SQLALCHEMY_ECHO"] = True
 
 #辅助函数
 #登录检验
@@ -26,7 +26,7 @@ def valid_login(email, password):
 #注册检验
 def valid_register(username, email):
     dbsession = DatabaseManagement()
-    query_filter = and_(User.username == username, User.email == email)
+    query_filter = or_(User.username == username, User.email == email)
     user = dbsession.query_all(User, query_filter)
     if user:
         return False
@@ -70,19 +70,18 @@ def GetNewPage_index():
 def GetPage_ExpertInformationManage():
     return render_template('ExpertInformationManage.html')
 
-# @app.route('/register',methods=['GET','POST'])
-# def regist():
-
 @app.route('/login', methods=['POST', 'GET'])
 def GetPage_login():
     if request.method == 'POST':
         if valid_login(request.form["email"], request.form["password"]):
             email = request.form["email"]
-            flash('登录成功!', category='warning')
+            flash('登录成功!')
             session['email'] = request.form["email"]
-            return redirect(url_for("GetNewPage_index", useremail=email))
+            return redirect(url_for("GetPage"))
         else:
             flash('用户名或密码错误！')
+
+    return render_template('login.html')
 
 #-----------专家提交数据------------
 @app.route('/JudgeResult',methods=['POST','GET'])
@@ -102,8 +101,9 @@ def SaveJudgeResult():
 #获取通用的国家
 @app.route('/GetCommonCountrys',methods=['POST','GET'])
 def GetCommonCountrys():
-    CommonCountrys = ['US', 'UK', 'China']
-    return json.dumps(CommonCountrys)
+    # CommonCountrys = ['US', 'UK', 'China']
+    Commoncountrys = CommonCountrys()
+    return json.dumps(Commoncountrys)
 
 #获取通用的年份
 @app.route('/GetCommonYear',methods=['POST','GET'])
@@ -116,16 +116,22 @@ def GetCommonYear():
 #直接获取大类
 @app.route('/GetCommonSecondaryClass',methods=['POST','GET'])
 def GetCommonSecondaryClass():
+    # CommonSecondaryClass = ['A', 'B', 'C']
+    Firstdirectory = request.args.get("FirstDirectory")
+    print(Firstdirectory)
+    Commonsecondaryclass = CommonSecondaryClass(Firstdirectory)
+    return json.dumps(Commonsecondaryclass)
     ''' FirstDirectory'''
-    CommonSecondaryClass = ['A', 'B', 'C']
+    # CommonSecondaryClass = ['A', 'B', 'C']
     return json.dumps(CommonSecondaryClass)
-
 #通过大类获取小类
 @app.route('/GetCommonThirdClass',methods=['POST','GET'])
 def GetCommonThirdClass():
-    def FindThirdClassBySecondaryClass(SecondaryClass):
-        return ['小类1', '小类2']
+
+    # def FindThirdClassBySecondaryClass(SecondaryClass):
+    #     return ['小类1', '小类2']
     ''' FirstDirectory'''
+
     SecondaryClass = request.args.get("SecondaryClass")
     CommonThirdClass = FindThirdClassBySecondaryClass(SecondaryClass)
     return json.dumps(CommonThirdClass)
@@ -157,13 +163,15 @@ def GetTotalData():
         result['stage'] = ['Develop', 'Initial', 'Growup', 'Expand', 'Mature', 'Mature']
     return json.dumps(result)
 
+
+
+#-----------获取图表展示数据End---------------
 @app.route('/GetCountryData',methods=['POST','GET'])
 def GetCountryData():
     data = request.json
     #{'FirstDirectory': '3D打印技术监测', 'SecondDirectory': '科学发展与产业化阶段关联趋势', 'ThirdDirectory': '科学热度与产业化阶段关联趋势', 'ForthDirectory': '国家分析', 'SecondaryClass': 'B', 'ThirdClass': '小类2', 'Country': 'US'}
     print(data)
     #todo 根据前端请求查询对应的数据库
-
     #组织对应的数据
     result = {}
     result['success'] = True
@@ -184,7 +192,6 @@ def GetCountryData():
     return json.dumps(result)
 #-----------获取图表展示数据End---------------
 
-    # return render_template('login.html')
 @app.route('/register', methods=['POST','GET'])
 def GetPage_register():
     if request.method == 'POST':
@@ -198,7 +205,9 @@ def GetPage_register():
             return redirect(url_for("GetPage_login"))
         else:
             flash("该用户名或邮箱已被注册！")
-    return render_template('/register.html')
+
+    return render_template('register.html')
+
 @app.route('/getdata',methods=['POST','GET'])
 def GetData():
     data = request.json
