@@ -10,7 +10,6 @@ $('a[name=FirstDirectory] > button').click(function(object){
     $.RefreshBread();
     //重置侧边栏
     $.ResetSideNav();
-    //点击第一条
 })
 
 //修改二级目录的点击事件，更新面包屑导航条

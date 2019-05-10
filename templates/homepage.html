@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/navbar.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/dashboard.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/jquery-confirm.min.css') }}"/>
     <link rel="stylesheet" href="../static/css/bootstrap-select.min.css">
 
     <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
@@ -20,7 +21,8 @@
     <script src="{{ url_for('static',filename='js/echarts.min.js') }}"></script>
     <script src="../static/js/bootstrap-select.min.js"></script>
     <script src="../static/js/ExpertInformationManage.js"></script>
-    <script src="{{ url_for('static',filename='js/jquery-1.10.2.min.js') }}"></script>
+{#    <script src="{{ url_for('static',filename='js/jquery-1.10.2.min.js') }}"></script>#}
+    <script src="{{ url_for('static',filename='js/jquery-confirm.min.js') }}"></script>
 {#    <script src="jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>#}
 </head>
 <body>
@@ -28,7 +30,7 @@
     <a class="navbar-brand col-sm-3 col-md-3 mr-0 text-center" href="#">新兴技术与产业发展预测系统</a>
     <!-- 五个导航栏-->
     <form class="form-inline nav-item col-sm-9 col-md-9 mr-0">
-        <ul class="nav">
+        <ul class="nav" style="list-style:none">
             <li class="active">
                 <a name="FirstDirectory" href="#Blank" data-toggle="tab">
                     <button id="test" class="btn btn-outline-info ml-5" type="button" value="系统简介">系统简介</button>
@@ -57,7 +59,6 @@
         </ul>
     </form>
 </nav>
-
 <div class="container-fluid">
     <div id="NavTabContent" class="tab-content">
         <!-- 点击系统简介时出现的标签页-->

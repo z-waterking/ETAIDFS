@@ -96,6 +96,6 @@ $.ResetSideNav = function(){
     //收起下拉框
     $.ResetCollapseBox();
     //点击第一条
-    $("#ResetSideBarTarget").click();
+    $("#ResetSideBarTarget")[0].click();
 }
 
