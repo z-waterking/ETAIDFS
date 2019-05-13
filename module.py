@@ -3,12 +3,20 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, and_, update, or_
 from model import *
 #-------------专家提交数据-------------
-
-
-
-
-
-
+def saveJudgeResult(data):
+    thirdClass = data['ThirdClass']
+    #获取专家每个阶段判断年份，在数据库中标识年份对应阶段
+    #获取developstage年份
+    for i in ['DevelopStage','InitialStage','GrowupStage','ExpandStage','MatureStart']:
+        developStart = data[i]['start']
+        developEnd = data[i]['stop']
+        dbsession = DatabaseManagement()
+        query_filter = and_(ExpertJudge.Class == thirdClass, ExpertJudge.Year >= developStart, ExpertJudge.Year <= developEnd)
+        expertJudge = dbsession.query_all(ExpertJudge, query_filter)
+        for instance in expertJudge:
+            instance.Stage == 'A'
+    result = {}
+    # return result
 #-------------获取通用数据-------------
 #获取通用的国家
 def CommonCountrys():
@@ -33,7 +41,6 @@ def CommonSecondaryClass(Firstdirectory):
     secondaryclass = dbsession.query_all(DictClas, query_filter)
     for data in secondaryclass:
         CommonSecondaryClass.append(data.Class)
-    print('------', CommonSecondaryClass)
     return CommonSecondaryClass
 
 #通过大类获取小类
@@ -55,4 +62,43 @@ def FindThirdClassBySecondaryClass(SecondaryClass):
     return FindThirdClassBySecondaryClass
 
 #-----------获取图表展示数据--------------
+def gettotalData(ThirdClass,ThirdDirectory,ForthDirectory):
+    result = {}
+    xs = []
+    ys = []
+    if ThirdDirectory == '科学热度与产业化阶段关联趋势':
+        if ForthDirectory == '总体分析':
+            #去表PaperHotDegree查
+            dbsession = DatabaseManagement()
+            query_filter = and_(PaperHotDegree._class == ThirdClass)
+            data = dbsession.query_all(PaperHotDegree, query_filter)
+            print(data)
+            for instance in data:
+                xs.append(instance['Hot_degree'])
+                ys.append(instance['year'])
 
+            return xs,ys
+        else:
+            #去表PaperCountryHotDegree查
+            return result
+    elif ThirdDirectory == '科学影响力与产业化阶段关联趋势':
+        if ForthDirectory == '总体分析':
+            # 去表PaperInfluence查
+            return result
+        else:
+            # 去表PaperCountryInfluence查
+            return result
+    elif ThirdDirectory == '技术热度与产业化阶段关联趋势':
+        if ForthDirectory == '总体分析':
+            #去表PatentHotDegree查
+            return result
+        else:
+            #去表PatentCountryHotDegree查
+            return result
+    elif ThirdDirectory == '技术影响力与产业化阶段关联趋势':
+        if ForthDirectory == '总体分析':
+            #去表PatentInfluence查
+            return result
+        else:
+            #去表PatentCountryInfluence查
+            return result
