@@ -12,6 +12,8 @@ $('a[name=FirstDirectory] > button').click(function(object){
     $.ResetSideNav();
     //重置列表
     $.ResetList();
+    //获取简介
+    $.GetIntroduction(PagePosition['FirstDirectory']);
 })
 
 //修改二级目录的点击事件，更新面包屑导航条

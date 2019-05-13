@@ -108,8 +108,9 @@ def GetPage_login():
 @app.route('/GetIntroduction', methods=['POST','GET'])
 def SysIntroduction():
     FirstDirectory = request.args.get("FirstDirectory")
-    Sysintroduction = sysIntroduction(FirstDirectory)
-    return json.dumps(Sysintroduction)
+    result = sysIntroduction(FirstDirectory)
+    print('******************', result)
+    return json.dumps({'introduction':result})
 
 #-----------专家信息管理------------
 @app.route('/eee',methods = ['POST','GET'])

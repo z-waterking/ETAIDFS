@@ -7,6 +7,6 @@ $.GetIntroduction = function(FirstDirectory){
     }
     $.GetData('GetIntroduction', PagePosition, function(introduction){
         //先插入第一个作为title
-        page.innerHTML = introduction
+        page.innerHTML = introduction['introduction']
     })
 }

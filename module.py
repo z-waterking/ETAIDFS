@@ -6,8 +6,10 @@ def sysIntroduction(FirstDirectory):
     dbsession = DatabaseManagement()
     query_filter = and_(SysIntroduction.title == FirstDirectory)
     sys_introduction = dbsession.query_all(SysIntroduction, query_filter)
+    result = []
     for instance in sys_introduction:
-        return instance['abstract']
+        result.append(instance.abstract)
+    return result[0]
 
 #-------------专家提交数据-------------
 def saveJudgeResult(data):
