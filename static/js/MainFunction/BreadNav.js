@@ -1,4 +1,4 @@
-﻿//修改一级目录的点击事件，更新面包屑导航条
+//修改一级目录的点击事件，更新面包屑导航条
 $('a[name=FirstDirectory] > button').click(function(object){
     console.log(object.target.innerHTML);
     //一级目录只改第一级的，后面三级设为null
