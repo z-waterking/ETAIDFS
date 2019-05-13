@@ -113,10 +113,16 @@ def SysIntroduction():
     return json.dumps({'introduction':result})
 
 #-----------专家信息管理------------
-@app.route('/eee',methods = ['POST','GET'])
+@app.route('/SaveExpertInformation',methods = ['POST','GET'])
 def ExpertManage():
+    data = request.json
+    print(data)
     if request.method == 'POST':
-        pass
+        expert = ExpertList(Expert_Name = , Birth_Year = , Sex = , Institution = , Professional_Title = ,Administrative_duty = ,
+                          City = , Province = , Address = ,Zip = ,Highestdegree = ,Degreedate = ,
+                          University = ,Country = ,Honorary_Reward = ,Tel = ,Email = ,Class = )
+        dbsession1 = DatabaseManagement()
+        dbsession1.add_obj(expert)
 
 #-----------专家信息管理end------------
 
