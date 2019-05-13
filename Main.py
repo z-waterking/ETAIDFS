@@ -1,18 +1,20 @@
 from flask import Flask, json, config,render_template, url_for, redirect, flash
 from flask import request,jsonify,session
-from DBsession import *
-from sqlalchemy import create_engine, and_, update, or_
-from model import *
 from functools import wraps
 from module import *
+import os
+from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.config.from_object(config)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://sa:catherine@127.0.0.1:1433/data'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://sa:catherine@127.0.0.1:1433/EmergingTechnologyForecastDB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.secret_key = 'catherine'
 app.config["SQLALCHEMY_ECHO"] = True
-
+#上传文件存放位置
+# UPLOAD_FOLDER = ''
+# ALLOWED_EXTENSIONS = set(['txt','pdf','doc','docx','png','jpg'])
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #辅助函数
 #登录检验
 def valid_login(email, password):
@@ -42,6 +44,10 @@ def login_required(func):
         else:
             return redirect('login.html')
     return wrapper
+#上传文件需要函数
+# def allowed_file(filename):
+#     return '.'in filename and \
+#         filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route('/index',methods=['POST','GET'])
 def GetPage():
@@ -70,6 +76,22 @@ def GetNewPage_index():
 def GetPage_ExpertInformationManage():
     return render_template('ExpertInformationManage.html')
 
+@app.route('/register', methods=['POST','GET'])
+def GetPage_register():
+    if request.method == 'POST':
+        if request.form["password1"] != request.form["password2"]:
+            flash('两次密码不一致，请重新输入！')
+        elif valid_register(request.form["username"], request.form["email"]):
+            user = User(username=request.form["username"], password=request.form["password1"], email=request.form["email"])
+            dbsession1 = DatabaseManagement()
+            dbsession1.add_obj(user)
+            flash("成功注册！")
+            return redirect(url_for("GetPage_login"))
+        else:
+            flash("该用户名或邮箱已被注册！")
+
+    return render_template('register.html')
+
 @app.route('/login', methods=['POST', 'GET'])
 def GetPage_login():
     if request.method == 'POST':
@@ -82,6 +104,21 @@ def GetPage_login():
             flash('用户名或密码错误！')
 
     return render_template('login.html')
+#-----------系统简介---------------
+@app.route('/GetIntroduction', methods=['POST','GET'])
+def SysIntroduction():
+    FirstDirectory = request.args.get("FirstDirectory")
+    result = sysIntroduction(FirstDirectory)
+    print('******************', result)
+    return json.dumps({'introduction':result})
+
+#-----------专家信息管理------------
+@app.route('/eee',methods = ['POST','GET'])
+def ExpertManage():
+    if request.method == 'POST':
+        pass
+
+#-----------专家信息管理end------------
 
 #-----------专家提交数据------------
 @app.route('/JudgeResult',methods=['POST','GET'])
@@ -92,6 +129,8 @@ def SaveJudgeResult():
     '''
     {'SecondaryClass': '请选择大类', 'ThirdClass': '请选择小类', 'DevelopStage': {'start': '起始年份', 'stop': '起始年份'}, 'InitialStage': {'start': '起始年份', 'stop': '起始年份'}, 'GrowupStage': {'start': '起始年份', 'stop': '起始年份'}, 'ExpandStage': {'start': '起始年份', 'stop': '起始年份'}, 'MatureStart': {'start': '起始年份', 'stop': '起始年份'}}
     '''
+    # result = saveJudgeResult(data)
+    # result['success'] = True
     result = {}
     result['success'] = True
     return json.dumps(result)
@@ -164,7 +203,6 @@ def GetTotalData():
     return json.dumps(result)
 
 
-
 #-----------获取图表展示数据End---------------
 @app.route('/GetCountryData',methods=['POST','GET'])
 def GetCountryData():
@@ -192,21 +230,11 @@ def GetCountryData():
     return json.dumps(result)
 #-----------获取图表展示数据End---------------
 
-@app.route('/register', methods=['POST','GET'])
-def GetPage_register():
+#-----------监测报告上传----------------
+@app.route('/upload', methods=['POST','GET'])
+def upload_file():
     if request.method == 'POST':
-        if request.form["password1"] != request.form["password2"]:
-            flash('两次密码不一致，请重新输入！')
-        elif valid_register(request.form["username"], request.form["email"]):
-            user = User(username=request.form["username"], password=request.form["password1"], email=request.form["email"])
-            dbsession = DatabaseManagement()
-            dbsession.add_obj(user)
-            flash("成功注册！")
-            return redirect(url_for("GetPage_login"))
-        else:
-            flash("该用户名或邮箱已被注册！")
-
-    return render_template('register.html')
+        pass
 
 @app.route('/getdata',methods=['POST','GET'])
 def GetData():
@@ -217,4 +245,4 @@ def GetData():
 
 if __name__ == '__main__':
     # app.run(host='192.168.1.103',port='8080',debug=True)
-    app.run(debug=True)
+    app.run(debug=True, host='10.1.1.237', port='8080')

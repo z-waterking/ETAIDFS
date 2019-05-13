@@ -1,4 +1,4 @@
-﻿//修改一级目录的点击事件，更新面包屑导航条
+//修改一级目录的点击事件，更新面包屑导航条
 $('a[name=FirstDirectory] > button').click(function(object){
     console.log(object.target.innerHTML);
     //一级目录只改第一级的，后面三级设为null
@@ -12,8 +12,8 @@ $('a[name=FirstDirectory] > button').click(function(object){
     $.ResetSideNav();
     //重置列表
     $.ResetList();
-    //重置系统简介
-    $.GetIntroduction(PagePosition['FirstDirectory'])
+    //获取简介
+    $.GetIntroduction(PagePosition['FirstDirectory']);
 })
 
 //修改二级目录的点击事件，更新面包屑导航条

@@ -4,16 +4,16 @@ $("#ExpertInfoEnter").click(function(){
     TechnicalField = $('#TechnicalField')[0]
     TechnicalField_Value = TechnicalField.options[TechnicalField.selectedIndex].value
     //获取姓名
-    name = $('#name')[0]
-    name_value = $('#name').val()
+    // name = $('#name')[0];
+    // name_value = $('#name').val();
     //获取出生年份
     birthday = $('#birthday')[0]
     birthday_value = birthday.options[birthday.selectedIndex].value
 
     console.log('TechnicalField')
     console.log(TechnicalField_Value)
-    console.log('name')
-    console.log(name_value)
+    // console.log('name')
+    // console.log(name_value)
     console.log('birthday')
     console.log(birthday_value)
 

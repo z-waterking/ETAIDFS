@@ -1,5 +1,5 @@
 # coding: utf-8
-from sqlalchemy import Column, DECIMAL, Float, Integer, NCHAR, String
+from sqlalchemy import Column, DECIMAL, DateTime, Float, Integer, NCHAR, String, TEXT, Unicode
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -127,6 +127,16 @@ class PatentInfluence(Base):
     year = Column(String(50, 'Chinese_PRC_CI_AS'))
     Influence = Column(Float(53))
     subsys = Column(NCHAR(10))
+
+
+class SysIntroduction(Base):
+    __tablename__ = 'SysIntroduction'
+
+    id = Column(Integer, primary_key=True)
+    code = Column(String(50, 'Chinese_PRC_CI_AS'), nullable=False)
+    abstract = Column(TEXT(2147483647, 'Chinese_PRC_CI_AS'))
+    date = Column(DateTime)
+    title = Column(Unicode(100))
 
 
 class User(Base):

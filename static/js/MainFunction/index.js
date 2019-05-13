@@ -1,7 +1,7 @@
 
 //全局变量，记录整个页面的状态
 PagePosition = {
-    'FirstDirectory':'默认',
+    'FirstDirectory':'系统简介',
     'SecondDirectory':null,
     'ThirdDirectory':null,
     'ForthDirectory':null
@@ -10,4 +10,5 @@ PagePosition = {
 $(function(){
     //从服务器端取得二级目录、国家列表、以及年份列表
     // $.ResetList();
+    $.GetIntroduction(PagePosition['FirstDirectory'])
 });
