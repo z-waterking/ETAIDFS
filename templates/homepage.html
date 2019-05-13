@@ -63,11 +63,10 @@
     <div id="NavTabContent" class="tab-content">
         <!-- 点击系统简介时出现的标签页-->
         <div class="tab-pane active" id="Blank">
-            <p>简介界面</p>
+            <p id="SystemIntroduction">简介界面</p>
         </div>
         <!--点击中间三个子系统时出现的标签页-->
         <div class="row tab-pane fade" id="MainBoard">
-
             <!-- todo:不记录点击状态 -->
             <nav class="col-md-3 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky" style="top:40px">
@@ -235,7 +234,7 @@
                 </div>
                 <div id="MainContent" class="tab-content" :false>
                     <div class="tab-pane active" id="Intro2SubSys">
-                        <p>子系统简介</p>
+                        <p id="SubSystemIntroduction">子系统简介</p>
                     </div>
                     <div class="tab-pane fade" id="ExpertInfo">
                         <h1 class="text-lg-center">专家信息管理</h1>
@@ -245,7 +244,7 @@
                                     <div class="row" style="margin-top: 20px">
                                         <label class="span3" for="name" style="margin-top: 8px">技术领域：</label>
                                         <div class="span3" style="margin-left: 10px">
-                                            <select id="usertype" name="usertype" class="selectpicker show-tick form-control" multiple data-live-search="true"
+                                            <select id="TechnicalField" name="usertype" class="selectpicker show-tick form-control" multiple data-live-search="true"
                                                             data-max-options="10" data-max-options-text="最多可选择十个技术领域" title="请选择" >
                                                         <option value="0">苹果</option>
                                                         <option value="1">菠萝</option>
@@ -270,7 +269,7 @@
                                         </div>
                                         <label class="span3" for="birthyear" style="margin-top: 8px;margin-left: 150px">出生年份：</label>
                                         <div class="span3" style="margin-left: 10px">
-                                            <select class="form-control">
+                                            <select id="birthday" class="form-control">
                                                 <option value>请选择</option>
                                                 <option value="2019">2019</option>
                                                 <option value="2018">2018</option>
@@ -670,7 +669,7 @@
                             </form>
                         </div>
                         <div class="text-lg-center mt-3">
-                            <button type="button" class="btn btn-default btn-lg">确定</button>
+                            <button id="ExpertInfoEnter" type="button" class="btn btn-default btn-lg">确定</button>
                         </div>
                     </div>
                     <!-- 产业化阶段判断-->
@@ -779,7 +778,7 @@
                         </form>
                         <hr/>
                         <h3 id="TotalTitle" class="text-lg-center mt-5">年份区间选择</h3>
-                        <div name="ChartContainer" id ="TotalChartContainer" class="offset-2 mt-3">
+                        <div name="ChartContainer" id ="TotalChartContainer" class="offset-1 mt-3">
                             <canvas class="my-4" id="TotalChart" width="900" height="380"></canvas>
                         </div>
                     </div>
@@ -813,8 +812,8 @@
                             </div>
                         </form>
                         <hr/>
-                        <h3 id="CountryTitle" class="text-lg-center mt-5">年份区间选择</h3>
-                        <div name="ChartContainer" id="CountryChartContainer"class="offset-2 mt-3">
+                        <h3 id="CountryTitle" class="text-lg-center mt-5">时间区间选择</h3>
+                        <div name="ChartContainer" id="CountryChartContainer" class="offset-1 mt-3">
                             <canvas class="my-4" id="CountryChart" width="900" height="380"></canvas>
                         </div>
                     </div>
@@ -826,7 +825,9 @@
 </div>
 <script src="{{ url_for('static',filename='js/MainFunction/Reset.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/BreadNav.js') }}"></script>
+<script src="{{ url_for('static',filename='js/MainFunction/GetIntroduction.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/CommonFunction.js') }}"></script>
+<script src="{{ url_for('static',filename='js/MainFunction/ExpertInformationManage.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/ExpertJudge.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/TotalInfo.js') }}"></script>
 <script src="{{ url_for('static',filename='js/MainFunction/CountryInfo.js') }}"></script>
