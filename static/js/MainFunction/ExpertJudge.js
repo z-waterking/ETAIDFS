@@ -64,14 +64,13 @@ $("#JudgeStageEnter").click(function(){
         }
     }
     //判断是否递增
-    for(var i=0;i<10;i++)
+    for(var i=0;i<9;i++)
     {
         if(AllYears[i]>AllYears[i+1])
         {
             alert("选择年份应为递增关系");
             return;
         }
-
     }
 
 
@@ -94,8 +93,8 @@ $("#JudgeStageEnter").click(function(){
     $.PostData('JudgeResult', PostDataInfo, function(result){
         if(result['success'] == true){
             //todo:将alert修改为消息提示框
-            // alert("Success");
-              $.confirm({ title: '消息提示',content:"成功保存"});
+            alert("提交成功");
+            //   $.dialog({ title: '消息提示',content:"成功保存"});
         }else{
             alert("Error");
         }
