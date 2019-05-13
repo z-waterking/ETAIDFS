@@ -22,7 +22,6 @@ $("#JudgeStageSecondaryClass").change(function(object){
 })
 
 //提交全部的选择
-
 $("#JudgeStageEnter").click(function(){
     //获取此页面中的全部控件中的值
     //获取大类
