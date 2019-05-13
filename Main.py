@@ -104,13 +104,18 @@ def GetPage_login():
             flash('用户名或密码错误！')
 
     return render_template('login.html')
+#-----------系统简介---------------
+@app.route('/GetIntroduction', methods=['POST','GET'])
+def SysIntroduction():
+    FirstDirectory = request.args.get("FirstDirectory")
+    Sysintroduction = sysIntroduction(FirstDirectory)
+    return json.dumps(Sysintroduction)
+
 #-----------专家信息管理------------
 @app.route('/eee',methods = ['POST','GET'])
 def ExpertManage():
     if request.method == 'POST':
         pass
-
-
 
 #-----------专家信息管理end------------
 

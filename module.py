@@ -2,6 +2,13 @@ from DBsession import *
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, and_, update, or_
 from model import *
+def sysIntroduction(FirstDirectory):
+    dbsession = DatabaseManagement()
+    query_filter = and_(SysIntroduction.title == FirstDirectory)
+    sys_introduction = dbsession.query_all(SysIntroduction, query_filter)
+    for instance in sys_introduction:
+        return instance['abstract']
+
 #-------------专家提交数据-------------
 def saveJudgeResult(data):
     thirdClass = data['ThirdClass']
