@@ -1,13 +1,14 @@
 $("#ExpertInfoEnter").click(function(){
+    alert('OK')
     //获取此页面中的全部控件中的值
     //获取技术领域,Value为一个列表
     TechnicalField = $('#TechnicalField')[0]
-    TechnicalField_Value = $('#TechnicalField').selectpicker('val')
+    technicalfield = $('#TechnicalField').selectpicker('val')
     //获取姓名
     name_value = $('#Name').val();
     //获取出生年份
-    birthday = $('#Birthday')[0]
-    birthday_value = birthday.options[birthday.selectedIndex].value
+    Birthday = $('#Birthday')[0]
+    birthday = Birthday.options[Birthday.selectedIndex].value
     //获取性别
     sex = $('input[name=sex]:checked').val();
     //获取民族
@@ -93,7 +94,7 @@ $("#ExpertInfoEnter").click(function(){
     //提交的最终数据
     PostInfo = {}
     PostInfo['TechnicalField'] = technicalfield
-    PostInfo['Name'] = name
+    PostInfo['Name'] = name_value
     PostInfo['Birthday'] = birthday
     PostInfo['Sex'] = sex
     PostInfo['Nation'] = nation
