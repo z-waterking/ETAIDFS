@@ -51,13 +51,13 @@ $("#ExpertInfoEnter").click(function(){
     phone = $('#Phone').val();
 
 
-    //查看是否正确
+////    查看是否正确
 //    console.log('TechnicalField')
-//    console.log(TechnicalField_Value)
+//    console.log(technicalfield)
 //    console.log('name')
 //    console.log(name_value)
 //    console.log('Birthday')
-//    console.log(birthday_value)
+//    console.log(birthday)
 //    console.log('Sex')
 //    console.log(sex)
 //    console.log('Nation')
