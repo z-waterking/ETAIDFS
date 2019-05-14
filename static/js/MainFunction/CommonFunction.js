@@ -10,12 +10,13 @@ OPTION = {
         },
         series: [{
             data: [],
-            type: 'line'
+            type: 'scatter'
         }]
     },
     'plot':{
         xAxis: {
-             boundaryGap:10,
+            name:'科学热度',
+            boundaryGap:10,
             min:0,
             max:700,
             offset:-80,
@@ -23,6 +24,7 @@ OPTION = {
         },
         yAxis: {
             // boundaryGap:10,
+            name:'技术热度',
             min:0,
             max:700,
             offset:-200,
@@ -31,7 +33,6 @@ OPTION = {
         series: [{
             symbolSize: 20,
             data: [
-
             ],
             type: 'scatter'
         }]
