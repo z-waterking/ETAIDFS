@@ -118,9 +118,9 @@ def ExpertManage():
     data = request.json
     print(data)
     if request.method == 'POST':
-        expert = ExpertList(Expert_Name = , Birth_Year = , Sex = , Institution = , Professional_Title = ,Administrative_duty = ,
-                          City = , Province = , Address = ,Zip = ,Highestdegree = ,Degreedate = ,
-                          University = ,Country = ,Honorary_Reward = ,Tel = ,Email = ,Class = )
+        expert = ExpertList(Expert_Name=data.Name, Birth_Year=data.Birthday, Sex=data.Sex, Institution=data.WorkPlace, Professional_Title=data.Title,
+                            Administrative_duty=data.Job, City=data.City, Province=data.Province, Address=data.Address,Zip=data.PostCode,Highestdegree=data.HighestDegree,
+                            Degreedate=data.GrantTime, University=data.GrantUniversity,Country=data.GrantCountry,Honorary_Reward=data.HonorAndReward,Tel=data.Phone,Email=data.Email,Class=data.TechnicalField)
         dbsession1 = DatabaseManagement()
         dbsession1.add_obj(expert)
 
