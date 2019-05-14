@@ -251,4 +251,4 @@ def GetData():
 
 if __name__ == '__main__':
     # app.run(host='192.168.1.103',port='8080',debug=True)
-    app.run(debug=True, host='10.1.1.237', port='8080')
+    app.run(debug=True)
