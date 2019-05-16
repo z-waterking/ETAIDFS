@@ -1,6 +1,8 @@
 //总体信息展示
 //更新小类的选项
 $("#RepresentTotalInfoSecondaryClass").change(function(object){
+    //重置小类
+    $.ResetThirdClass();
     console.log(object.target);
     //获取当前选中的大类
     var select = object.target;
@@ -9,8 +11,11 @@ $("#RepresentTotalInfoSecondaryClass").change(function(object){
     data['SecondaryClass'] = NeedSecondaryClass;
     //更新其对应的三级目录列表
     $.GetData('GetCommonThirdClass', data, function(ThirdClass){
-        //先清空三级目录
+        //先清空三级目录,再加上之后的数据
         $("#RepresentTotalInfoThirdClassContent").empty()
+        var $op = $("<option hidden></option>");
+        $op.append('请选择小类');
+        $op.appendTo($("#RepresentTotalInfoThirdClassContent"));
         for(var i = 0; i < ThirdClass.length; i++){
             //新建一个option
             var $op = $("<option></option>")
@@ -24,6 +29,8 @@ $("#RepresentTotalInfoSecondaryClass").change(function(object){
 //根据大类、小类以及页面状态取得需要的数据
 //notice: 科学与技术发展关联聚类预测需要单独判断
 $("#TotalClassSelectEnter").click(function(){
+    //重置echarts
+    $.ResetChart();
     //取得大类和小类的文本，向后端请求数据
     //获取大类
     var SecondarySelect = $("#RepresentTotalInfoSecondaryClass")[0]

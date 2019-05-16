@@ -1,6 +1,9 @@
 //两种图表的option
 OPTION = {
     'line':{
+        legend:{
+            data:['研发期', '初创期', '成长期', '扩张期', '成熟期']
+        },
         xAxis: {
             type: 'category',
             data: []
@@ -17,16 +20,16 @@ OPTION = {
         xAxis: {
             name:'科学热度',
             boundaryGap:10,
-            min:0,
-            max:700,
+            // min:0,
+            // max:700,
             offset:-80,
             type:'value',
         },
         yAxis: {
             // boundaryGap:10,
             name:'技术热度',
-            min:0,
-            max:700,
+            // min:0,
+            // max:700,
             offset:-200,
             type:'value'
         },
@@ -43,39 +46,61 @@ OPTION = {
 $.SetLineChart = function(myChart, result){
     // 指定图表的配置项和数据
     var option = OPTION['line']
-    console.log(option);
-    option.xAxis.data = result['xs']
-    for(var i = 0; i < result['ys'].length; i++){
-        symbol = null
+    // 清空之前的数据
+    option.series = [];
+    option.xAxis.data = [];
+    //整理收到的数据
+    len = result['xs'].length;
+    develop = new Array(len).fill(null);
+    initial = new Array(len).fill(null);
+    growup = new Array(len).fill(null);
+    expand = new Array(len).fill(null);
+    mature = new Array(len).fill(null);
+    console.log('************');
+    console.log(result['stage']);
+    for(i = 0; i < result['ys'].length; i++){
         switch(result['stage'][i]){
-            case 'Develop': symbol = 'rect';break;
-            case 'Initial': symbol = 'triangle'; break;
-            case 'Growup': symbol = 'diamond'; break;
-            case 'Expand': symbol = 'image://http://img95.699pic.com/element/40118/4201.png_300.png!/fw/431/clip/0x300a0a0'; break;
-            case 'Mature': symbol = 'circle';
+            case 'Develop': develop[i] = result['ys'][i];break;
+            case 'Initial': initial[i] = result['ys'][i]; break;
+            case 'Growup': growup[i] = result['ys'][i]; break;
+            case 'Expand': expand[i] = result['ys'][i]; break;
+            case 'Mature': mature[i] = result['ys'][i];
         }
-        temp = {
-            'value': result['ys'][i],
-            'symbol': symbol,
-            'symbolSize': 20
-        }
-        option.series[0].data.push(temp);
     }
+    all_stage_data = [develop, initial, growup, expand, mature];
+    symbols = ['rect', 'triangle', 'diamond', 'pin', 'circle'];
+    //将数据逐个加入到Echarts组件中
+    //设置x轴
+    option.xAxis.data = result['xs'];
+    //设置y轴
+    for(i = 0; i < option.legend.data.length; i++){
+        temp = {
+            symbolSize: 20,
+            data: all_stage_data[i],
+            type: 'scatter',
+            name:option.legend.data[i],
+            symbol:symbols[i]
+        };
+        option.series.push(temp)
+    }
+    console.log('***************');
     console.log(option);
     myChart.setOption(option);
-}
+};
 
 //设置散点型Echarts
 $.SetPlotChart = function(myChart, result){
     // 指定图表的配置项和数据
-    var option = OPTION['plot']
+    var option = OPTION['plot'];
+    //清空之前的数据
+    option.series[0].data = [];
     for(var i = 0; i < result['xs'].length; i++){
         temp = {
             name:result['label'][i],
             label:{
                 offset:[40, 0],
                 fontSize:15,
-                fontWeight:'bold',
+                // fontWeight:'bold',
                 show:true,
                 color:'#000',
                 formatter:function(param){

@@ -29,7 +29,10 @@ class DatabaseManagement():
 
     def execute_sql(self, sql_str):
         return self.session.execute(sql_str)
-
+    #升序查询
+    def query_order_by(self,target_class, query_filter, column):
+        result_list = self.session.query(target_class).filter(query_filter).order_by(column).all()
+        return result_list
 
 if __name__ == "__main__":
     myData = DatabaseManagement()

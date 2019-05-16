@@ -1,5 +1,5 @@
 # coding: utf-8
-from sqlalchemy import Column, DECIMAL, DateTime, Float, Integer, NCHAR, String, TEXT, Unicode
+from sqlalchemy import Column, DECIMAL, DateTime, Float, Integer, NCHAR, String, TEXT
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -106,7 +106,7 @@ class PatentCountryInfluence(Base):
     id = Column(Integer, primary_key=True)
     _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
     year = Column(String(50, 'Chinese_PRC_CI_AS'))
-    Patent_fc_class_country = Column(Float(53))
+    Influence = Column(Float(53))
     country = Column(String(50, 'Chinese_PRC_CI_AS'))
 
 
@@ -136,7 +136,17 @@ class SysIntroduction(Base):
     code = Column(String(50, 'Chinese_PRC_CI_AS'), nullable=False)
     abstract = Column(TEXT(2147483647, 'Chinese_PRC_CI_AS'))
     date = Column(DateTime)
-    title = Column(Unicode(100))
+    title = Column(String(100, 'Chinese_PRC_CI_AS'))
+
+
+class UploadFile(Base):
+    __tablename__ = 'Upload_Files'
+
+    ID = Column(Integer, primary_key=True)
+    Subsystem = Column(String(50, 'Chinese_PRC_CI_AS'), nullable=False)
+    Path = Column(String(100, 'Chinese_PRC_CI_AS'))
+    Date = Column(DateTime)
+    Title = Column(String(100, 'Chinese_PRC_CI_AS'))
 
 
 class User(Base):
