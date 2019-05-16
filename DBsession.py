@@ -46,7 +46,7 @@ if __name__ == "__main__":
     #                      Highestdegree="博士", Degreedate="2006", University="中科院", Honorary_Reward="",
     #                      Tel="123456789", Email="1051778789@163.com", Class="")
     #增加
-    # user = User(username='王若琳', email='1051776737@qq.com',password='123456')
+    # user = User(username='若琳', email='10533776737@qq.com',password='123456')
     # myData.add_obj(user)
     # myData.add_obj(expert2)
     #查询
@@ -55,9 +55,9 @@ if __name__ == "__main__":
     # for i in query_list:
     #     print(i.ID, i.Country)
     #更改
-    # query_filter = or_(ExpertJudge.Id == 1, ExpertList.Id == 2)
-    # update_hash = {ExpertList.Country: "China"}
-    # myData.update_by_fliter(ExpertList, update_hash, query_filter)
+    # query_filter = and_(User.username == 'sa')
+    # update_hash = {User.email: "1051776737@qq.com"}
+    # myData.update_by_fliter(User, update_hash, query_filter)
     # #删除
     # query_filter = or_(ExpertList.Expert_Name == "刘", ExpertList.Expert_Name == "王")
     # myData.delete_by_filter(ExpertList, query_filter)

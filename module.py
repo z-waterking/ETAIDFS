@@ -14,27 +14,48 @@ def sysIntroduction(FirstDirectory):
 #-------------专家提交数据-------------
 def saveJudgeResult(data):
     thirdClass = data['ThirdClass']
+    ExpertName = '宁光'
     #获取专家每个阶段判断年份，在数据库中标识年份对应阶段
     #获取developstage年份
-    for i in ['DevelopStage','InitialStage', 'GrowupStage', 'ExpandStage', 'MatureStart']:
-        developStart = data[i]['start']
-        developEnd = data[i]['stop']
-        dbsession = DatabaseManagement()
-        query_filter = and_(ExpertJudge.Class == thirdClass, ExpertJudge.Year >= developStart, ExpertJudge.Year <= developEnd)
-        expertJudge = dbsession.query_all(ExpertJudge, query_filter)
-        print(expertJudge)
-        for instance in expertJudge:
-            if i == 'DevelopStage':
-                instance.Stage = 'A'
-            elif i == 'InitialStage':
-                instance.Stage = 'B'
-            elif i == 'GrowupStage':
-                instance.Stage = 'C'
-            elif i == 'ExpandStage':
-                instance.Stage = 'D'
-            else:
-                instance.Stage = 'E'
+    stages = ['DevelopStage', 'InitialStage', 'GrowupStage', 'ExpandStage', 'MatureStart']
+    for i in range(len(stages)):
+        developStart = int(data[stages[i]]['start'])
+        developEnd = int(data[stages[i]]['stop'])
+        YearList = list(range(developStart, developEnd))
+        for year in YearList:
+            # 年 就是year
+            #小类
+            #阶段,数据库中存的是1,2,3,4,5
+            stage = i + 1
+            #先查 小类+年份
+            dbsession = DatabaseManagement()
+            query_filter = and_(ExpertJudge.Class == thirdClass, ExpertJudge.Expert == ExpertName, ExpertJudge.Year == year)
+            expert_judge = dbsession.query_all(ExpertJudge, query_filter)
+            #如果结果为空，直接添加：
+            #添加专家姓名和阶段
+            print('********', expert_judge)
+            if expert_judge == []:
+                #更改查询结果 只查专家和年份,取得id
+                query_filter1 = and_(ExpertJudge.Class == thirdClass, ExpertJudge.Year == year)
+                #先更新专家姓名
+                update_hash1 = {ExpertJudge.Expert: ExpertName}
+                update_hash2 = {ExpertJudge.Stage: stage}
+                #现更改专家姓名
+                dbsession.update_by_fliter(ExpertJudge, update_hash1, query_filter1)
+                #在更改专家对应阶段
+                dbsession.update_by_fliter(ExpertJudge, update_hash2, query_filter1)
 
+            else:
+                #如果专家姓名有，且等于ExpertName
+                for instance in expert_judge:
+                    #直接更新Stage
+                    if instance.Expert == ExpertName:
+                        update_hash = {ExpertJudge.Stage: stage}
+                        dbsession.update_by_fliter(ExpertJudge, update_hash, query_filter)
+                    else:
+                        #如果专家姓名有，但不等于ExpertName
+                        #专家姓名和stage都需要拼接
+                        pass
 #-------------获取通用数据-------------
 #获取通用的国家
 def CommonCountrys():
@@ -83,6 +104,7 @@ def FindThirdClassBySecondaryClass(SecondaryClass):
 def gettotalData(ThirdClass,ThirdDirectory,ForthDirectory):
     xs = []
     ys = []
+    stage = []
     if ThirdDirectory == '科学发展热度与产业发展阶段关联趋势':
         if ForthDirectory == '总体分析':
             #去表PaperHotDegree查
@@ -90,10 +112,16 @@ def gettotalData(ThirdClass,ThirdDirectory,ForthDirectory):
             query_filter = and_(PaperHotDegree._class == ThirdClass)
             data = dbsession.query_order_by(PaperHotDegree, query_filter, "year")
             # print(data)
+            query_filter1 = and_(ExpertJudge.Class == ThirdClass)
+            data1 = dbsession.query_order_by(ExpertJudge, query_filter1, "year")
+            for i in data1:
+                stage.append(i.Stage)
             for instance in data:
                 xs.append(instance.year)
                 ys.append(instance.Hot_degree)
-            return xs, ys
+
+            return xs, ys, stage
+
     elif ThirdDirectory == '科学发展影响力与产业发展关联趋势':
         if ForthDirectory == '总体分析':
             # 去表PaperInfluence查

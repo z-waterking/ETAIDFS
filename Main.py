@@ -143,15 +143,15 @@ def SaveJudgeResult():
     '''
     {'SecondaryClass': '请选择大类', 'ThirdClass': '请选择小类', 'DevelopStage': {'start': '起始年份', 'stop': '起始年份'}, 'InitialStage': {'start': '起始年份', 'stop': '起始年份'}, 'GrowupStage': {'start': '起始年份', 'stop': '起始年份'}, 'ExpandStage': {'start': '起始年份', 'stop': '起始年份'}, 'MatureStart': {'start': '起始年份', 'stop': '起始年份'}}
     '''
-    saveJudgeResult(data)
-    result = {}
+    result = data
+    saveJudgeResult(result)
     result['success'] = True
     return json.dumps(result)
 #-----------专家提交数据End---------------
 
 #-----------获取通用数据------------------
 #获取通用的国家
-@app.route('/GetCommonCountrys',methods=['POST','GET'])
+@app.route('/GetCommonCountrys', methods=['POST','GET'])
 def GetCommonCountrys():
     Commoncountrys = CommonCountrys()
     return json.dumps(Commoncountrys)
@@ -204,8 +204,8 @@ def GetTotalData():
     ThirdClass = data["ThirdClass"]
     ThirdDirectory = data["ThirdDirectory"]
     ForthDirectory = data["ForthDirectory"]
-    xs, ys = gettotalData(ThirdClass, ThirdDirectory, ForthDirectory)
-    print(xs, ys)
+    xs, ys, stage = gettotalData(ThirdClass, ThirdDirectory, ForthDirectory)
+    print(xs, ys, stage)
     result = {}
     result['xs'] = xs
     result['ys'] = ys
@@ -224,7 +224,7 @@ def GetTotalData():
         # result['xs'] = [2008, 2009, 2010, 2011, 2012, 2013]
         # result['ys'] = [23, 34, 56, 29, 56, 78]
         result['graph'] = 'line'
-        result['stage'] = ['Develop', 'Initial', 'Growup', 'Expand', 'Mature', 'Mature']
+        result['stage'] = stage
     return json.dumps(result, cls=DecimalEncoder)
 
 
@@ -284,7 +284,7 @@ def GetLoad():
     if f and allowed_file(f.filename):
         fname = f.filename
         #获取文件后缀
-        ext = fname.rsplit('.',1)[1]
+        ext = fname.rsplit('.', 1)[1]
         unix_time = int(time.time())
         #修改文件名
         new_filename = str(unix_time)+'.'+ ext
