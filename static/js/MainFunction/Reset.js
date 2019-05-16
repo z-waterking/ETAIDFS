@@ -48,13 +48,29 @@ $.ResetList = function(){
             $op.appendTo($("select[name^=SelectStage]"));
         }
     })
-    //重置所有的小类
+};
+
+//重置所有的小类
+$.ResetThirdClass = function(){
+    //重置专家判断部分的小类
     $("#JudgeStageThirdClass").empty();
     var $op = $("<option hidden></option>")
     $op.append('请选择小类');
     //加入对应的三级目录选择列表中
     $op.appendTo($("#JudgeStageThirdClass"));
-}
+    //重置整体信息展示部分的小类
+    $("#RepresentTotalInfoThirdClassContent").empty();
+    var $op = $("<option hidden></option>");
+    $op.append('请选择小类');
+    //加入对应的三级目录选择列表中
+    $op.appendTo($("#RepresentTotalInfoThirdClassContent"));
+    //重置国家信息展示部分的小类
+    $("#RepresentClassCountryInfoThirdClass").empty();
+    var $op = $("<option hidden></option>");
+    $op.append('请选择小类');
+    //加入对应的三级目录选择列表中
+    $op.appendTo($("#RepresentClassCountryInfoThirdClass"));
+};
 
 //重置echarts
 $.ResetChart = function(){

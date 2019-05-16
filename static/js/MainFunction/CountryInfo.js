@@ -1,6 +1,7 @@
 //国家信息展示
 //更新小类的选项
 $("#RepresentClassCountryInfoSecondaryClass").change(function(object){
+    $.ResetThirdClass();
     console.log(object.target);
     //获取当前选中的大类
     var select = object.target;
@@ -11,6 +12,9 @@ $("#RepresentClassCountryInfoSecondaryClass").change(function(object){
     $.GetData('GetCommonThirdClass', data, function(ThirdClass){
         //先清空三级目录
         $("#RepresentClassCountryInfoThirdClass").empty()
+        var $op = $("<option hidden></option>");
+        $op.append('请选择小类');
+        $op.appendTo($("#RepresentClassCountryInfoThirdClass"));
         for(var i = 0; i < ThirdClass.length; i++){
             //新建一个option
             var $op = $("<option></option>")

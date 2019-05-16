@@ -9,7 +9,10 @@ $("#JudgeStageSecondaryClass").change(function(object){
     //更新其对应的三级目录列表
     $.GetData('GetCommonThirdClass', data, function(ThirdClass){
         //先清空三级目录
-        $("#JudgeStageThirdClass").empty()
+        $("#JudgeStageThirdClass").empty();
+        var $op = $("<option hidden></option>");
+        $op.append('请选择小类');
+        $op.appendTo($("#JudgeStageThirdClass"));
         for(var i = 0; i < ThirdClass.length; i++){
             //新建一个option
             var $op = $("<option></option>")
@@ -22,7 +25,6 @@ $("#JudgeStageSecondaryClass").change(function(object){
 })
 
 //提交全部的选择
-
 $("#JudgeStageEnter").click(function(){
     //获取此页面中的全部控件中的值
     //获取大类

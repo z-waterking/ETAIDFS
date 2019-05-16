@@ -1,4 +1,4 @@
-﻿//修改一级目录的点击事件，更新面包屑导航条
+//修改一级目录的点击事件，更新面包屑导航条
 $('a[name=FirstDirectory] > button').click(function(object){
     console.log(object.target.innerHTML);
     //一级目录只改第一级的，后面三级设为null
@@ -12,7 +12,10 @@ $('a[name=FirstDirectory] > button').click(function(object){
     $.ResetSideNav();
     //重置列表
     $.ResetList();
-})
+    $.ResetThirdClass();
+    //获取简介
+    $.GetIntroduction(PagePosition['FirstDirectory']);
+});
 
 //修改二级目录的点击事件，更新面包屑导航条
 $('li[name=SecondDirectory] > a').click(function(object){
@@ -27,7 +30,8 @@ $('li[name=SecondDirectory] > a').click(function(object){
     $.ResetChart();
     //重置四级目录
     $.ResetForthDirectory();
-})
+
+});
 
 //修改三级目录的点击事件，更新面包屑导航条
 $('li[name=ThirdDirectory] > a').click(function(object){
@@ -48,11 +52,12 @@ $('li[name=ForthDirectory] > a').click(function(object){
     $.RefreshSecThiByFor(object.target);
     PagePosition['ForthDirectory'] = object.target.innerHTML;
     $.RefreshBread();
-    //在点击四级目录时，重置所有的List
+    //重置列表,小类
     $.ResetList();
+    $.ResetThirdClass();
     //重置Echarts
     $.ResetChart();
     //重置二级、四级目录
     $.ResetSecondDirectory();
     $.ResetForthDirectory();
-})
+});
