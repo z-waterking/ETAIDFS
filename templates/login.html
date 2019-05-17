@@ -6,31 +6,24 @@
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../static/css/signin.css" rel="stylesheet">
+    <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
 </head>
 <body class="text-center">
-    <form class="form-signin" method="post" action="/login">
-        <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="" id="inputEmail" class="form-control" placeholder="Email address" name="email"required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password"required>
+    <form class="form-signin" method="post" action="">
+        <h1 class="h3 mb-3 font-weight-normal">请登录</h1>
+        <label for="LoginEmail" class="sr-only">Email address</label>
+        <input type="" id="LoginEmail" class="form-control" placeholder="登录邮箱" name="email"required autofocus>
+        <label for="LoginPassword" class="sr-only">Password</label>
+        <input type="password" id="LoginPassword" class="form-control" placeholder="密码" name="password"required>
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" />
+        <button id="LoginEnter" type="button" class="btn btn-lg btn-primary btn-block">Sign in</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
     </form>
-    <div class="warning">
-        {% for message in get_flashed_messages() %}
-            <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                    aria-hidden="true">&times;</span></button>
-                <strong>{{ message  }}</strong>
-            </div>
-        {% endfor %}
-    </div>
+<script src="{{ url_for('static',filename='js/MainFunction/CommonFunction.js') }}"></script>
+<script src="{{ url_for('static',filename='js/MainFunction/login.js') }}"></script>
 </body>
 </html>
