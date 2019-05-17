@@ -113,7 +113,6 @@ $("#ExpertInfoEnter").click(function(){
     PostInfo['Email'] = email
     PostInfo['Phone'] = phone
 
-
     //提交数据向服务器保存，让其保存
     $.PostData('SaveExpertInformation', PostInfo, function(result){
         if(result['success'] == true){

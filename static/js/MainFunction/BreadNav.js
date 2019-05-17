@@ -8,6 +8,8 @@ $('a[name=FirstDirectory] > button').click(function(object){
     PagePosition['ForthDirectory'] = null;
     //刷新面包屑导航
     $.RefreshBread();
+    //收起collapse
+    $.ResetCollapseBox();
     //重置侧边栏
     $.ResetSideNav();
     //重置列表

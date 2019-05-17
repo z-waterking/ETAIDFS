@@ -48,6 +48,84 @@ $.ResetList = function(){
             $op.appendTo($("select[name^=SelectStage]"));
         }
     })
+    //更新专家信息管理中的技术领域
+    $.GetData('GetExpertTecnology', PagePosition, function(Tecnologys){
+        for(var i = 0; i < Tecnologys.length; i++){
+            //新建一个option
+            var $op = $("<option></option>")
+            $op.attr('value', Tecnologys[i]);
+            $op.append(Tecnologys[i]);
+            //加入（name以SelectStage开头)年份选择列表中
+            $op.appendTo($('#TechnicalField'));
+        }
+    })
+    //更新专家信息管理中的出生年份
+    $.GetData('GetExpertBirthYear', {}, function(Tecnologys){
+        for(var i = 0; i < Tecnologys.length; i++){
+            //新建一个option
+            var $op = $("<option></option>")
+            $op.attr('value', Tecnologys[i]);
+            $op.append(Tecnologys[i]);
+            //加入（name以SelectStage开头)年份选择列表中
+            $op.appendTo($('#Birthday'));
+        }
+    })
+    //更新专家信息管理中的省
+    $.GetData('GetExpertProvince', {}, function(Tecnologys){
+        for(var i = 0; i < Tecnologys.length; i++){
+            //新建一个option
+            var $op = $("<option></option>")
+            $op.attr('value', Tecnologys[i]);
+            $op.append(Tecnologys[i]);
+            //加入（name以SelectStage开头)年份选择列表中
+            $op.appendTo($('#Province'));
+        }
+    })
+    //获取最高学历
+    $.GetData('GetHighestDegree', {}, function(Tecnologys){
+        alert('ok')
+        for(var i = 0; i < Tecnologys.length; i++){
+            //新建一个option
+            var $op = $("<option></option>")
+            $op.attr('value', Tecnologys[i]);
+            $op.append(Tecnologys[i]);
+            //加入（name以SelectStage开头)年份选择列表中
+            $op.appendTo($('#HighestDegree'));
+        }
+    })
+    //获取授予年
+    $.GetData('GetGrantYear', {}, function(Tecnologys){
+        for(var i = 0; i < Tecnologys.length; i++){
+            //新建一个option
+            var $op = $("<option></option>")
+            $op.attr('value', Tecnologys[i]);
+            $op.append(Tecnologys[i]);
+            //加入（name以SelectStage开头)年份选择列表中
+            $op.appendTo($('#GrantYear'));
+        }
+    })
+    //获取授予月
+    $.GetData('GetGrantMonth', {}, function(Tecnologys){
+        for(var i = 0; i < Tecnologys.length; i++){
+            //新建一个option
+            var $op = $("<option></option>")
+            $op.attr('value', Tecnologys[i]);
+            $op.append(Tecnologys[i]);
+            //加入（name以SelectStage开头)年份选择列表中
+            $op.appendTo($('#GrantMonth'));
+        }
+    })
+    //获取授予日
+    $.GetData('GetGrantDay', {}, function(Tecnologys){
+        for(var i = 0; i < Tecnologys.length; i++){
+            //新建一个option
+            var $op = $("<option></option>")
+            $op.attr('value', Tecnologys[i]);
+            $op.append(Tecnologys[i]);
+            //加入（name以SelectStage开头)年份选择列表中
+            $op.appendTo($('#GrantDay'));
+        }
+    })
 };
 
 //重置所有的小类

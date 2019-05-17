@@ -5,10 +5,12 @@ OPTION = {
             data:['研发期', '初创期', '成长期', '扩张期', '成熟期']
         },
         xAxis: {
+            name: '年份',
             type: 'category',
             data: []
         },
         yAxis: {
+            name: '',
             type: 'value'
         },
         series: [{

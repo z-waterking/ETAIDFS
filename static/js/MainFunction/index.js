@@ -1,4 +1,6 @@
-
+//全局变量，记录整个系统的用户
+User = {
+}
 //全局变量，记录整个页面的状态
 PagePosition = {
     'FirstDirectory':'系统简介',
