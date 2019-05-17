@@ -21,7 +21,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 admin = Admin(app)
 
 #辅助函数
-#登录检验
+#登录检验，登陆时需要检查其权限
 def valid_login(email, password):
     dbsession = DatabaseManagement()
     query_filter = and_(User.email == email, User.password == password)
@@ -30,6 +30,7 @@ def valid_login(email, password):
         return True
     else:
         return False
+
 #注册检验
 def valid_register(username, email):
     dbsession = DatabaseManagement()
@@ -49,18 +50,12 @@ def login_required(func):
         else:
             return redirect('login.html')
     return wrapper
+
 #上传文件需要函数
 def allowed_file(filename):
     return '.'in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/index',methods=['POST','GET'])
-def GetPage():
-    return render_template('homepage.html')
-
-@app.route('/index2',methods=['POST','GET'])
-def GetPage2():
-    return render_template('index.html')
-
+#打开新链接的模版
 @app.route('/new_page', methods=['POST', 'GET'])
 def GetNewPage():
     A = request.args.get("a")
@@ -70,50 +65,74 @@ def GetNewPage():
     print(B)
     return render_template('NewPage.html', data={"result":"OK"})
 
-@app.route('/newpage_index', methods=['POST','GET'])
-@login_required
-def GetNewPage_index():
-    return render_template('index.html')
-
-@app.route('/ExpertInformationManage',methods=['POST','GET'])
-@login_required
-def GetPage_ExpertInformationManage():
-    return render_template('ExpertInformationManage.html')
-
+#-------------------------注册------------------------------
 @app.route('/register', methods=['POST','GET'])
 def GetPage_register():
-    if request.method == 'POST':
-        if request.form["password1"] != request.form["password2"]:
-            flash('两次密码不一致，请重新输入！')
-        elif valid_register(request.form["username"], request.form["email"]):
-            user = User(username=request.form["username"], password=request.form["password1"], email=request.form["email"])
-            dbsession1 = DatabaseManagement()
-            dbsession1.add_obj(user)
-            flash("成功注册！")
-            return redirect(url_for("GetPage_login"))
-        else:
-            flash("该用户名或邮箱已被注册！")
-
     return render_template('register.html')
 
+@app.route('/RegisterEnter', methods=['POST','GET'])
+def RegisterEnter():
+    register_data = request.json
+    print(register_data)
+    #todo 校验注册信息是否重复，若不重复，则插入，返回正确，否则，返回重新注册
+    # if request.method == 'POST':
+    #     if request.form["password1"] != request.form["password2"]:
+    #         flash('两次密码不一致，请重新输入！')
+    #     elif valid_register(request.form["username"], request.form["email"]):
+    #         user = User(username=request.form["username"], password=request.form["password1"], email=request.form["email"])
+    #         dbsession1 = DatabaseManagement()
+    #         dbsession1.add_obj(user)
+    #         flash("成功注册！")
+    #         return redirect(url_for("GetPage_login"))
+    #     else:
+    #         flash("该用户名或邮箱已被注册！")
+    # return render_template('register.html')
+    return json.dumps({'success':True})
+#----------------------注册End------------------------------
+
+#页面测试
+@app.route('/normal', methods=['POST', 'GET'])
+def GetNormal():
+    return render_template('homepage_normalUser.html')
+
+@app.route('/expert', methods=['POST', 'GET'])
+def GetExpert():
+    return render_template('homepage_Expert.html')
+
+@app.route('/admin', methods=['POST', 'GET'])
+def GetAdmin():
+    return render_template('homepage_Administrator.html')
+#页面测试END
+
+#----------------------登录--------------------------------
 @app.route('/login', methods=['POST', 'GET'])
 def GetPage_login():
-    if request.method == 'POST':
-        if valid_login(request.form["email"], request.form["password"]):
-            email = request.form["email"]
-            flash('登录成功!')
-            session['email'] = request.form["email"]
-            return redirect(url_for("GetPage"))
-        else:
-            flash('用户名或密码错误！')
-
+    #先替换为我自己的
+    #登陆时得到前端的
+        # if valid_login(request.form["email"], request.form["password"]):
+        #     email = request.form["email"]
+        #     flash('登录成功!')
+        #     session['email'] = request.form["email"]
+        #     return redirect(url_for("GetPage"))
+        # else:
+        #     flash('用户名或密码错误！')
     return render_template('login.html')
-#-----------系统简介---------------
+
+@app.route('/LoginEnter', methods=['POST', 'GET'])
+def LoginEnter():
+    data = request.json
+    print(data)
+    #todo 校验登陆
+    return json.dumps({'success':True})
+#-----------------------登陆End-------------------------------
+
+#-----------系统简介--------------------------------
 @app.route('/GetIntroduction', methods=['POST','GET'])
 def SysIntroduction():
     FirstDirectory = request.args.get("FirstDirectory")
     result = sysIntroduction(FirstDirectory)
     return json.dumps({'introduction':result})
+#-----------系统简介end-----------------------------
 
 #-----------专家信息管理------------
 @app.route('/SaveExpertInformation',methods = ['POST','GET'])
@@ -174,17 +193,67 @@ def GetCommonSecondaryClass():
     ''' FirstDirectory'''
     # CommonSecondaryClass = ['A', 'B', 'C']
     return json.dumps(CommonSecondaryClass)
+
 #通过大类获取小类
 @app.route('/GetCommonThirdClass',methods=['POST','GET'])
 def GetCommonThirdClass():
-
     # def FindThirdClassBySecondaryClass(SecondaryClass):
     #     return ['小类1', '小类2']
     ''' FirstDirectory'''
-
     SecondaryClass = request.args.get("SecondaryClass")
     CommonThirdClass = FindThirdClassBySecondaryClass(SecondaryClass)
     return json.dumps(CommonThirdClass)
+
+#获取专家信息管理中的技术领域
+@app.route('/GetExpertTecnology',methods=['POST','GET'])
+def GetExpertTecnology():
+    #TODO
+    print('GETIT')
+    FirstDirectory = request.args.get("FirstDirectory")
+    return json.dumps(['A', 'B', 'C'])
+#获取专家的生日
+@app.route('/GetExpertBirthday',methods=['POST','GET'])
+def GetExpertBirthday():
+    #TODO
+    print('Get Birtyday')
+    return json.dumps([2000, 2011, 2012])
+#获取省市
+@app.route('/GetExpertProvince',methods=['POST','GET'])
+def GetExpertProvince():
+    #TODO
+    print('Get Province')
+    return json.dumps(['北京市', '天津市', '上海市', '重庆市', '内蒙古自治区',
+                       '辽宁省', '吉林省', '黑龙江省', '河北省', '江苏省',
+                       '浙江省', '安徽省', '福建省', '江西省', '山东省',
+                       '河南省', '湖北省', '湖南省', '广东省', '广西壮族自治区',
+                       '海南省', '山西省', '四川省', '贵州省', '云南省',
+                       '西藏自治区', '陕西省', '甘肃省', '青海省', '宁夏回族自治区',
+                       '新疆维吾尔自治区', '香港', '澳门', '台湾'
+                       ])
+#获取GetHighestDegree
+@app.route('/GetHighestDegree',methods=['POST','GET'])
+def GetHighestDegree():
+    #TODO
+    print('Get Province')
+    return json.dumps(['副学士学位', '学士学位', '硕士学位', '博士学位'])
+#获取授予年
+@app.route('/GetGrantYear',methods=['POST','GET'])
+def GetGrantYear():
+    #TODO
+    print('GetGrantYear')
+    return json.dumps([2000, 2001])
+#获取授予月
+@app.route('/GetGrantMonth',methods=['POST','GET'])
+def GetGrantMonth():
+    #TODO
+    print('GetGrantMonth')
+    return json.dumps([1, 2])
+#获取授予日
+@app.route('/GetGrantDay',methods=['POST','GET'])
+def GetGrantDay():
+    #TODO
+    print('GetGrantDay')
+    return json.dumps([1, 2, 3])
 
 #-----------获取通用数据End---------------
 
@@ -227,8 +296,9 @@ def GetTotalData():
         result['stage'] = stage
     return json.dumps(result, cls=DecimalEncoder)
 
-
 #-----------获取图表展示数据End---------------
+
+
 @app.route('/GetCountryData', methods=['POST','GET'])
 def GetCountryData():
     data = request.json
@@ -267,6 +337,7 @@ def GetCountryData():
 @app.route('/upload', methods=['POST','GET'])
 def upload_file():
     return render_template('upload.html')
+
 @app.route('/GetLoad',methods=['POST','GET'])
 def GetLoad():
     file_dir = os.path.join(basedir,app.config['UPLOAD_FOLDER'])
@@ -299,13 +370,6 @@ def GetLoad():
         result['errno'] = 1001
         result['errmsg'] = "上传失败"
         return json.dumps(result)
-
-@app.route('/getdata',methods=['POST','GET'])
-def GetData():
-    data = request.json
-    print('----')
-    print(data)
-    return json.dumps(data)
 
 if __name__ == '__main__':
     # app.run(host='192.168.1.103',port='8080',debug=True)

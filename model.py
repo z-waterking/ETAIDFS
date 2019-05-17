@@ -5,10 +5,8 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 metadata = Base.metadata
 
-
 class DictClas(Base):
     __tablename__ = 'Dict_Class'
-
     Code = Column(String(50, 'Chinese_PRC_CI_AS'))
     Class = Column(String(100, 'Chinese_PRC_CI_AS'))
     id = Column(Integer, primary_key=True)
@@ -52,13 +50,11 @@ class ExpertList(Base):
 
 class PaperCountryHotDegree(Base):
     __tablename__ = 'Paper_Country_HotDegree'
-
     id = Column(Integer, primary_key=True)
     _class = Column('class', String(100, 'Chinese_PRC_CI_AS'))
     year = Column(String(50, 'Chinese_PRC_CI_AS'))
     country = Column(String(50, 'Chinese_PRC_CI_AS'))
     Hot_degree = Column(DECIMAL(18, 3))
-
 
 class PaperCountryInfluence(Base):
     __tablename__ = 'Paper_Country_Influence'
