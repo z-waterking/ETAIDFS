@@ -56,8 +56,10 @@ if __name__ == "__main__":
     #     print(i.ID, i.Country)
     #更改
     # query_filter = and_(User.username == 'sa')
-    # update_hash = {User.email: "1051776737@qq.com"}
+    # update_hash = {User.email: "10517767337@qq.com"}
     # myData.update_by_fliter(User, update_hash, query_filter)
+    # update_hash1 = {User.password: "1111111"}
+    # myData.update_by_fliter(User,update_hash1,query_filter)
     # #删除
     # query_filter = or_(ExpertList.Expert_Name == "刘", ExpertList.Expert_Name == "王")
     # myData.delete_by_filter(ExpertList, query_filter)

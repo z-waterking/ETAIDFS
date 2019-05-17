@@ -47,81 +47,96 @@ $.ResetList = function(){
             //加入（name以SelectStage开头)年份选择列表中
             $op.appendTo($("select[name^=SelectStage]"));
         }
-    })
+    });
     //更新专家信息管理中的技术领域
     $.GetData('GetExpertTecnology', PagePosition, function(Tecnologys){
+        // console.log()
         for(var i = 0; i < Tecnologys.length; i++){
-            //新建一个option
-            var $op = $("<option></option>")
-            $op.attr('value', Tecnologys[i]);
-            $op.append(Tecnologys[i]);
-            //加入（name以SelectStage开头)年份选择列表中
-            $op.appendTo($('#TechnicalField'));
+            $('#TechnicalField').append("<option value=" + Tecnologys[i] + ">" + Tecnologys[i] + "</option>");
         }
-    })
+        $('#TechnicalField').selectpicker('refresh');
+        $('#TechnicalField').selectpicker('render');
+    });
     //更新专家信息管理中的出生年份
-    $.GetData('GetExpertBirthYear', {}, function(Tecnologys){
-        for(var i = 0; i < Tecnologys.length; i++){
+    $.GetData('GetExpertBirthYear', {}, function(Birthday){
+        $('#Birthday').empty();
+        var $op1 = $("<option value='请选择' hidden>请选择</option>");
+        $op1.appendTo($('#Birthday'));
+        for(var i = 0; i < Birthday.length; i++){
             //新建一个option
-            var $op = $("<option></option>")
-            $op.attr('value', Tecnologys[i]);
-            $op.append(Tecnologys[i]);
+            var $op = $("<option></option>");
+            $op.attr('value', Birthday[i]);
+            $op.append(Birthday[i]);
             //加入（name以SelectStage开头)年份选择列表中
             $op.appendTo($('#Birthday'));
         }
-    })
+    });
     //更新专家信息管理中的省
-    $.GetData('GetExpertProvince', {}, function(Tecnologys){
-        for(var i = 0; i < Tecnologys.length; i++){
+    $.GetData('GetExpertProvince', {}, function(Province){
+        $('#Province').empty();
+        var $op1 = $("<option value='请选择' hidden>请选择</option>");
+        $op1.appendTo($('#Province'));
+        for(var i = 0; i < Province.length; i++){
             //新建一个option
             var $op = $("<option></option>")
-            $op.attr('value', Tecnologys[i]);
-            $op.append(Tecnologys[i]);
+            $op.attr('value', Province[i]);
+            $op.append(Province[i]);
             //加入（name以SelectStage开头)年份选择列表中
             $op.appendTo($('#Province'));
         }
-    })
+    });
     //获取最高学历
-    $.GetData('GetHighestDegree', {}, function(Tecnologys){
-        alert('ok')
-        for(var i = 0; i < Tecnologys.length; i++){
+    $.GetData('GetHighestDegree', {}, function(HighestDegree){
+        $('#HighestDegree').empty();
+        var $op1 = $("<option value='请选择' hidden>请选择</option>");
+        $op1.appendTo($('#HighestDegree'));
+        for(var i = 0; i < HighestDegree.length; i++){
             //新建一个option
             var $op = $("<option></option>")
-            $op.attr('value', Tecnologys[i]);
-            $op.append(Tecnologys[i]);
+            $op.attr('value', HighestDegree[i]);
+            $op.append(HighestDegree[i]);
             //加入（name以SelectStage开头)年份选择列表中
             $op.appendTo($('#HighestDegree'));
         }
-    })
+    });
     //获取授予年
-    $.GetData('GetGrantYear', {}, function(Tecnologys){
-        for(var i = 0; i < Tecnologys.length; i++){
+    $.GetData('GetGrantYear', {}, function(GrantYear){
+        $('#GrantYear').empty();
+        var $op1 = $("<option value='请选择' hidden>请选择</option>");
+        $op1.appendTo($('#GrantYear'));
+        for(var i = 0; i < GrantYear.length; i++){
             //新建一个option
             var $op = $("<option></option>")
-            $op.attr('value', Tecnologys[i]);
-            $op.append(Tecnologys[i]);
+            $op.attr('value', GrantYear[i]);
+            $op.append(GrantYear[i]);
             //加入（name以SelectStage开头)年份选择列表中
             $op.appendTo($('#GrantYear'));
         }
-    })
+    });
     //获取授予月
-    $.GetData('GetGrantMonth', {}, function(Tecnologys){
-        for(var i = 0; i < Tecnologys.length; i++){
+    $.GetData('GetGrantMonth', {}, function(GrantMonth){
+        $('#GrantMonth').empty();
+        var $op1 = $("<option value='请选择' hidden>请选择</option>");
+        $op1.appendTo($('#GrantMonth'));
+        for(var i = 0; i < GrantMonth.length; i++){
             //新建一个option
             var $op = $("<option></option>")
-            $op.attr('value', Tecnologys[i]);
-            $op.append(Tecnologys[i]);
+            $op.attr('value', GrantMonth[i]);
+            $op.append(GrantMonth[i]);
             //加入（name以SelectStage开头)年份选择列表中
             $op.appendTo($('#GrantMonth'));
         }
-    })
+    });
     //获取授予日
-    $.GetData('GetGrantDay', {}, function(Tecnologys){
-        for(var i = 0; i < Tecnologys.length; i++){
+    $.GetData('GetGrantDay', {}, function(GrantDay){
+        $('#GrantDay').empty();
+        var $op1 = $("<option value='请选择' hidden>请选择</option>");
+        $op1.appendTo($('#GrantDay'));
+        for(var i = 0; i < GrantDay.length; i++){
             //新建一个option
             var $op = $("<option></option>")
-            $op.attr('value', Tecnologys[i]);
-            $op.append(Tecnologys[i]);
+            $op.attr('value', GrantDay[i]);
+            $op.append(GrantDay[i]);
             //加入（name以SelectStage开头)年份选择列表中
             $op.appendTo($('#GrantDay'));
         }

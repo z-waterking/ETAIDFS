@@ -29,6 +29,8 @@ $("#RepresentClassCountryInfoSecondaryClass").change(function(object){
 //notice: 科学与技术发展关联聚类预测需要单独判断
 $("#ClassCountrySelectEnter").click(function(){
     //取得大类和小类的文本，向后端请求数据
+    //重置Echarts
+    $.ResetChart();
     //获取大类
     var SecondarySelect = $("#RepresentClassCountryInfoSecondaryClass")[0]
     var SecondaryClass = SecondarySelect.options[SecondarySelect.selectedIndex].value
