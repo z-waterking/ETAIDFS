@@ -1,6 +1,8 @@
 from Main import *
 from flask import Flask, json, config,render_template, url_for, redirect, flash
 from flask import request,jsonify,session,send_from_directory
+
+from Main import app
 from model import *
 from DBsession import *
 
@@ -54,7 +56,8 @@ def GetExpertTecnology():
     #TODO
     print('GETIT')
     FirstDirectory = request.args.get("FirstDirectory")
-    return json.dumps(['A', 'B', 'C'])
+    #获取该大类对应的小类
+    return json.dumps(['A','B','C'])
 #获取专家的生日
 @app.route('/GetExpertBirthYear',methods=['POST','GET'])
 def GetExpertBirthday():

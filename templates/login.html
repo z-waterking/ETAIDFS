@@ -7,6 +7,7 @@
     <!-- Custom styles for this template -->
     <link href="../static/css/signin.css" rel="stylesheet">
     <script src="{{ url_for('static',filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery.cookie.js') }}"></script>
 </head>
 <body class="text-center">
     <form class="form-signin" method="post" action="">
@@ -14,7 +15,7 @@
         <label for="LoginEmail" class="sr-only">Email address</label>
         <input type="" id="LoginEmail" class="form-control" placeholder="登录邮箱" name="email"required autofocus>
         <label for="LoginPassword" class="sr-only">Password</label>
-        <input type="password" id="LoginPassword" class="form-control" placeholder="密码" name="password"required>
+        <input type="password" id="LoginPassword" class="form-control" placeholder="密码" name="password" required>
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me

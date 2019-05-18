@@ -51,6 +51,7 @@ $.ResetList = function(){
     //更新专家信息管理中的技术领域
     $.GetData('GetExpertTecnology', PagePosition, function(Tecnologys){
         // console.log()
+        $('#TechnicalField').empty();
         for(var i = 0; i < Tecnologys.length; i++){
             $('#TechnicalField').append("<option value=" + Tecnologys[i] + ">" + Tecnologys[i] + "</option>");
         }
@@ -140,7 +141,9 @@ $.ResetList = function(){
             //加入（name以SelectStage开头)年份选择列表中
             $op.appendTo($('#GrantDay'));
         }
-    })
+    });
+    //如果专家存在信息，则更新进去
+    $.GetExpertInformation();
 };
 
 //重置所有的小类

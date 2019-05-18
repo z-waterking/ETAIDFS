@@ -1,16 +1,23 @@
 $('#LoginEnter').click(function(){
-    LoginEmail = $('#LoginEmail').val()
-    LoginPassword = $('#LoginEmail').val()
-
+    $.cookie('email', 'abc@qq.com');
+    LoginEmail = $('#LoginEmail').val();
+    LoginPassword = $('#LoginPassword').val();
     LoginPost = {
         'email':LoginEmail,
         'password':LoginPassword
-    }
+    };
     $.PostData('LoginEnter', LoginPost, function(data){
-        if(data['success'] == true){
-            alert('OK');
-            window.location.href= "normal"
+        alert(data['msg']);
+        if(data['success'] === true){
+            //记录自己的邮箱
+            $.cookie('iden', data['iden']);
+            $.cookie('email', data['email']);
+            if(data['iden'] == 1){
+                window.location.href="normal";
+            }
+            else{
+                window.location.href="expert";
+            }
         }
-
     })
 })

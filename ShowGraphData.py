@@ -68,13 +68,9 @@ def GetCountryData():
     # 如果是这个目录下的，则为散点图。否则为折线图。
     # 散点图不需要管stage的值。折线图需要管。
     if data['SecondDirectory'].strip() == '科学与技术发展关联聚类监测':
-        # result['xs'] = [200, 309, 421, 20, 402]
-        # result['ys'] = [110, 123, 130, 140, 150]
         result['graph'] = 'plot'
         result['label'] = label
     else:
-        # result['xs'] = [2008, 2009, 2010, 2011, 2012]
-        # result['ys'] = [110, 123, 130, 140, 150]
         result['graph'] = 'line'
         result['stage'] = label
     return json.dumps(result, cls=DecimalEncoder)

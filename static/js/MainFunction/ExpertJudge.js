@@ -81,16 +81,18 @@ $("#JudgeStageEnter").click(function(){
     PostDataInfo = {
         "SecondaryClass": SecondaryClass,
         "ThirdClass": ThirdClass,
-    }
+    };
     //遍历阶段，组织数据
     for(var i = 0; i < Stages.length; i++)
     {
         temp = {
                 "start": AllStartYears[i],
                 "stop": AllStopYears[i]
-        }
+        };
         PostDataInfo[Stages[i]] = temp;
     }
+    //提交专家姓名
+    PostDataInfo["ExpertName"] = $.cookie('ExpertName');
     //提交数据向服务器保存，让其保存
     $.PostData('JudgeResult', PostDataInfo, function(result){
         if(result['success'] == true){

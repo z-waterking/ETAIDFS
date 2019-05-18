@@ -156,6 +156,7 @@ class User(Base):
     username = Column(String(50, 'Chinese_PRC_CI_AS'), unique=True)
     email = Column(String(50, 'Chinese_PRC_CI_AS'), unique=True)
     password = Column(String(50, 'Chinese_PRC_CI_AS'))
+    iden = Column(String(50, 'Chinese_PRC_CI_AS'))
 
 
 class Country(Base):

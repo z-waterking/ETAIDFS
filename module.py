@@ -16,7 +16,8 @@ def sysIntroduction(FirstDirectory):
 # -------------专家提交数据-------------
 def saveJudgeResult(data):
     thirdClass = data['ThirdClass']
-    ExpertName = '王'
+    #获取专家姓名
+    ExpertName = data['ExpertName']
     # 获取专家每个阶段判断年份，在数据库中标识年份对应阶段
     # 获取developstage年份
     stages = ['DevelopStage', 'InitialStage', 'GrowupStage', 'ExpandStage', 'MatureStart']
@@ -76,6 +77,8 @@ def CommonSecondaryClass(Firstdirectory):
 
 # 通过大类获取小类
 def FindThirdClassBySecondaryClass(SecondaryClass):
+    secondaryclasscode = 000
+    secondarySubclass = 000000
     FindThirdClassBySecondaryClass = []
     dbsession = DatabaseManagement()
     query_filter = and_(DictClas.Class == SecondaryClass, DictClas.Code.like('00_'))
