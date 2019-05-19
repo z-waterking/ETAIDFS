@@ -53,7 +53,7 @@ $.ResetList = function(){
         // console.log()
         $('#TechnicalField').empty();
         for(var i = 0; i < Tecnologys.length; i++){
-            $('#TechnicalField').append("<option value=" + Tecnologys[i] + ">" + Tecnologys[i] + "</option>");
+            $('#TechnicalField').append("<option value='" + Tecnologys[i] + "'>" + Tecnologys[i] + "</option>");
         }
         $('#TechnicalField').selectpicker('refresh');
         $('#TechnicalField').selectpicker('render');
@@ -175,9 +175,10 @@ $.ResetChart = function(){
     $("#CountryTitle").empty();
     //
     $("div[name=ChartContainer]").empty();
-    $chartTotal = $('<canvas class="my-4" id="TotalChart" width="900" height="380"></canvas>')
+    // $chartTotal = $('<canvas class="my-4" id="TotalChart" width="900" height="380"></canvas>')
+    $chartTotal = $('<canvas class="my-4" id="TotalChart" width="1200" height="500"></canvas>')
     $chartTotal.appendTo($("#TotalChartContainer"))
-    $chartCountry = $('<canvas class="my-4" id="CountryChart" width="900" height="380"></canvas>')
+    $chartCountry = $('<canvas class="my-4" id="CountryChart" width="1200" height="500"></canvas>')
     $chartCountry.appendTo($("#CountryChartContainer"))
 }
 

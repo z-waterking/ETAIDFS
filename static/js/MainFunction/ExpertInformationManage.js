@@ -2,8 +2,8 @@ $("#ExpertInfoEnter").click(function(){
     alert('OK')
     //获取此页面中的全部控件中的值
     //获取技术领域,Value为一个列表
-    TechnicalField = $('#TechnicalField')[0]
     technicalfield = $('#TechnicalField').selectpicker('val');
+    console.log(technicalfield);
     //获取姓名
     name_value = $('#Name').val();
     //获取出生年份
@@ -111,7 +111,9 @@ $("#ExpertInfoEnter").click(function(){
     PostInfo['GrantCountry'] = grantcountry
     PostInfo['HonorAndReward'] = honorandreward
     PostInfo['Email'] = email
-    PostInfo['Phone'] = phone
+    PostInfo['Phone'] = phone;
+    //已经记住的Email
+    PostInfo['cookieEmail'] = $.cookie('email')
     //提交数据向服务器保存，让其保存
     $.PostData('SaveExpertInformation', PostInfo, function(result){
         if(result['success'] == true){
@@ -134,7 +136,9 @@ $.GetExpertInformation = function(){
             console.log('**********')
             //填写文本信息
             //第一块 技术领域
-            $('#TechnicalField').selectpicker('val', result['Class'])
+            console.log(result['Class']);
+            // console.log($('#TechnicalField'));
+            $('#TechnicalField').selectpicker('val', result['Class']);
             //第二块 性别
             $('input[name=sex]').each(function(n, obj){
                 if(obj.value === result['Sex']){

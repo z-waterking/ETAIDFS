@@ -108,7 +108,7 @@ def gettotalData(ThirdClass, ThirdDirectory, ForthDirectory):
     }
     WayFindClusterTable = {
         '科学热度与技术热度关联聚类监测': [PatentHotDegree, PaperHotDegree, 'hot'],
-        '科学影响力与技术影响力聚类关联分析' : [PatentInfluence, PaperInfluence, 'influence']
+        '科学影响力与技术影响力聚类关联分析': [PatentInfluence, PaperInfluence, 'influence']
     }
     StageName = ['', 'Develop', 'Initial', 'Growup', 'Expand', 'Mature']
     if '聚类' not in ThirdDirectory:

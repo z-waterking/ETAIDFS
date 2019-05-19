@@ -54,13 +54,18 @@ OPTION = {
             max:'dataMax',
             type: 'value'
         },
+        tooltip:{
+          trigger:'item'
+        },
         series: [{
-            symbolSize: 20,
+            symbolSize: 8,
             data: [],
             type: 'scatter',
             markLine: {
                 label:{
-                  show:true
+                  show:true,
+                    color:'#000000',
+
                 },
                 lineStyle: {
                     color: '#00000',
@@ -165,7 +170,7 @@ $.SetPlotChart = function (myChart, result) {
         temp = {
             name: result['label'][i],
             label: {
-                offset: [40, 0],
+                position:'right',
                 fontSize: 15,
                 // fontWeight:'bold',
                 show: true,

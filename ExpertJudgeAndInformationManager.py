@@ -10,15 +10,33 @@ def ExpertManage():
     data = request.get_json(force=True)
     print('***', data)
     result = data
+    email = data['cookieEmail']
+    print('$$$$$$',email)
     if request.method == 'POST':
-        expert = ExpertList(Expert_Name=data['Name'], Birth_Year=data['Birthday'], Sex=data['Sex'], People=data['Nation'],
-                            Institution=data['WorkPlace'],Professional_Title=data['Title'], Administrative_duty=data['Job'],
-                            City=data['City'], Province=data['Province'], Address=data['Address'], Zip=data['PostCode'],
-                            Highestdegree=data['HighestDegree'], Degreedate=data['GrantTime'], University=data['GrantUniversity'],
-                            Country=data['GrantCountry'], Honorary_Reward=data['HonorAndReward'], Tel=data['Phone'],
-                            Email=data['Email'], Class=','.join(data['TechnicalField']))
+        #根据邮箱查询该专家是否曾填写过信息
         dbsession = DatabaseManagement()
-        dbsession.add_obj(expert)
+        query_filter = and_(ExpertList.Email == email)
+        search_expert = dbsession.query_all(ExpertList, query_filter)
+        print('+++++______', search_expert)
+        if search_expert == []:
+            #如果从未填写，则直接添加记录
+            expert = ExpertList(Expert_Name=data['Name'], Birth_Year=data['Birthday'], Sex=data['Sex'],
+                                People=data['Nation'],Institution=data['WorkPlace'], Professional_Title=data['Title'],
+                                Administrative_duty=data['Job'],City=data['City'], Province=data['Province'], Address=data['Address'],
+                                Zip=data['PostCode'],Highestdegree=data['HighestDegree'], Degreedate=data['GrantTime'],
+                                University=data['GrantUniversity'], Country=data['GrantCountry'], Honorary_Reward=data['HonorAndReward'],
+                                Tel=data['Phone'],Email=data['Email'], Class=','.join(data['TechnicalField']))
+            dbsession.add_obj(expert)
+        else:
+            update_hashes = [{ExpertList.Expert_Name: data['Name']}, {ExpertList.Birth_Year: data['Birthday']}, {ExpertList.Sex: data['Sex']},
+                            {ExpertList.People: data['Nation']}, {ExpertList.Institution: data['WorkPlace']}, {ExpertList.Professional_Title: data['Title']},
+                            {ExpertList.Administrative_duty: data['Job']}, {ExpertList.City: data['City']}, {ExpertList.Province: data['Province']},
+                            {ExpertList.Address: data['Address']},{ExpertList.Zip: data['PostCode']}, {ExpertList.Highestdegree: data['HighestDegree']},
+                            {ExpertList.Degreedate: data['GrantTime']}, {ExpertList.University: data['GrantUniversity']},{ExpertList.Country: data['GrantCountry']},
+                            {ExpertList.Honorary_Reward: data['HonorAndReward']}, {ExpertList.Tel: data['Phone']}, {ExpertList.Class: ','.join(data['TechnicalField'])}]
+            for update_hash in update_hashes:
+                dbsession.update_by_fliter(ExpertList,update_hash,query_filter)
+
     result['success'] = True
     return json.dumps(result)
 #-----------专家信息管理end------------
@@ -33,9 +51,7 @@ def GetExpertData():
     dbsession = DatabaseManagement()
     query_filter = and_(ExpertList.Email == email)
     expert = dbsession.query_all(ExpertList, query_filter)
-
-
-    #如果专家提交过信息
+    #如果专家未提交过信息
     if expert == []:
         pass
     else:
@@ -59,7 +75,6 @@ def GetExpertData():
             result['GrantYear'] = result['GrantTime'][:result['GrantTime'].index('年')]
             result['GrantMonth'] = result['GrantTime'][result['GrantTime'].index('年')+1:result['GrantTime'].index('月')]
             result['GrantDay'] =result['GrantTime'][result['GrantTime'].index('月')+1:result['GrantTime'].index('日')]
-
             result['GrantUniversity'] = i.University
             result['GrantCountry'] = i.Country
             result['HonorAndReward'] = i.Honorary_Reward
