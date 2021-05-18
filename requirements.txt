@@ -8,7 +8,7 @@ Mako==1.0.9
 MarkupSafe==1.0
 SQLAlchemy==1.2.8
 WTForms==2.2.1
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 alembic==1.0.9
 amqp==2.3.2
 billiard==3.5.0.3
