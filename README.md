@@ -2,11 +2,16 @@
 
 # 摘要
 
-前端采用bootstrap样式 + jquery控制。
+前端采用bootstrap样式 + jquery控制
 
-后端采用flask处理调用逻辑。
+* 封装了ajax请求
+* jquery动态生成页面元素
+
+后端采用flask框架处理调用逻辑。
 
 数据库为SQL Server。
+
+**代码中带有非常详细的注释。**
 
 # 目录结构
 ```
@@ -53,5 +58,7 @@
 |   ├── model.py                                        ├── 数据库定式
 |   ├── ShowGraphData.py                                ├── 展示图表数据
 |   ├── UploadFile.py                                   ├── 上传文件
-|   └── module.py                                       └── 模块封装
+|   └── module.py                                       └── 模块封装  
+|                                                       |
+└── documents                                           └── 文档
 ```
