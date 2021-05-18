@@ -1,10 +1,10 @@
-from Main import *
-from Main import app
+from service.Main import *
+from service.Main import app
 from functools import wraps
 from flask import Flask, json, config,render_template, url_for, redirect, flash
 from flask import request,jsonify,session,send_from_directory
-from model import *
-from DBsession import *
+from service.model import *
+from service.DBsession import *
 #辅助函数
 #登录检验，登陆时需要检查其权限
 def valid_login(email, password):

@@ -1,9 +1,9 @@
-from Main import *
+from service.Main import *
 from flask import Flask, json, config,render_template, url_for, redirect, flash
 from flask import request,jsonify,session,send_from_directory
-from Main import app
-from model import *
-from DBsession import *
+from service.Main import app
+from service.model import *
+from service.DBsession import *
 
 #-----------系统简介--------------------------------
 @app.route('/GetIntroduction', methods=['POST','GET'])

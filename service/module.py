@@ -1,7 +1,7 @@
-from DBsession import *
+from service.DBsession import *
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, and_, update, or_
-from model import *
+from service.model import *
 
 def sysIntroduction(FirstDirectory):
     dbsession = DatabaseManagement()

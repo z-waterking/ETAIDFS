@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, and_, update, or_
 from sqlalchemy.orm import sessionmaker
-from model import *
+from service.model import *
 class DatabaseManagement():
 
     def __init__(self):

@@ -1,6 +1,6 @@
 from flask import Flask, json, config,render_template, url_for, redirect, flash
 from flask import request,jsonify,session,send_from_directory
-from module import *
+from service.module import *
 import os,time,decimal
 from werkzeug.utils import secure_filename
 from flask_admin import Admin
@@ -22,6 +22,7 @@ admin = Admin(app)
 #上传文件需要函数
 def allowed_file(filename):
     return '.'in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
+
 #注册校验--用户名存在
 def valid_register1(username):
     dbsession = DatabaseManagement()
@@ -31,6 +32,7 @@ def valid_register1(username):
         return True
     else:
         return False
+
 #注册校验--邮箱存在
 def valid_register2(email):
     dbsession = DatabaseManagement()
@@ -124,9 +126,9 @@ def LoginEnter():
 
 if __name__ == '__main__':
     # app.run(host='192.168.1.103',port='8080',debug=True)
-    from LoginAndRegister import *
-    from ExpertJudgeAndInformationManager import *
-    from GetCommonData import *
-    from ShowGraphData import *
-    from UploadFile import *
+    from service.LoginAndRegister import *
+    from service.ExpertJudge_InformationManager import *
+    from service.GetCommonData import *
+    from service.ShowGraphData import *
+    from service.UploadFile import *
     app.run(debug=True)

@@ -1,8 +1,8 @@
-from Main import *
+from service.Main import *
 from flask import Flask, json, config,render_template, url_for, redirect, flash
 from flask import request,jsonify,session,send_from_directory
-from model import *
-from DBsession import *
+from service.model import *
+from service.DBsession import *
 
 #-----------专家信息管理------------
 @app.route('/SaveExpertInformation',methods = ['POST','GET'])

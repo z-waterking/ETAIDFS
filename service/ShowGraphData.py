@@ -1,8 +1,8 @@
-from Main import *
+from service.Main import *
 from flask import Flask, json, config,render_template, url_for, redirect, flash
 from flask import request,jsonify,session,send_from_directory
-from model import *
-from DBsession import *
+from service.model import *
+from service.DBsession import *
 class DecimalEncoder(json.JSONEncoder):
     def default(self, o):
         if isinstance(o, decimal.Decimal):
