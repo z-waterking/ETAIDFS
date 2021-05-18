@@ -29,7 +29,7 @@
 ├── static                                              static（固定结构）                                       
 │   ├── js                                              ├── javascript代码
 |   |   ├── MainFunction                                |   ├── 主要js函数    
-|   |   |   |── BreadNav.js                             |   |   └── 面包屑导航条逻辑
+|   |   |   |── BreadNav.js                             |   |   |── 面包屑导航条逻辑
 |   |   |   |── CommonFunction.js                       |   |   |── 通用函数,封装ajax请求
 |   |   |   |── CountryInfo.js                          |   |   |── 国家信息获取
 |   |   |   |── ExpertInformationManage.js              |   |   |── 专家信息管理
@@ -39,7 +39,7 @@
 |   |   |   |── login.js                                |   |   |── 登录函数
 |   |   |   |── register.js                             |   |   |── 注册函数
 |   |   |   |── Reset.js                                |   |   |── 页面重置
-|   |   |   └── TotalInfo.js                            |   |   |── 一次性获取全部信息
+|   |   |   └── TotalInfo.js                            |   |   └── 一次性获取全部信息
 |   |   └── ...                                         |   └── jquery+boostrap源码
 |   |── css                                             |── css样式
 |   |   |── signin.js                                   |   |── 登录                 
