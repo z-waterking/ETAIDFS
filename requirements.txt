@@ -21,7 +21,7 @@ idna==2.7
 inflect==2.1.0
 itsdangerous==0.24
 kombu==4.2.1
-pip==19.0.3
+pip==19.2
 pymssql==2.1.4
 pyodbc==4.0.26
 python-dateutil==2.8.0
