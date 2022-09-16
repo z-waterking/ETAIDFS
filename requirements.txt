@@ -4,7 +4,7 @@ Flask-Migrate==2.4.0
 Flask-SQLAlchemy==2.3.2
 Flask-Script==2.0.6
 Jinja2==2.10
-Mako==1.0.9
+Mako==1.2.2
 MarkupSafe==1.0
 SQLAlchemy==1.2.8
 WTForms==2.2.1
